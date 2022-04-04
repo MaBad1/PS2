@@ -2,12 +2,12 @@ const config = {
     type: Phaser.AUTO,
     parent: 'game',
     width: 5120,
-    heigth: 640,
+    heigth: 720,
     scale: {
         mode: Phaser.Scale.RESIZE,
         autoCenter: Phaser.Scale.CENTER_BOTH,
         width: 5120,
-        heigth: 640
+        heigth: 720
     },
     physics: {
         default: 'arcade',
