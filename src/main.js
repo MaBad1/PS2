@@ -1,7 +1,7 @@
 const config = {
     type: Phaser.AUTO,
     parent: 'game',
-    width: 1280,
+    width: 12800,
     heigth: 768,
     scale: {
         mode: Phaser.Scale.RESIZE,

@@ -31,15 +31,23 @@ class scene extends Phaser.Scene {
 
         this.player = new Player(this)
 
-        this.pointCamera = this.physics.add.sprite(640,384);
+        this.pointCamera = this.physics.add.sprite(960,384);
         this.pointCamera.body.setAllowGravity(false);
         this.pointCamera.setImmovable(true);
         this.cameras.main.startFollow(this.pointCamera,false,1,1,0,150);
         this.cameras.main.setRoundPixels(true);
+        this.pointCamera2 = this.physics.add.sprite(2784,384);
+        this.pointCamera2.body.setAllowGravity(false);
+        this.pointCamera2.setImmovable(true);
     }
 
 
     update() {
+        console.log(this.player.player.body.x)
+        if(this.player.player.body.x==1824){
+            this.cameras.main.startFollow(this.pointCamera2,false,1,1,0,150);
+        }
+
         switch (true) {
             case (this.cursors.space.isDown || this.cursors.up.isDown) && this.player.player.body.onFloor():
                 this.player.jump()
