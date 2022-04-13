@@ -49,6 +49,14 @@ class TableauTiled extends Tableau{
         //---- ajoute les plateformes simples ----------------------------
 
         this.Base = this.map.createLayer('Base', this.tileset, 0, 0);
+        this.collide = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        this.map.getObjectLayer('collide').objects.forEach((collide) => {
+            this.collideSprite = this.physics.add.sprite(collide.x+(collide.width*0.5), collide.y+(collide.height*0.5)).setSize(collide.width, collide.height);
+            this.collide.add(this.collideSprite)
+        });
         this.lave = this.map.createLayer('lave', this.tileset, 0, 0);
         this.derriere = this.map.createLayer('derriere', this.tileset, 0, 0);
         this.devant = this.map.createLayer('devant', this.tileset, 0, 0);
@@ -233,7 +241,7 @@ class TableauTiled extends Tableau{
         //----------collisions---------------------
 
         //quoi collide avec quoi?
-        this.physics.add.collider(this.player, this.Base);
+        this.physics.add.collider(this.player, this.collide);
         this.physics.add.collider(this.stars, this.Base);
         //si le joueur touche une étoile dans le groupe...
         this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
