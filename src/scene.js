@@ -6,6 +6,9 @@ class scene extends Phaser.Scene {
         // At last image must be loaded with its JSON
         this.load.atlas('player', 'assets/images/kenney_player.png', 'assets/images/kenney_player_atlas.json');
         this.load.image('tiles', 'assets/tilesets/Tileset1.png');
+        this.load.image('FeuF','assets/images/FF.png');
+        this.load.image('Lampe', 'assets/images/Lampe.png');
+
 
         // Load the export Tiled JSON
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled1.json');
@@ -23,13 +26,19 @@ class scene extends Phaser.Scene {
         const map = this.make.tilemap({key: 'map'});
 
         const tileset = map.addTilesetImage('Tileset1', 'tiles');
-        this.platforms = map.createStaticLayer('Base', tileset);
 
-        this.platforms.setCollisionByExclusion(-1, true);
+
+
         this.cursors = this.input.keyboard.createCursorKeys();
 
+        map.getObjectLayer('Lampes').objects.forEach((Lampe) => {
+
+        });
+        this.platforms = map.createStaticLayer('Base', tileset);
+        this.platforms.setCollisionByExclusion(-1, true);
 
         this.player = new Player(this)
+        this.player2 = new Player2(this)
 
         this.pointCamera = this.physics.add.sprite(960,384);
         this.pointCamera.body.setAllowGravity(false);
@@ -48,21 +57,7 @@ class scene extends Phaser.Scene {
             this.cameras.main.startFollow(this.pointCamera2,false,1,1,0,150);
         }
 
-        switch (true) {
-            case (this.cursors.space.isDown || this.cursors.up.isDown) && this.player.player.body.onFloor():
-                this.player.jump()
-                console.log("oui")
-                break;
-            case this.cursors.left.isDown:
-                this.player.moveLeft()
-                break;
-            case this.cursors.right.isDown:
-                this.player.moveRight();
-                break;
-            default:
-                this.player.stop();
-        }
-
+       this.player.move();
 
 
 

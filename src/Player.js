@@ -57,6 +57,25 @@ class Player {
         }
     }
 
+    move(){
+
+        switch (true) {
+            case (this.scene.cursors.space.isDown || this.scene.cursors.up.isDown) && this.player.body.onFloor():
+                this.jump()
+                console.log("oui")
+                break;
+            case this.scene.cursors.left.isDown:
+                this.moveLeft()
+                break;
+            case this.scene.cursors.right.isDown:
+                this.moveRight();
+                break;
+            default:
+                this.stop();
+        }
+
+    }
+
     }
 
 
