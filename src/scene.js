@@ -143,6 +143,8 @@ class scene extends Phaser.Scene {
 
        this.player.move();
 
+       this.player2.move();
+
 
 
 

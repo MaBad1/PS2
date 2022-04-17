@@ -12,27 +12,43 @@ class Player2 {
 
     }
 
-    jump(){
-        this.player2.setVelocityY(-420);
-        this.player2.play('jump', true);
+    up(){
+        this.player2.setVelocityY(-300);
+    }
+    down(){
+        this.player2.setVelocityY(300);
     }
     moveRight(){
         this.player2.setVelocityX(300);
-        this.player2.setFlipX(false);
-        if (this.player2.body.onFloor()) {
-            this.player2.play('walk', true)}
     }
     moveLeft(){
         this.player2.setVelocityX(-300);
-        if (this.player2.body.onFloor()) {
-            this.player2.play('walk', true)}
-        this.player2.setFlipX(true);
     }
     stop(){
         this.player2.setVelocityX(0);
-        if (this.player2.body.onFloor()) {
-            this.player2.play('idle',true)
+    }
+
+
+
+    move(){
+
+        switch (true) {
+            case this.scene.cursors.up.isDown:
+                this.up()
+                break;
+            case this.scene.cursors.down.isDown:
+                this.down()
+                break;
+            case this.scene.cursors.left.isDown:
+                this.moveLeft()
+                break;
+            case this.scene.cursors.right.isDown:
+                this.moveRight();
+                break;
+            default:
+                this.stop();
         }
+
     }
 
     }
