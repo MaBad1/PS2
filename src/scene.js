@@ -108,6 +108,7 @@ class scene extends Phaser.Scene {
 
         this.plan1 = map.createStaticLayer('Plan1', tileset);
         this.plan1.setCollisionByExclusion(-1, false);
+
     }
 
     sauvegarde(player, saves) {
@@ -141,9 +142,13 @@ class scene extends Phaser.Scene {
             this.cameras.main.startFollow(this.pointCamera2,false,1,1,0,150);
         }
 
-       this.player.move();
 
-       this.player2.move();
+        this.player2.move();
+
+
+        this.player.move();
+
+
 
 
 
