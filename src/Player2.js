@@ -4,9 +4,11 @@ class Player2 {
     constructor(scene) {
         this.scene=scene;
         this.cameras=scene;
-        this.player2 = this.scene.physics.add.sprite(50, 300, 'FeuF');
+        this.player2 = this.scene.physics.add.sprite(100, 300, 'FeuF');
+        this.player2.setDisplaySize(40,40);
         this.player2.setCollideWorldBounds(true);
         this.scene.physics.add.collider(this.player2, this.scene.platforms);
+        this.player2.body.setAllowGravity(false);
 
     }
 
