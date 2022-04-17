@@ -11,6 +11,8 @@ class scene extends Phaser.Scene {
         this.load.image('Lampe', 'assets/images/Lampe.png');
         this.load.image('Cage', 'assets/images/Cage.png');
         this.load.image('Gate', 'assets/images/Gate.png');
+        this.load.image('Death', 'assets/images/Death.png');
+        this.load.image('Save', 'assets/images/Save.png');
 
 
         // Load the export Tiled JSON
@@ -44,6 +46,30 @@ class scene extends Phaser.Scene {
         this.platforms = map.createStaticLayer('Base', tileset);
         this.platforms.setCollisionByExclusion(-1, true);
 
+        this.player = new Player(this);
+        this.player2 = new Player2(this);
+
+
+        this.Death = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        map.getObjectLayer('DeathZone').objects.forEach((Death) => {
+            const DeathSprite = this.Death.create(Death.x, Death.y - Death.height, 'Death').setOrigin(0).setVisible(false) ;
+        });
+        this.physics.add.collider(this.player.player, this.Death, this.playerHit, null, this);
+
+        this.Save = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        map.getObjectLayer('Checkpoints').objects.forEach((Save) => {
+            const SaveSprite = this.Save.create(Save.x, Save.y - Save.height, 'Save').setOrigin(0);
+        });
+        this.physics.add.overlap(this.player.player, this.Save, this.sauvegarde, null, this)
+
+        this.cursors = this.input.keyboard.createCursorKeys();
+
         this.Cage = this.physics.add.group({
             allowGravity: false,
             immovable: true
@@ -68,8 +94,7 @@ class scene extends Phaser.Scene {
             this.GateSprite = this.Gate.create(Gate.x+10, Gate.y-305, 'Gate');
         });
 
-        this.player = new Player(this)
-        this.player2 = new Player2(this)
+
 
         this.pointCamera = this.physics.add.sprite(960,384);
         this.pointCamera.body.setAllowGravity(false);
@@ -85,10 +110,34 @@ class scene extends Phaser.Scene {
         this.plan1.setCollisionByExclusion(-1, false);
     }
 
+    sauvegarde(player, saves) {
+        console.log("current", this.currentSaveX, this.currentSaveY)
+        this.currentSaveX = player.x
+        this.currentSaveY = player.y
+        saves.body.enable = false;
+        this.currentKey = player.key
+    }
+
+    playerHit(player, Death) {
+        player.setVelocity(0, 0);
+        player.x = this.currentSaveX
+        player.y = this.currentSaveY;
+        player.key= this.currentKey
+        player.play('idle', true);
+        player.setAlpha(0);
+        let tw = this.tweens.add({
+            targets: player,
+            alpha: 1,
+            duration: 100,
+            ease: 'Linear',
+            repeat: 5,
+        });
+    }
+
 
     update() {
         console.log(this.player.player.body.x)
-        if(this.player.player.body.x==1824){
+        if(this.player.player.body.x==1857){
             this.cameras.main.startFollow(this.pointCamera2,false,1,1,0,150);
         }
 

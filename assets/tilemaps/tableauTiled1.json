@@ -46,6 +46,76 @@
         }, 
         {
          "draworder":"topdown",
+         "id":11,
+         "name":"DeathZone",
+         "objects":[
+                {
+                 "gid":964,
+                 "height":36,
+                 "id":19,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":43,
+                 "x":843,
+                 "y":559.5
+                }, 
+                {
+                 "gid":964,
+                 "height":36,
+                 "id":20,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":43,
+                 "x":907,
+                 "y":558.5
+                }, 
+                {
+                 "gid":964,
+                 "height":36,
+                 "id":21,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":43,
+                 "x":968.5,
+                 "y":557
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":12,
+         "name":"Checkpoints",
+         "objects":[
+                {
+                 "gid":965,
+                 "height":38,
+                 "id":23,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":38,
+                 "x":125.5,
+                 "y":471.5
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":9,
          "name":"Cages",
          "objects":[
@@ -127,8 +197,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":11,
- "nextobjectid":19,
+ "nextlayerid":13,
+ "nextobjectid":24,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.2",
@@ -172,7 +242,7 @@
          "margin":0,
          "name":"Objets",
          "spacing":0,
-         "tilecount":3,
+         "tilecount":5,
          "tileheight":620,
          "tiles":[
                 {
@@ -192,6 +262,18 @@
                  "image":"..\/images\/Gate.png",
                  "imageheight":620,
                  "imagewidth":31
+                }, 
+                {
+                 "id":3,
+                 "image":"..\/images\/Death.png",
+                 "imageheight":36,
+                 "imagewidth":43
+                }, 
+                {
+                 "id":4,
+                 "image":"..\/images\/Save.png",
+                 "imageheight":38,
+                 "imagewidth":38
                 }],
          "tilewidth":80
         }],
