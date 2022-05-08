@@ -13,6 +13,9 @@ class scene extends Phaser.Scene {
         this.load.image('Gate', 'assets/images/Gate.png');
         this.load.image('Death', 'assets/images/Death.png');
         this.load.image('Save', 'assets/images/Save.png');
+        this.load.image('TrouN', 'assets/images/TN.png');
+        this.load.image('Plateforme', 'assets/images/Plateforme.png');
+        this.load.image('GateO', 'assets/images/GateO.png');
 
 
         // Load the export Tiled JSON
@@ -49,6 +52,13 @@ class scene extends Phaser.Scene {
         this.player = new Player(this);
         this.player2 = new Player2(this);
 
+        this.Plateforme = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        map.getObjectLayer('Plateformes').objects.forEach((Plateforme) => {
+            this.PlateformeSprite = this.Plateforme.create(Plateforme.x + 30, Plateforme.y - 20 + Plateforme.height, 'Plateforme');
+        });
 
         this.Death = this.physics.add.group({
             allowGravity: false,
@@ -58,6 +68,14 @@ class scene extends Phaser.Scene {
             const DeathSprite = this.Death.create(Death.x, Death.y - Death.height, 'Death').setOrigin(0).setVisible(false) ;
         });
         this.physics.add.collider(this.player.player, this.Death, this.playerHit, null, this);
+
+        this.TrouN = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        map.getObjectLayer('TrousN').objects.forEach((TrouN) => {
+            this.TrouNSprite = this.TrouN.create(TrouN.x+30, TrouN.y- 200 + TrouN.height, 'TrouN');
+        });
 
         this.Save = this.physics.add.group({
             allowGravity: false,
@@ -75,7 +93,7 @@ class scene extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('Cages').objects.forEach((Cage) => {
-            this.CageSprite = this.Cage.create(Cage.x + 35, Cage.y- 100 + Cage.height, 'Cage');
+            this.CageSprite = this.Cage.create(Cage.x + 25, Cage.y - 145 + Cage.height, 'Cage');
         });
 
         this.Lampe = this.physics.add.group({
@@ -83,7 +101,7 @@ class scene extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('Lampes').objects.forEach((Lampe) => {
-            this.LampeSprite = this.Lampe.create(Lampe.x, Lampe.y- 160 + Lampe.height, 'Lampe');
+            this.LampeSprite = this.Lampe.create(Lampe.x, Lampe.y- 170 + Lampe.height, 'Lampe');
         });
 
         this.Gate = this.physics.add.group({
@@ -91,7 +109,7 @@ class scene extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('Gates').objects.forEach((Gate) => {
-            this.GateSprite = this.Gate.create(Gate.x+10, Gate.y-305, 'Gate');
+            this.GateSprite = this.Gate.create(Gate.x+10, Gate.y-180, 'Gate');
         });
 
 
