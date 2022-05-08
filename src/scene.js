@@ -1,5 +1,6 @@
 class scene extends Phaser.Scene {
 
+
     preload() {
         this.load.image('background', 'assets/images/background.png');
         this.load.image('spike', 'assets/images/spike.png');
@@ -52,6 +53,7 @@ class scene extends Phaser.Scene {
         this.player = new Player(this);
         this.player2 = new Player2(this);
 
+
         this.Plateforme = this.physics.add.group({
             allowGravity: false,
             immovable: true
@@ -59,6 +61,7 @@ class scene extends Phaser.Scene {
         map.getObjectLayer('Plateformes').objects.forEach((Plateforme) => {
             this.PlateformeSprite = this.Plateforme.create(Plateforme.x + 30, Plateforme.y - 20 + Plateforme.height, 'Plateforme');
         });
+        this.physics.add.collider(this.player.player, this.Plateforme);
 
         this.Death = this.physics.add.group({
             allowGravity: false,
@@ -124,8 +127,12 @@ class scene extends Phaser.Scene {
         this.pointCamera2.setImmovable(true);
 
 
+
+
         this.plan1 = map.createStaticLayer('Plan1', tileset);
         this.plan1.setCollisionByExclusion(-1, false);
+
+        this.initKeyboard();
 
     }
 
@@ -154,22 +161,38 @@ class scene extends Phaser.Scene {
     }
 
 
+    initKeyboard()
+    {
+        this.tweak = new Boolean(false);
+        let me = this;
+
+        this.input.keyboard.on('keydown', function(kevent)
+        {
+            switch (kevent.keyCode)
+            {
+
+                case Phaser.Input.Keyboard.KeyCodes.W:
+                    if(this.tweak==false){
+                        this.tweak=true;
+                    }
+                    if(this.tweak==true){
+                        this.tweak=false;
+                    }
+                    break;
+            }
+        });
+    }
+
     update() {
-        console.log(this.player.player.body.x)
         if(this.player.player.body.x==1857){
             this.cameras.main.startFollow(this.pointCamera2,false,1,1,0,150);
         }
 
-
-        this.player2.move();
-
-
-        this.player.move();
-
-
-
-
-
-
+        if(this.tweak==false){
+            this.player.move();
+        }
+        if(this.tweak==true){
+            this.player2.move();
+        }
     }
 }

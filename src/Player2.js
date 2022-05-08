@@ -29,7 +29,6 @@ class Player2 {
     }
 
 
-
     move(){
 
         switch (true) {

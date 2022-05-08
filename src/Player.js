@@ -63,7 +63,6 @@ class Player {
         switch (true) {
             case (this.scene.cursors.space.isDown || this.scene.cursors.up.isDown) && this.player.body.onFloor():
                 this.jump()
-                console.log("oui")
                 break;
             case this.scene.cursors.left.isDown:
                 this.moveLeft()
