@@ -17,6 +17,8 @@ class scene extends Phaser.Scene {
         this.load.image('TrouN', 'assets/images/TN.png');
         this.load.image('Plateforme', 'assets/images/Plateforme.png');
         this.load.image('GateO', 'assets/images/GateO.png');
+        this.load.image('Next', 'assets/images/Next.png');
+        this.load.image('Prev', 'assets/images/Prev.png');
 
 
         // Load the export Tiled JSON
@@ -53,6 +55,124 @@ class scene extends Phaser.Scene {
         this.player = new Player(this);
         this.player2 = new Player2(this);
 
+        this.Next = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        map.getObjectLayer('NextCam1').objects.forEach((Next) => {
+            this.NextSprite = this.Next.create(Next.x + 30, Next.y - 20 + Next.height, 'Next').setVisible(false);
+        });
+        this.physics.add.overlap(this.player.player, this.Next, this.SetCam1, null, this);
+
+        this.Next1 = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+
+        map.getObjectLayer('NextCam2').objects.forEach((Next1) => {
+            this.Next1Sprite = this.Next1.create(Next1.x + 30, Next1.y - 20 + Next1.height, 'Next').setVisible(false);
+        });
+        this.physics.add.overlap(this.player.player, this.Next1, this.SetCam2, null, this);
+
+        this.Next2 = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+
+        map.getObjectLayer('NextCam3').objects.forEach((Next2) => {
+            this.Next2Sprite = this.Next2.create(Next2.x + 30, Next2.y - 20 + Next2.height, 'Next').setVisible(false);
+        });
+        this.physics.add.overlap(this.player.player, this.Next2, this.SetCam3, null, this);
+
+        this.Next3 = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+
+        map.getObjectLayer('NextCam4').objects.forEach((Next3) => {
+            this.Next3Sprite = this.Next3.create(Next3.x + 30, Next3.y - 20 + Next3.height, 'Next').setVisible(false);
+        });
+        this.physics.add.overlap(this.player.player, this.Next3, this.SetCam4, null, this);
+
+        this.Next4 = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+
+        map.getObjectLayer('NextCam5').objects.forEach((Next4) => {
+            this.Next4Sprite = this.Next4.create(Next4.x + 30, Next4.y - 20 + Next4.height, 'Next').setVisible(false);
+        });
+        this.physics.add.overlap(this.player.player, this.Next4, this.SetCam5, null, this);
+
+        this.Next5 = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+
+        map.getObjectLayer('NextCam6').objects.forEach((Next5) => {
+            this.Next5Sprite = this.Next5.create(Next5.x + 30, Next5.y - 20 + Next5.height, 'Next').setVisible(false);
+        });
+        this.physics.add.overlap(this.player.player, this.Next5, this.SetCam6, null, this);
+
+        this.Prev = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+
+        map.getObjectLayer('PrevCam1').objects.forEach((Prev) => {
+            this.PrevSprite = this.Prev.create(Prev.x + 30, Prev.y - 20 + Prev.height, 'Prev').setVisible(false);
+        });
+        this.physics.add.overlap(this.player.player, this.Prev, this.SetCam0, null, this);
+
+        this.Prev1 = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+
+        map.getObjectLayer('PrevCam2').objects.forEach((Prev1) => {
+            this.Prev1Sprite = this.Prev1.create(Prev1.x + 30, Prev1.y - 20 + Prev1.height, 'Prev').setVisible(false);
+        });
+        this.physics.add.overlap(this.player.player, this.Prev1, this.SetCam1, null, this);
+
+        this.Prev2 = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+
+        map.getObjectLayer('PrevCam3').objects.forEach((Prev2) => {
+            this.Prev2Sprite = this.Prev2.create(Prev2.x + 30, Prev2.y - 20 + Prev2.height, 'Prev').setVisible(false);
+        });
+        this.physics.add.overlap(this.player.player, this.Prev2, this.SetCam2, null, this);
+
+        this.Prev3 = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+
+        map.getObjectLayer('PrevCam4').objects.forEach((Prev3) => {
+            this.Prev3Sprite = this.Prev3.create(Prev3.x + 30, Prev3.y - 20 + Prev3.height, 'Prev').setVisible(false);
+        });
+        this.physics.add.overlap(this.player.player, this.Prev3, this.SetCam3, null, this);
+
+        this.Prev4 = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+
+        map.getObjectLayer('PrevCam5').objects.forEach((Prev4) => {
+            this.Prev4Sprite = this.Prev4.create(Prev4.x + 30, Prev4.y - 20 + Prev4.height, 'Prev').setVisible(false);
+        });
+        this.physics.add.overlap(this.player.player, this.Prev4, this.SetCam4, null, this);
+
+        this.Prev5 = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+
+        map.getObjectLayer('PrevCam6').objects.forEach((Prev5) => {
+            this.Prev5Sprite = this.Prev5.create(Prev5.x + 30, Prev5.y - 20 + Prev5.height, 'Prev').setVisible(false);
+        });
+        this.physics.add.overlap(this.player.player, this.Prev5, this.SetCam5, null, this);
 
         this.Plateforme = this.physics.add.group({
             allowGravity: false,
@@ -122,11 +242,24 @@ class scene extends Phaser.Scene {
         this.pointCamera.setImmovable(true);
         this.cameras.main.startFollow(this.pointCamera,false,1,1,0,150);
         this.cameras.main.setRoundPixels(true);
-        this.pointCamera2 = this.physics.add.sprite(2784,384);
+        this.pointCamera2 = this.physics.add.sprite(2880,384);
         this.pointCamera2.body.setAllowGravity(false);
         this.pointCamera2.setImmovable(true);
-
-
+        this.pointCamera3 = this.physics.add.sprite(4800,384);
+        this.pointCamera3.body.setAllowGravity(false);
+        this.pointCamera3.setImmovable(true);
+        this.pointCamera4 = this.physics.add.sprite(6720,384);
+        this.pointCamera4.body.setAllowGravity(false);
+        this.pointCamera4.setImmovable(true);
+        this.pointCamera5 = this.physics.add.sprite(8640,384);
+        this.pointCamera5.body.setAllowGravity(false);
+        this.pointCamera5.setImmovable(true);
+        this.pointCamera6 = this.physics.add.sprite(10560,384);
+        this.pointCamera6.body.setAllowGravity(false);
+        this.pointCamera6.setImmovable(true);
+        this.pointCamera7 = this.physics.add.sprite(12480,384);
+        this.pointCamera7.body.setAllowGravity(false);
+        this.pointCamera7.setImmovable(true);
 
 
         this.plan1 = map.createStaticLayer('Plan1', tileset);
@@ -158,6 +291,28 @@ class scene extends Phaser.Scene {
             ease: 'Linear',
             repeat: 5,
         });
+    }
+
+    SetCam0(){
+        this.cameras.main.startFollow(this.pointCamera,false,1,1,0,150);
+    }
+    SetCam1(){
+        this.cameras.main.startFollow(this.pointCamera2,false,1,1,0,150);
+    }
+    SetCam2(){
+        this.cameras.main.startFollow(this.pointCamera3,false,1,1,0,150);
+    }
+    SetCam3(){
+        this.cameras.main.startFollow(this.pointCamera4,false,1,1,0,150);
+    }
+    SetCam4(){
+        this.cameras.main.startFollow(this.pointCamera5,false,1,1,0,150);
+    }
+    SetCam5(){
+        this.cameras.main.startFollow(this.pointCamera6,false,1,1,0,150);
+    }
+    SetCam6(){
+        this.cameras.main.startFollow(this.pointCamera7,false,1,1,0,150);
     }
 
 

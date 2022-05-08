@@ -3,11 +3,10 @@ class Player {
 
     constructor(scene) {
         this.scene=scene
-        this.cameras=scene
         this.player = this.scene.physics.add.sprite(100, 300, 'player');
         this.player.setDisplaySize(63,100);
         this.player.setBounce(0.1);
-        this.player.setCollideWorldBounds(true);
+        this.player.setCollideWorldBounds(false);
         this.scene.physics.add.collider(this.player, this.scene.platforms);
 
        /** this.scene.anims.create({
