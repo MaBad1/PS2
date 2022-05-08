@@ -179,7 +179,7 @@ class scene extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('Plateformes').objects.forEach((Plateforme) => {
-            this.PlateformeSprite = this.Plateforme.create(Plateforme.x + 30, Plateforme.y - 20 + Plateforme.height, 'Plateforme');
+            this.PlateformeSprite = this.Plateforme.create(Plateforme.x , Plateforme.y - Plateforme.height, 'Plateforme').setOrigin(0);
         });
         this.physics.add.collider(this.player.player, this.Plateforme);
 
@@ -197,7 +197,7 @@ class scene extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('TrousN').objects.forEach((TrouN) => {
-            this.TrouNSprite = this.TrouN.create(TrouN.x+30, TrouN.y- 200 + TrouN.height, 'TrouN');
+            this.TrouNSprite = this.TrouN.create(TrouN.x, TrouN.y- TrouN.height, 'TrouN').setOrigin(0);
         });
 
         this.Save = this.physics.add.group({
@@ -205,7 +205,7 @@ class scene extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('Checkpoints').objects.forEach((Save) => {
-            const SaveSprite = this.Save.create(Save.x, Save.y - Save.height, 'Save').setOrigin(0);
+            const SaveSprite = this.Save.create(Save.x, Save.y - Save.height, 'Save').setOrigin(0).setVisible(false);
         });
         this.physics.add.overlap(this.player.player, this.Save, this.sauvegarde, null, this)
 
@@ -216,7 +216,7 @@ class scene extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('Cages').objects.forEach((Cage) => {
-            this.CageSprite = this.Cage.create(Cage.x + 25, Cage.y - 145 + Cage.height, 'Cage');
+            this.CageSprite = this.Cage.create(Cage.x , Cage.y  - Cage.height, 'Cage').setOrigin(0);
         });
 
         this.Lampe = this.physics.add.group({
@@ -224,7 +224,7 @@ class scene extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('Lampes').objects.forEach((Lampe) => {
-            this.LampeSprite = this.Lampe.create(Lampe.x, Lampe.y- 170 + Lampe.height, 'Lampe');
+            this.LampeSprite = this.Lampe.create(Lampe.x, Lampe.y- Lampe.height, 'Lampe').setOrigin(0);
         });
 
         this.Gate = this.physics.add.group({
@@ -232,7 +232,7 @@ class scene extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('Gates').objects.forEach((Gate) => {
-            this.GateSprite = this.Gate.create(Gate.x+10, Gate.y-180, 'Gate');
+            this.GateSprite = this.Gate.create(Gate.x, Gate.y-Gate.height, 'Gate').setOrigin(0);
         });
 
 
