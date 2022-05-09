@@ -199,6 +199,38 @@ class scene extends Phaser.Scene {
         map.getObjectLayer('TrousN').objects.forEach((TrouN) => {
             this.TrouNSprite = this.TrouN.create(TrouN.x, TrouN.y- TrouN.height, 'TrouN').setOrigin(0);
         });
+        this.physics.add.collider(this.player.player, this.TrouN, this.playerHit, null, this);
+        this.physics.add.collider(this.player2.player2, this.TrouN, this.playerHit, null, this);
+
+        this.TrouN2 = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        map.getObjectLayer('TrousN2').objects.forEach((TrouN2) => {
+            this.TrouN2Sprite = this.TrouN2.create(TrouN2.x, TrouN2.y- TrouN2.height, 'TrouN').setOrigin(0);
+        });
+        this.physics.add.collider(this.player.player, this.TrouN2, this.playerHit, null, this);
+        this.physics.add.collider(this.player2.player2, this.TrouN2, this.playerHit, null, this);
+
+        this.TrouN3 = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        map.getObjectLayer('TrousN3').objects.forEach((TrouN3) => {
+            this.TrouN3Sprite = this.TrouN3.create(TrouN3.x, TrouN3.y- TrouN3.height, 'TrouN').setOrigin(0);
+        });
+        this.physics.add.collider(this.player.player, this.TrouN3, this.playerHit, null, this);
+        this.physics.add.collider(this.player2.player2, this.TrouN3, this.playerHit, null, this);
+
+        this.TrouN4 = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        map.getObjectLayer('TrousN4').objects.forEach((TrouN4) => {
+            this.TrouN4Sprite = this.TrouN4.create(TrouN4.x, TrouN4.y- TrouN4.height, 'TrouN').setOrigin(0);
+        });
+        this.physics.add.collider(this.player.player, this.TrouN4, this.playerHit, null, this);
+        this.physics.add.collider(this.player2.player2, this.TrouN4, this.playerHit, null, this);
 
         this.Save = this.physics.add.group({
             allowGravity: false,
