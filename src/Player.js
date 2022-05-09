@@ -8,7 +8,7 @@ class Player {
         this.player.setBounce(0.1);
         this.player.setCollideWorldBounds(false);
         this.scene.physics.add.collider(this.player, this.scene.platforms);
-        this.compteur = 0;
+        this.player.compteur = 0;
 
        /** this.scene.anims.create({
             key: 'walk',
@@ -33,6 +33,12 @@ class Player {
             repeat:-1,
 
         });*/
+    }
+
+    getKey(player,FF){
+        this.player.player.compteur+=1
+        FF.body.enable=false
+        FF.visible=false
     }
 
     jump(){

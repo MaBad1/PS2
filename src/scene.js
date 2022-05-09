@@ -248,7 +248,7 @@ class scene extends Phaser.Scene {
         map.getObjectLayer('FeuxFollets').objects.forEach((FF) => {
             this.FFSprite = this.FF.create(FF.x , FF.y  - FF.height, 'FeuF').setOrigin(0).setScale(0.5);
         });
-        this.physics.add.overlap(this.player.player, this.FF, this.Interract, null, this);
+        this.physics.add.overlap(this.player.player, this.FF, this.player.getKey, null, this);
 
 
         this.Cage = this.physics.add.group({
@@ -307,10 +307,6 @@ class scene extends Phaser.Scene {
 
     }
 
-    Interract(player, FF){
-        this.FF.setVisible(false);
-        this.compteur+=1;
-    }
 
     sauvegarde(player, saves) {
         console.log("current", this.currentSaveX, this.currentSaveY)
@@ -361,6 +357,7 @@ class scene extends Phaser.Scene {
 
     update() {
 
+        console.log(this.player.player.compteur);
         this.player.move();
 
         this.player2.move();
