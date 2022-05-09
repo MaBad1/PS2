@@ -39,15 +39,13 @@ class scene extends Phaser.Scene {
         const tileset = map.addTilesetImage('Tileset1', 'tiles');
         const tilesetAP = map.addTilesetImage('TilesetAP', 'tilesAP');
 
-
-
         this.cursors = this.input.keyboard.createCursorKeys();
-
-        this.plan2 = map.createStaticLayer('Plan2', tilesetAP);
-        this.plan2.setCollisionByExclusion(-1, false);
 
         this.plan3 = map.createStaticLayer('Plan3', tilesetAP);
         this.plan3.setCollisionByExclusion(-1, false);
+
+        this.plan2 = map.createStaticLayer('Plan2', tilesetAP);
+        this.plan2.setCollisionByExclusion(-1, false);
 
         this.platforms = map.createStaticLayer('Base', tileset);
         this.platforms.setCollisionByExclusion(-1, true);
@@ -243,6 +241,16 @@ class scene extends Phaser.Scene {
 
         this.cursors = this.input.keyboard.createCursorKeys();
 
+        this.FF = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        map.getObjectLayer('FeuxFollets').objects.forEach((FF) => {
+            this.FFSprite = this.FF.create(FF.x , FF.y  - FF.height, 'FeuF').setOrigin(0).setScale(0.5);
+        });
+        this.physics.add.overlap(this.player.player, this.FF, this.Interract, null, this);
+
+
         this.Cage = this.physics.add.group({
             allowGravity: false,
             immovable: true
@@ -297,8 +305,11 @@ class scene extends Phaser.Scene {
         this.plan1 = map.createStaticLayer('Plan1', tileset);
         this.plan1.setCollisionByExclusion(-1, false);
 
-        this.initKeyboard();
+    }
 
+    Interract(player, FF){
+        this.FF.setVisible(false);
+        this.compteur+=1;
     }
 
     sauvegarde(player, saves) {
@@ -348,38 +359,11 @@ class scene extends Phaser.Scene {
     }
 
 
-    initKeyboard()
-    {
-        this.tweak = new Boolean(false);
-        let me = this;
-
-        this.input.keyboard.on('keydown', function(kevent)
-        {
-            switch (kevent.keyCode)
-            {
-
-                case Phaser.Input.Keyboard.KeyCodes.W:
-                    if(this.tweak==false){
-                        this.tweak=true;
-                    }
-                    if(this.tweak==true){
-                        this.tweak=false;
-                    }
-                    break;
-            }
-        });
-    }
-
     update() {
-        if(this.player.player.body.x==1857){
-            this.cameras.main.startFollow(this.pointCamera2,false,1,1,0,150);
-        }
 
-        if(this.tweak==false){
-            this.player.move();
-        }
-        if(this.tweak==true){
-            this.player2.move();
-        }
+        this.player.move();
+
+        this.player2.move();
+
     }
 }

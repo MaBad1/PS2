@@ -8,6 +8,7 @@ class Player {
         this.player.setBounce(0.1);
         this.player.setCollideWorldBounds(false);
         this.scene.physics.add.collider(this.player, this.scene.platforms);
+        this.compteur = 0;
 
        /** this.scene.anims.create({
             key: 'walk',
@@ -60,13 +61,13 @@ class Player {
     move(){
 
         switch (true) {
-            case (this.scene.cursors.space.isDown || this.scene.cursors.up.isDown) && this.player.body.onFloor():
+            case this.scene.cursors.space.isUp && this.scene.cursors.up.isDown && this.player.body.onFloor():
                 this.jump()
                 break;
-            case this.scene.cursors.left.isDown:
+            case this.scene.cursors.space.isUp && this.scene.cursors.left.isDown:
                 this.moveLeft()
                 break;
-            case this.scene.cursors.right.isDown:
+            case this.scene.cursors.space.isUp && this.scene.cursors.right.isDown:
                 this.moveRight();
                 break;
             default:
