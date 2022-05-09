@@ -362,5 +362,11 @@ class scene extends Phaser.Scene {
 
         this.player2.move();
 
+       /** switch (true) {
+            case this.scene.cursors.space.isUp && this.scene.cursors.down.isDown:
+                this.player2.player2.body.x = this.player.player.body.x + 5;
+                this.player2.player2.body.y = this.player.player.body.y - 5;
+                break;
+        }*/
     }
 }
