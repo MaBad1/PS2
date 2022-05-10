@@ -200,6 +200,14 @@ class scene extends Phaser.Scene {
         this.physics.add.collider(this.player.player, this.TrouN, this.playerHit, null, this);
         this.physics.add.collider(this.player2.player2, this.TrouN, this.playerHit, null, this);
 
+        this.tweens.add({
+            targets: this.TrouN,
+            y:256,
+            paused: false,
+            yoyo: true,
+            repeat: -1
+        });
+
         this.TrouN2 = this.physics.add.group({
             allowGravity: false,
             immovable: true
