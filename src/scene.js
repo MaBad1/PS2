@@ -211,7 +211,7 @@ class scene extends Phaser.Scene {
             this.TrouNSprite.play('trou');
             this.tweens.add({
                 targets: this.TrouNSprite,
-                y:256,
+                y:this.TrouNSprite.y+256,
                 paused: false,
                 yoyo: true,
                 repeat: -1
@@ -229,7 +229,7 @@ class scene extends Phaser.Scene {
             this.TrouN2Sprite.play('trou');
             this.tweens.add({
                 targets: this.TrouN2Sprite,
-                x:256,
+                x:this.TrouN2Sprite.x+256,
                 paused: false,
                 yoyo: true,
                 repeat: -1
@@ -247,7 +247,8 @@ class scene extends Phaser.Scene {
             this.TrouN3Sprite.play('trou');
             this.tweens.add({
                 targets: this.TrouN3Sprite,
-                y:-384,
+                y:this.TrouN3Sprite.y-384,
+                duration: 5000,
                 paused: false,
                 yoyo: true,
                 repeat: -1
@@ -265,7 +266,7 @@ class scene extends Phaser.Scene {
             this.TrouN4Sprite.play('trou');
             this.tweens.add({
                 targets: this.TrouN4Sprite,
-                x:-128,
+                x:this.TrouN4Sprite.x-128,
                 paused: false,
                 yoyo: true,
                 repeat: -1
