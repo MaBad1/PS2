@@ -350,6 +350,9 @@ class scene extends Phaser.Scene {
         this.plan1 = map.createStaticLayer('Plan1', tileset);
         this.plan1.setCollisionByExclusion(-1, false);
 
+        this.plan1 = map.createStaticLayer('Plan0', tileset);
+        this.plan1.setCollisionByExclusion(-1, false);
+
     }
 
 
