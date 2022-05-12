@@ -3,6 +3,7 @@ class scene extends Phaser.Scene {
 
     preload() {
         this.load.image('background', 'assets/images/background.png');
+        this.load.image('persatmo', 'assets/images/persatmo.png');
         this.load.image('spike', 'assets/images/spike.png');
         // At last image must be loaded with its JSON
         this.load.image('player', 'assets/images/Mana.png');
@@ -21,11 +22,18 @@ class scene extends Phaser.Scene {
         this.load.image('Prev', 'assets/images/Prev.png');
 
 
+
         this.load.spritesheet('walk','assets/images/anim/walk.png',{frameWidth: 130, frameHeight: 140});
         this.load.spritesheet('idle','assets/images/anim/idle.png',{frameWidth: 130, frameHeight: 140});
         this.load.spritesheet('jump','assets/images/anim/jump.png',{frameWidth: 130, frameHeight: 140});
         this.load.spritesheet('brandir','assets/images/anim/brandir.png',{frameWidth: 130, frameHeight: 140});
         this.load.spritesheet('trou','assets/images/anim/trou.png',{frameWidth: 150, frameHeight: 150});
+
+        this.load.image('Grain1', 'assets/images/anim/grain/Bruit1.png');
+        this.load.image('Grain2', 'assets/images/anim/grain/Bruit2.png');
+        this.load.image('Grain3', 'assets/images/anim/grain/Bruit3.png');
+        this.load.image('Grain4', 'assets/images/anim/grain/Bruit4.png');
+
 
         // Load the export Tiled JSON
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled1.json');
@@ -58,6 +66,9 @@ class scene extends Phaser.Scene {
 
         this.plan2 = map.createStaticLayer('Plan2', tilesetAP);
         this.plan2.setCollisionByExclusion(-1, false);
+
+        const persatmo = this.add.image(0, 0, 'persatmo').setOrigin(0, 0);
+        persatmo.setScale(1, 1);
 
         this.platforms = map.createStaticLayer('Base', tileset);
         this.platforms.setCollisionByExclusion(-1, true);
