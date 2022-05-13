@@ -67,8 +67,16 @@ class scene extends Phaser.Scene {
         this.plan2 = map.createStaticLayer('Plan2', tilesetAP);
         this.plan2.setCollisionByExclusion(-1, false);
 
-        const persatmo = this.add.image(0, 0, 'persatmo').setOrigin(0, 0);
-        persatmo.setScale(1, 1);
+        this.persatmo = this.add.image(0, 0, 'persatmo').setOrigin(0, 0);
+        this.persatmo.setScale(1, 1);
+        this.tweens.add({
+            targets: this.persatmo,
+            x: this.persatmo.x-10000,
+            paused: false,
+            yoyo: true,
+            duration: 35000,
+            repeat: -1
+        });
 
         this.platforms = map.createStaticLayer('Base', tileset);
         this.platforms.setCollisionByExclusion(-1, true);
