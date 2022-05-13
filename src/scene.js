@@ -20,6 +20,8 @@ class scene extends Phaser.Scene {
         this.load.image('GateO', 'assets/images/GateO.png');
         this.load.image('Next', 'assets/images/Next.png');
         this.load.image('Prev', 'assets/images/Prev.png');
+        this.load.image('brume', 'assets/images/brume.png');
+        this.load.image('brumeB', 'assets/images/brumeB.png');
 
 
 
@@ -63,6 +65,9 @@ class scene extends Phaser.Scene {
 
         this.plan3 = map.createStaticLayer('Plan3', tilesetAP);
         this.plan3.setCollisionByExclusion(-1, false);
+
+        this.Brume = map.createStaticLayer('Brume', tilesetAP);
+        this.Brume.setCollisionByExclusion(-1, false);
 
         this.plan2 = map.createStaticLayer('Plan2', tilesetAP);
         this.plan2.setCollisionByExclusion(-1, false);
@@ -365,6 +370,11 @@ class scene extends Phaser.Scene {
         this.pointCamera7.body.setAllowGravity(false);
         this.pointCamera7.setImmovable(true);
 
+        this.piquesP3 = map.createStaticLayer('piquesP3', tilesetAP);
+        this.piquesP3.setCollisionByExclusion(-1, false);
+
+        this.piquesP2 = map.createStaticLayer('piquesP2', tilesetAP);
+        this.piquesP2.setCollisionByExclusion(-1, false);
 
         this.plan1 = map.createStaticLayer('Plan1', tileset);
         this.plan1.setCollisionByExclusion(-1, false);
