@@ -361,8 +361,28 @@ class scene extends Phaser.Scene {
         this.plan1 = map.createStaticLayer('Plan1', tileset);
         this.plan1.setCollisionByExclusion(-1, false);
 
-        this.plan1 = map.createStaticLayer('Plan0', tileset);
-        this.plan1.setCollisionByExclusion(-1, false);
+        this.plan0 = map.createStaticLayer('Plan0', tileset);
+        this.plan0.setCollisionByExclusion(-1, false);
+
+        this.GrainAnim = this.add.sprite(0, 0, 'Grain1').setOrigin(0,0);
+
+        this.anims.create({
+            key: 'Grain',
+            frames: [
+                {key:'Grain1'},
+                {key:'Grain2'},
+                {key:'Grain3'},
+                {key:'Grain4'},
+            ],
+            frameRate: 10,
+            repeat: -1
+        });
+        this.GrainAnim.play('Grain');
+
+        this.GrainAnim.scrollFactorX=0;
+
+        this.CM = map.createStaticLayer('Cachemisere', tileset);
+        this.CM.setCollisionByExclusion(-1, false);
 
     }
 
