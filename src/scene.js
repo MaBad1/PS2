@@ -34,10 +34,10 @@ class scene extends Phaser.Scene {
         this.load.spritesheet('trou','assets/images/anim/trou.png',{frameWidth: 150, frameHeight: 150});
         this.load.spritesheet('Lampfx','assets/images/anim/fxlamp.png',{frameWidth: 192, frameHeight: 192});
 
-        this.load.image('Grain1', 'assets/images/anim/grain/Bruit1.png');
+        /**this.load.image('Grain1', 'assets/images/anim/grain/Bruit1.png');
         this.load.image('Grain2', 'assets/images/anim/grain/Bruit2.png');
         this.load.image('Grain3', 'assets/images/anim/grain/Bruit3.png');
-        this.load.image('Grain4', 'assets/images/anim/grain/Bruit4.png');
+        this.load.image('Grain4', 'assets/images/anim/grain/Bruit4.png');*/
 
 
         // Load the export Tiled JSON
@@ -415,7 +415,7 @@ class scene extends Phaser.Scene {
 
         this.GrainAnim = this.add.sprite(0, 0, 'Grain1').setOrigin(0,0);
 
-        this.anims.create({
+        /**this.anims.create({
             key: 'Grain',
             frames: [
                 {key:'Grain1'},
@@ -428,7 +428,7 @@ class scene extends Phaser.Scene {
         });
         this.GrainAnim.play('Grain');
 
-        this.GrainAnim.scrollFactorX=0;
+        this.GrainAnim.scrollFactorX=0;*/
 
         this.CM = map.createStaticLayer('Cachemisere', tileset);
         this.CM.setCollisionByExclusion(-1, false);
