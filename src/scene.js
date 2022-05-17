@@ -22,6 +22,8 @@ class scene extends Phaser.Scene {
         this.load.image('Prev', 'assets/images/Prev.png');
         this.load.image('brume', 'assets/images/brume.png');
         this.load.image('brumeB', 'assets/images/brumeB.png');
+        this.load.image('LampeOn', 'assets/images/LampeOn.png');
+        this.load.image('LampFx', 'assets/images/LampFx.png');
 
 
 
@@ -30,6 +32,7 @@ class scene extends Phaser.Scene {
         this.load.spritesheet('jump','assets/images/anim/jump.png',{frameWidth: 130, frameHeight: 140});
         this.load.spritesheet('brandir','assets/images/anim/brandir.png',{frameWidth: 130, frameHeight: 140});
         this.load.spritesheet('trou','assets/images/anim/trou.png',{frameWidth: 150, frameHeight: 150});
+        this.load.spritesheet('Lampfx','assets/images/anim/fxlamp.png',{frameWidth: 192, frameHeight: 192});
 
         this.load.image('Grain1', 'assets/images/anim/grain/Bruit1.png');
         this.load.image('Grain2', 'assets/images/anim/grain/Bruit2.png');
@@ -49,6 +52,16 @@ class scene extends Phaser.Scene {
             frames: this.anims.generateFrameNames('trou', {
                 start: 0,
                 end: 19,
+            }),
+            frameRate: 10,
+            repeat:-1,
+        });
+
+        this.anims.create({
+            key: 'Lampfx',
+            frames: this.anims.generateFrameNames('Lampfx', {
+                start: 0,
+                end: 4,
             }),
             frameRate: 10,
             repeat:-1,
@@ -328,6 +341,23 @@ class scene extends Phaser.Scene {
             this.CageSprite = this.Cage.create(Cage.x , Cage.y  - Cage.height, 'Cage').setOrigin(0);
         });
 
+        this.LampeOn = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        map.getObjectLayer('LampesOn').objects.forEach((LampeOn) => {
+            this.LampeOnSprite = this.LampeOn.create(LampeOn.x, LampeOn.y- LampeOn.height, 'LampeOn').setOrigin(0);
+        });
+
+        this.LampFx = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        map.getObjectLayer('LampFx').objects.forEach((LampFx) => {
+            this.LampFxSprite = this.LampFx.create(LampFx.x-30, LampFx.y - 25 - LampFx.height, 'LampFx').setOrigin(0).setVisible(false);
+        });
+        this.physics.add.overlap(this.player2.player2, this.LampFx, this.LampFx.LampeFx, null, this);
+
         this.Lampe = this.physics.add.group({
             allowGravity: false,
             immovable: true
@@ -335,6 +365,7 @@ class scene extends Phaser.Scene {
         map.getObjectLayer('Lampes').objects.forEach((Lampe) => {
             this.LampeSprite = this.Lampe.create(Lampe.x, Lampe.y- Lampe.height, 'Lampe').setOrigin(0);
         });
+        this.physics.add.overlap(this.player2.player2, this.Lampe, this.Lampe.LampeAct, null, this);
 
         this.Gate = this.physics.add.group({
             allowGravity: false,
@@ -427,6 +458,16 @@ class scene extends Phaser.Scene {
             ease: 'Linear',
             repeat: 5,
         });
+    }
+
+    LampeAct(player2, Lampe){
+        Lampe.body.enable=false
+        Lampe.visible = false
+    }
+
+    LampeFx(player2, LampFx){
+        LampFx.visible = true
+        LampFx.play('Lampfx');
     }
 
     SetCam0(){
