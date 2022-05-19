@@ -26,7 +26,7 @@ class scene extends Phaser.Scene {
         this.load.image('LampFx', 'assets/images/LampFx.png');
         this.load.image('Locator', 'assets/images/BG.png');
 
-
+        this.load.audio('MainTheme', 'assets/sounds/LevelMusic.mp3');
 
         this.load.spritesheet('walk','assets/images/anim/walk.png',{frameWidth: 130, frameHeight: 140});
         this.load.spritesheet('idle','assets/images/anim/idle.png',{frameWidth: 130, frameHeight: 140});
@@ -438,6 +438,8 @@ class scene extends Phaser.Scene {
 
         this.CM = map.createStaticLayer('Cachemisere', tileset);
         this.CM.setCollisionByExclusion(-1, false);
+
+        this.mainTheme = this.sound.add('MainTheme',{volume: 0.3}).play();
 
     }
 
