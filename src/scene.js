@@ -24,6 +24,7 @@ class scene extends Phaser.Scene {
         this.load.image('brumeB', 'assets/images/brumeB.png');
         this.load.image('LampeOn', 'assets/images/LampeOn.png');
         this.load.image('LampFx', 'assets/images/LampFx.png');
+        this.load.image('Locator', 'assets/images/BG.png');
 
 
 
@@ -34,10 +35,10 @@ class scene extends Phaser.Scene {
         this.load.spritesheet('trou','assets/images/anim/trou.png',{frameWidth: 150, frameHeight: 150});
         this.load.spritesheet('Lampfx','assets/images/anim/fxlamp.png',{frameWidth: 192, frameHeight: 192});
 
-        /**this.load.image('Grain1', 'assets/images/anim/Bruit1.png');
-        this.load.image('Grain2', 'assets/images/anim/Bruit2.png');
-        this.load.image('Grain3', 'assets/images/anim/Bruit3.png');
-        this.load.image('Grain4', 'assets/images/anim/Bruit4.png');*/
+        this.load.image('Grain1', 'assets/images/anim/Grain/Bruit1.png');
+        this.load.image('Grain2', 'assets/images/anim/Grain/Bruit2.png');
+        this.load.image('Grain3', 'assets/images/anim/Grain/Bruit3.png');
+        this.load.image('Grain4', 'assets/images/anim/Grain/Bruit4.png');
 
 
         // Load the export Tiled JSON
@@ -413,9 +414,7 @@ class scene extends Phaser.Scene {
         this.plan0 = map.createStaticLayer('Plan0', tileset);
         this.plan0.setCollisionByExclusion(-1, false);
 
-        this.GrainAnim = this.add.sprite(0, 0, 'Grain1').setOrigin(0,0);
-
-        /**this.anims.create({
+        this.anims.create({
             key: 'Grain',
             frames: [
                 {key:'Grain1'},
@@ -426,9 +425,16 @@ class scene extends Phaser.Scene {
             frameRate: 10,
             repeat: -1
         });
-        this.GrainAnim.play('Grain');
 
-        this.GrainAnim.scrollFactorX=0;*/
+        this.Locator = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        map.getObjectLayer('Grain').objects.forEach((Locator) => {
+            this.LocatorSprite = this.Gate.create(Locator.x, Locator.y-Locator.height, 'Locator').setOrigin(0);
+            this.LocatorSprite.play('Grain');
+
+        });
 
         this.CM = map.createStaticLayer('Cachemisere', tileset);
         this.CM.setCollisionByExclusion(-1, false);
@@ -499,12 +505,19 @@ class scene extends Phaser.Scene {
         this.player.move();
 
         this.player2.move();
-
-       /** switch (true) {
-            case this.scene.cursors.space.isUp && this.scene.cursors.down.isDown:
-                this.player2.player2.body.x = this.player.player.body.x + 5;
+        switch (true) {
+            /**case this.cursors.space.isUp && this.cursors.left.isUp && this.cursors.right.isUp:
+                this.player2.player2.body.x = this.player.player.body.x - 30;
+                this.player2.player2.body.y = this.player.player.body.y - 5;
+                break;*/
+            case this.cursors.space.isUp && this.cursors.right.isDown:
+                this.player2.player2.body.x = this.player.player.body.x - 30;
                 this.player2.player2.body.y = this.player.player.body.y - 5;
                 break;
-        }*/
+            case this.cursors.space.isUp && this.cursors.left.isDown:
+                this.player2.player2.body.x = this.player.player.body.x + 60;
+                this.player2.player2.body.y = this.player.player.body.y - 5;
+                break;
+        }
     }
 }
