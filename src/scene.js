@@ -256,7 +256,7 @@ class scene extends Phaser.Scene {
             });
         });
         this.physics.add.collider(this.player.player, this.TrouN, this.playerHit, null, this);
-        this.physics.add.collider(this.player2.player2, this.TrouN, this.playerHit, null, this);
+        this.physics.add.collider(this.player2.player2, this.TrouN, this.player2Hit, null, this);
 
         this.TrouN2 = this.physics.add.group({
             allowGravity: false,
@@ -274,7 +274,7 @@ class scene extends Phaser.Scene {
             });
         });
         this.physics.add.collider(this.player.player, this.TrouN2, this.playerHit, null, this);
-        this.physics.add.collider(this.player2.player2, this.TrouN2, this.playerHit, null, this);
+        this.physics.add.collider(this.player2.player2, this.TrouN2, this.player2Hit, null, this);
 
         this.TrouN3 = this.physics.add.group({
             allowGravity: false,
@@ -293,7 +293,7 @@ class scene extends Phaser.Scene {
             });
         });
         this.physics.add.collider(this.player.player, this.TrouN3, this.playerHit, null, this);
-        this.physics.add.collider(this.player2.player2, this.TrouN3, this.playerHit, null, this);
+        this.physics.add.collider(this.player2.player2, this.TrouN3, this.player2Hit, null, this);
 
         this.TrouN4 = this.physics.add.group({
             allowGravity: false,
@@ -311,7 +311,7 @@ class scene extends Phaser.Scene {
             });
         });
         this.physics.add.collider(this.player.player, this.TrouN4, this.playerHit, null, this);
-        this.physics.add.collider(this.player2.player2, this.TrouN4, this.playerHit, null, this);
+        this.physics.add.collider(this.player2.player2, this.TrouN4, this.player2Hit, null, this);
 
         this.Save = this.physics.add.group({
             allowGravity: false,
@@ -459,6 +459,21 @@ class scene extends Phaser.Scene {
         player.setAlpha(0);
         let tw = this.tweens.add({
             targets: player,
+            alpha: 1,
+            duration: 100,
+            ease: 'Linear',
+            repeat: 5,
+        });
+    }
+
+    player2Hit(player2, Death) {
+        player2.setVelocity(0, 0);
+        player2.x = this.currentSaveX
+        player2.y = this.currentSaveY;
+        player2.key= this.currentKey
+        player2.setAlpha(0);
+        let tw = this.tweens.add({
+            targets: player2,
             alpha: 1,
             duration: 100,
             ease: 'Linear',
