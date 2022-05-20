@@ -356,6 +356,7 @@ class scene extends Phaser.Scene {
         });
         map.getObjectLayer('LampFx').objects.forEach((LampFx) => {
             this.LampFxSprite = this.LampFx.create(LampFx.x-30, LampFx.y - 25 - LampFx.height, 'LampFx').setOrigin(0).setVisible(false);
+            this.LampFxSprite.play('Lampfx');
         });
         this.physics.add.overlap(this.player2.player2, this.LampFx, this.LampFx.LampeFx, null, this);
 
@@ -485,10 +486,6 @@ class scene extends Phaser.Scene {
         });
     }
 
-    player2Callback(){
-
-
-    }
 
     SetCam0(){
         this.cameras.main.startFollow(this.pointCamera,false,1,1,0,150);

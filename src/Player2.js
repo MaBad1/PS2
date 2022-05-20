@@ -14,12 +14,11 @@ class Player2 {
 
     LampeAct(player2,Lampe){
         Lampe.body.enable=false
-        Lampe.visible = false
+        Lampe.visible=false
     }
 
     LampeFx(player2,LampFx){
-        LampFx.visible = true
-        LampFx.play('Lampfx')
+        LampFx.visible=true
     }
 
     up(){
