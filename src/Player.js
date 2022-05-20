@@ -9,6 +9,7 @@ class Player {
         this.player.setCollideWorldBounds(false);
         this.scene.physics.add.collider(this.player, this.scene.platforms);
         this.player.compteur = 0;
+        this.player.back = true;
 
        this.scene.anims.create({
             key: 'walk',

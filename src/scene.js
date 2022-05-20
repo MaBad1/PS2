@@ -441,6 +441,8 @@ class scene extends Phaser.Scene {
 
         this.mainTheme = this.sound.add('MainTheme',{volume: 0.3}).play();
 
+        this.back = new Boolean(false);
+
     }
 
 
@@ -483,14 +485,9 @@ class scene extends Phaser.Scene {
         });
     }
 
-    LampeAct(player2, Lampe){
-        Lampe.body.enable=false
-        Lampe.visible = false
-    }
+    player2Callback(){
 
-    LampeFx(player2, LampFx){
-        LampFx.visible = true
-        LampFx.play('Lampfx');
+
     }
 
     SetCam0(){
@@ -522,19 +519,28 @@ class scene extends Phaser.Scene {
         this.player.move();
 
         this.player2.move();
-        switch (true) {
-            /**case this.cursors.space.isUp && this.cursors.left.isUp && this.cursors.right.isUp:
-                this.player2.player2.body.x = this.player.player.body.x - 30;
-                this.player2.player2.body.y = this.player.player.body.y - 5;
-                break;*/
-            case this.cursors.space.isUp && this.cursors.right.isDown:
-                this.player2.player2.body.x = this.player.player.body.x - 30;
-                this.player2.player2.body.y = this.player.player.body.y - 5;
-                break;
-            case this.cursors.space.isUp && this.cursors.left.isDown:
-                this.player2.player2.body.x = this.player.player.body.x + 60;
-                this.player2.player2.body.y = this.player.player.body.y - 5;
-                break;
+
+        if(this.player.player.back === false){
+            switch (true) {
+                case this.cursors.space.isUp && this.cursors.down.isDown:
+                    this.player.player.back = true;
+                    break;
+            }
+        }
+        if(this.player.player.back === true){
+            switch (true) {
+                case this.cursors.space.isDown:
+                    this.player.player.back = false;
+                    break;
+                case this.cursors.space.isUp && this.cursors.right.isDown:
+                    this.player2.player2.body.x = this.player.player.body.x - 30;
+                    this.player2.player2.body.y = this.player.player.body.y - 5;
+                    break;
+                case this.cursors.space.isUp && this.cursors.left.isDown:
+                    this.player2.player2.body.x = this.player.player.body.x + 60;
+                    this.player2.player2.body.y = this.player.player.body.y - 5;
+                    break;
+            }
         }
     }
 }

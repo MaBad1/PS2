@@ -12,6 +12,16 @@ class Player2 {
 
     }
 
+    LampeAct(player2,Lampe){
+        Lampe.body.enable=false
+        Lampe.visible = false
+    }
+
+    LampeFx(player2,LampFx){
+        LampFx.visible = true
+        LampFx.play('Lampfx')
+    }
+
     up(){
         this.player2.setVelocityY(-300);
     }

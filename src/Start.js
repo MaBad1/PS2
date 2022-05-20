@@ -23,6 +23,8 @@ class Start extends Phaser.Scene {
 
     create(){
         this.MainMenu = this.add.image(0, 0, 'MainMenu').setOrigin(0, 0);
+
+
     }
 
 }
