@@ -120,7 +120,7 @@ class tuto extends Phaser.Scene {
             allowGravity: false,
             immovable: true
         });
-        map.getObjectLayer('TrousN').objects.forEach((TrouN) => {
+        map.getObjectLayer('TrouN').objects.forEach((TrouN) => {
             this.TrouNSprite = this.TrouN.create(TrouN.x, TrouN.y- TrouN.height, 'TrouN').setOrigin(0);
             this.TrouNSprite.play('trou');
             this.tweens.add({
@@ -149,7 +149,7 @@ class tuto extends Phaser.Scene {
             allowGravity: false,
             immovable: true
         });
-        map.getObjectLayer('FeuxFollets').objects.forEach((FF) => {
+        map.getObjectLayer('FeuFollets').objects.forEach((FF) => {
             this.FFSprite = this.FF.create(FF.x , FF.y  - FF.height, 'FeuF').setOrigin(0).setScale(0.5);
         });
         this.physics.add.overlap(this.player.player, this.FF, this.player.getKey, null, this);
