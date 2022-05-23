@@ -108,7 +108,7 @@ class scene extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('NextCam1').objects.forEach((Next) => {
-            this.NextSprite = this.Next.create(Next.x + 30, Next.y - 20 + Next.height, 'Next').setVisible(false);
+            this.NextSprite = this.Next.create(Next.x , Next.y -Next.height, 'Next').setOrigin(0).setVisible(false);
         });
         this.physics.add.overlap(this.player.player, this.Next, this.SetCam1, null, this);
 
@@ -118,7 +118,7 @@ class scene extends Phaser.Scene {
         });
 
         map.getObjectLayer('NextCam2').objects.forEach((Next1) => {
-            this.Next1Sprite = this.Next1.create(Next1.x + 30, Next1.y - 20 + Next1.height, 'Next').setVisible(false);
+            this.Next1Sprite = this.Next1.create(Next1.x , Next1.y - Next1.height, 'Next').setOrigin(0).setVisible(false);
         });
         this.physics.add.overlap(this.player.player, this.Next1, this.SetCam2, null, this);
 
@@ -128,7 +128,7 @@ class scene extends Phaser.Scene {
         });
 
         map.getObjectLayer('NextCam3').objects.forEach((Next2) => {
-            this.Next2Sprite = this.Next2.create(Next2.x + 30, Next2.y - 20 + Next2.height, 'Next').setVisible(false);
+            this.Next2Sprite = this.Next2.create(Next2.x , Next2.y - Next2.height, 'Next').setOrigin(0).setVisible(false);
         });
         this.physics.add.overlap(this.player.player, this.Next2, this.SetCam3, null, this);
 
@@ -138,7 +138,7 @@ class scene extends Phaser.Scene {
         });
 
         map.getObjectLayer('NextCam4').objects.forEach((Next3) => {
-            this.Next3Sprite = this.Next3.create(Next3.x + 30, Next3.y - 20 + Next3.height, 'Next').setVisible(false);
+            this.Next3Sprite = this.Next3.create(Next3.x , Next3.y - Next3.height, 'Next').setOrigin(0).setVisible(false);
         });
         this.physics.add.overlap(this.player.player, this.Next3, this.SetCam4, null, this);
 
@@ -148,7 +148,7 @@ class scene extends Phaser.Scene {
         });
 
         map.getObjectLayer('NextCam5').objects.forEach((Next4) => {
-            this.Next4Sprite = this.Next4.create(Next4.x + 30, Next4.y - 20 + Next4.height, 'Next').setVisible(false);
+            this.Next4Sprite = this.Next4.create(Next4.x , Next4.y - Next4.height, 'Next').setOrigin(0).setVisible(false);
         });
         this.physics.add.overlap(this.player.player, this.Next4, this.SetCam5, null, this);
 
@@ -158,7 +158,7 @@ class scene extends Phaser.Scene {
         });
 
         map.getObjectLayer('NextCam6').objects.forEach((Next5) => {
-            this.Next5Sprite = this.Next5.create(Next5.x + 30, Next5.y - 20 + Next5.height, 'Next').setVisible(false);
+            this.Next5Sprite = this.Next5.create(Next5.x , Next5.y - Next5.height, 'Next').setOrigin(0).setVisible(false);
         });
         this.physics.add.overlap(this.player.player, this.Next5, this.SetCam6, null, this);
 
@@ -168,7 +168,7 @@ class scene extends Phaser.Scene {
         });
 
         map.getObjectLayer('PrevCam1').objects.forEach((Prev) => {
-            this.PrevSprite = this.Prev.create(Prev.x + 30, Prev.y - 20 + Prev.height, 'Prev').setVisible(false);
+            this.PrevSprite = this.Prev.create(Prev.x , Prev.y - Prev.height, 'Prev').setOrigin(0).setVisible(false);
         });
         this.physics.add.overlap(this.player.player, this.Prev, this.SetCam0, null, this);
 
@@ -178,7 +178,7 @@ class scene extends Phaser.Scene {
         });
 
         map.getObjectLayer('PrevCam2').objects.forEach((Prev1) => {
-            this.Prev1Sprite = this.Prev1.create(Prev1.x + 30, Prev1.y - 20 + Prev1.height, 'Prev').setVisible(false);
+            this.Prev1Sprite = this.Prev1.create(Prev1.x , Prev1.y -  Prev1.height, 'Prev').setOrigin(0).setVisible(false);
         });
         this.physics.add.overlap(this.player.player, this.Prev1, this.SetCam1, null, this);
 
@@ -188,7 +188,7 @@ class scene extends Phaser.Scene {
         });
 
         map.getObjectLayer('PrevCam3').objects.forEach((Prev2) => {
-            this.Prev2Sprite = this.Prev2.create(Prev2.x + 30, Prev2.y - 20 + Prev2.height, 'Prev').setVisible(false);
+            this.Prev2Sprite = this.Prev2.create(Prev2.x , Prev2.y -  Prev2.height, 'Prev').setOrigin(0).setVisible(false);
         });
         this.physics.add.overlap(this.player.player, this.Prev2, this.SetCam2, null, this);
 
@@ -198,7 +198,7 @@ class scene extends Phaser.Scene {
         });
 
         map.getObjectLayer('PrevCam4').objects.forEach((Prev3) => {
-            this.Prev3Sprite = this.Prev3.create(Prev3.x + 30, Prev3.y - 20 + Prev3.height, 'Prev').setVisible(false);
+            this.Prev3Sprite = this.Prev3.create(Prev3.x , Prev3.y -  Prev3.height, 'Prev').setOrigin(0).setVisible(false);
         });
         this.physics.add.overlap(this.player.player, this.Prev3, this.SetCam3, null, this);
 
@@ -208,7 +208,7 @@ class scene extends Phaser.Scene {
         });
 
         map.getObjectLayer('PrevCam5').objects.forEach((Prev4) => {
-            this.Prev4Sprite = this.Prev4.create(Prev4.x + 30, Prev4.y - 20 + Prev4.height, 'Prev').setVisible(false);
+            this.Prev4Sprite = this.Prev4.create(Prev4.x , Prev4.y -  Prev4.height, 'Prev').setOrigin(0).setVisible(false);
         });
         this.physics.add.overlap(this.player.player, this.Prev4, this.SetCam4, null, this);
 
@@ -218,7 +218,7 @@ class scene extends Phaser.Scene {
         });
 
         map.getObjectLayer('PrevCam6').objects.forEach((Prev5) => {
-            this.Prev5Sprite = this.Prev5.create(Prev5.x + 30, Prev5.y - 20 + Prev5.height, 'Prev').setVisible(false);
+            this.Prev5Sprite = this.Prev5.create(Prev5.x , Prev5.y -  Prev5.height, 'Prev').setOrigin(0).setVisible(false);
         });
         this.physics.add.overlap(this.player.player, this.Prev5, this.SetCam5, null, this);
 

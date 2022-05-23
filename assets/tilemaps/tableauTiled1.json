@@ -68,28 +68,16 @@
          "name":"NextCam1",
          "objects":[
                 {
-                 "gid":972,
-                 "height":27,
-                 "id":156,
+                 "gid":979,
+                 "height":317,
+                 "id":320,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":23,
-                 "x":1943,
-                 "y":478
-                }, 
-                {
-                 "gid":972,
-                 "height":27,
-                 "id":157,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":23,
-                 "x":1943,
-                 "y":406
+                 "x":1957,
+                 "y":505
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -103,28 +91,16 @@
          "name":"NextCam2",
          "objects":[
                 {
-                 "gid":972,
-                 "height":27,
-                 "id":160,
+                 "gid":979,
+                 "height":317,
+                 "id":321,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":23,
-                 "x":3869,
-                 "y":482
-                }, 
-                {
-                 "gid":972,
-                 "height":27,
-                 "id":161,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":23,
-                 "x":3871,
-                 "y":430
+                 "x":3875,
+                 "y":507
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -138,28 +114,16 @@
          "name":"NextCam3",
          "objects":[
                 {
-                 "gid":972,
-                 "height":27,
-                 "id":162,
+                 "gid":979,
+                 "height":317,
+                 "id":324,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":23,
-                 "x":5785,
-                 "y":474
-                }, 
-                {
-                 "gid":972,
-                 "height":27,
-                 "id":163,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":23,
-                 "x":5785,
-                 "y":414
+                 "x":5797,
+                 "y":507
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -173,28 +137,16 @@
          "name":"NextCam4",
          "objects":[
                 {
-                 "gid":972,
-                 "height":27,
-                 "id":164,
+                 "gid":979,
+                 "height":317,
+                 "id":326,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":23,
-                 "x":7715,
-                 "y":490
-                }, 
-                {
-                 "gid":972,
-                 "height":27,
-                 "id":165,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":23,
-                 "x":7713,
-                 "y":424
+                 "x":7717,
+                 "y":505
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -208,28 +160,16 @@
          "name":"NextCam5",
          "objects":[
                 {
-                 "gid":972,
-                 "height":27,
-                 "id":166,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":23,
-                 "x":9629,
-                 "y":478
-                }, 
-                {
-                 "gid":972,
-                 "height":27,
-                 "id":167,
+                 "gid":979,
+                 "height":317,
+                 "id":328,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":23,
                  "x":9635,
-                 "y":402
+                 "y":503
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -243,28 +183,16 @@
          "name":"NextCam6",
          "objects":[
                 {
-                 "gid":972,
-                 "height":27,
-                 "id":168,
+                 "gid":979,
+                 "height":317,
+                 "id":330,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":23,
-                 "x":11547,
-                 "y":460
-                }, 
-                {
-                 "gid":972,
-                 "height":27,
-                 "id":169,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":23,
-                 "x":11549,
-                 "y":406
+                 "x":11555,
+                 "y":495
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -278,28 +206,16 @@
          "name":"PrevCam1",
          "objects":[
                 {
-                 "gid":973,
-                 "height":27,
-                 "id":170,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":23,
-                 "x":1857,
-                 "y":470
-                }, 
-                {
-                 "gid":973,
-                 "height":27,
-                 "id":171,
+                 "gid":980,
+                 "height":309,
+                 "id":319,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":23,
                  "x":1859,
-                 "y":408
+                 "y":497
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -313,28 +229,16 @@
          "name":"PrevCam2",
          "objects":[
                 {
-                 "gid":973,
-                 "height":27,
-                 "id":172,
+                 "gid":980,
+                 "height":309,
+                 "id":322,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":23,
-                 "x":3785,
-                 "y":482
-                }, 
-                {
-                 "gid":973,
-                 "height":27,
-                 "id":173,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":23,
-                 "x":3787,
-                 "y":430
+                 "x":3777,
+                 "y":501
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -348,28 +252,16 @@
          "name":"PrevCam3",
          "objects":[
                 {
-                 "gid":973,
-                 "height":27,
-                 "id":174,
+                 "gid":980,
+                 "height":309,
+                 "id":323,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":23,
-                 "x":5709,
-                 "y":482
-                }, 
-                {
-                 "gid":973,
-                 "height":27,
-                 "id":175,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":23,
-                 "x":5709,
-                 "y":422
+                 "x":5697,
+                 "y":499
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -383,28 +275,16 @@
          "name":"PrevCam4",
          "objects":[
                 {
-                 "gid":973,
-                 "height":27,
-                 "id":176,
+                 "gid":980,
+                 "height":309,
+                 "id":325,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":23,
                  "x":7619,
-                 "y":476
-                }, 
-                {
-                 "gid":973,
-                 "height":27,
-                 "id":177,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":23,
-                 "x":7623,
-                 "y":424
+                 "y":497
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -418,28 +298,16 @@
          "name":"PrevCam5",
          "objects":[
                 {
-                 "gid":973,
-                 "height":27,
-                 "id":178,
+                 "gid":980,
+                 "height":309,
+                 "id":327,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":23,
-                 "x":9551,
-                 "y":470
-                }, 
-                {
-                 "gid":973,
-                 "height":27,
-                 "id":179,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":23,
-                 "x":9547,
-                 "y":404
+                 "x":9539,
+                 "y":499
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -453,28 +321,16 @@
          "name":"PrevCam6",
          "objects":[
                 {
-                 "gid":973,
-                 "height":27,
-                 "id":180,
+                 "gid":980,
+                 "height":309,
+                 "id":329,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":23,
-                 "x":11465,
-                 "y":466
-                }, 
-                {
-                 "gid":973,
-                 "height":27,
-                 "id":181,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":23,
-                 "x":11467,
-                 "y":406
+                 "x":11461,
+                 "y":491
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1932,7 +1788,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -2840,7 +2696,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -3010,7 +2866,7 @@
          "y":0
         }],
  "nextlayerid":41,
- "nextobjectid":306,
+ "nextobjectid":331,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
@@ -3054,7 +2910,7 @@
          "margin":0,
          "name":"Objets",
          "spacing":0,
-         "tilecount":15,
+         "tilecount":17,
          "tileheight":768,
          "tiles":[
                 {
@@ -3108,13 +2964,13 @@
                 {
                  "id":11,
                  "image":"..\/images\/Next.png",
-                 "imageheight":27,
+                 "imageheight":767,
                  "imagewidth":23
                 }, 
                 {
                  "id":12,
                  "image":"..\/images\/Prev.png",
-                 "imageheight":27,
+                 "imageheight":767,
                  "imagewidth":23
                 }, 
                 {
@@ -3146,6 +3002,18 @@
                  "image":"..\/images\/BG.png",
                  "imageheight":70,
                  "imagewidth":70
+                }, 
+                {
+                 "id":18,
+                 "image":"..\/images\/Next.png",
+                 "imageheight":317,
+                 "imagewidth":23
+                }, 
+                {
+                 "id":19,
+                 "image":"..\/images\/Prev.png",
+                 "imageheight":309,
+                 "imagewidth":23
                 }],
          "tilewidth":150
         }],
