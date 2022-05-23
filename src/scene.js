@@ -350,33 +350,14 @@ class scene extends Phaser.Scene {
             this.LampeOnSprite = this.LampeOn.create(LampeOn.x, LampeOn.y- LampeOn.height, 'LampeOn').setOrigin(0);
         });
 
-        this.LampFx = this.physics.add.group({
-            allowGravity: false,
-            immovable: true
-        });
-        map.getObjectLayer('LampFx').objects.forEach((LampFx) => {
-            this.LampFxSprite = this.LampFx.create(LampFx.x-30, LampFx.y - 25 - LampFx.height, 'LampFx').setOrigin(0).setVisible(false);
-            this.LampFxSprite.play('Lampfx');
-        });
-        this.physics.add.overlap(this.player2.player2, this.LampFx, this.LampFx.LampeFx, null, this);
 
-        this.Lampe = this.physics.add.group({
-            allowGravity: false,
-            immovable: true
-        });
-        map.getObjectLayer('Lampes').objects.forEach((Lampe) => {
-            this.LampeSprite = this.Lampe.create(Lampe.x, Lampe.y- Lampe.height, 'Lampe').setOrigin(0);
-        });
-        this.physics.add.overlap(this.player2.player2, this.Lampe, this.Lampe.LampeAct, null, this);
 
-        this.Gate = this.physics.add.group({
-            allowGravity: false,
-            immovable: true
-        });
-        map.getObjectLayer('Gates').objects.forEach((Gate) => {
-            this.GateSprite = this.Gate.create(Gate.x, Gate.y-Gate.height, 'Gate').setOrigin(0);
-        });
+        this.gate = new Gate(this,this.player,this.player2);
+        this.gateOpen = new GateOpen(this);
 
+        this.lampe = new Lampe(this,this.player2, this.gate, this.gateOpen);
+
+        this.LampeFx = new LampeFx(this,this.player2);
 
 
         this.pointCamera = this.physics.add.sprite(960,384);
@@ -432,7 +413,7 @@ class scene extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('Grain').objects.forEach((Locator) => {
-            this.LocatorSprite = this.Gate.create(Locator.x, Locator.y-Locator.height, 'Locator').setOrigin(0);
+            this.LocatorSprite = this.Locator.create(Locator.x, Locator.y-Locator.height, 'Locator').setOrigin(0);
             this.LocatorSprite.play('Grain');
 
         });
