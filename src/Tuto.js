@@ -13,6 +13,7 @@ class tuto extends Phaser.Scene {
         this.load.image('player', 'assets/images/Mana.png');
         this.load.image('tiles', 'assets/tilesets/Tileset1.png');
         this.load.image('tilesAP', 'assets/tilesets/TilesetAP.png');
+        this.load.image('tilesTuto', 'assets/tilesets/TutoTileset.png');
         this.load.image('FeuF','assets/images/FF.png');
         this.load.image('Lampe', 'assets/images/Lampe.png');
         this.load.image('Cage', 'assets/images/Cage.png');
@@ -29,6 +30,7 @@ class tuto extends Phaser.Scene {
         this.load.image('LampeOn', 'assets/images/LampeOn.png');
         this.load.image('LampFx', 'assets/images/LampFx.png');
         this.load.image('Locator', 'assets/images/BG.png');
+        this.load.image('NZ', 'assets/images/NextZone.png');
 
         this.load.spritesheet('walk','assets/images/anim/walk.png',{frameWidth: 130, frameHeight: 140});
         this.load.spritesheet('idle','assets/images/anim/idle.png',{frameWidth: 130, frameHeight: 140});
@@ -36,6 +38,11 @@ class tuto extends Phaser.Scene {
         this.load.spritesheet('brandir','assets/images/anim/brandir.png',{frameWidth: 130, frameHeight: 140});
         this.load.spritesheet('trou','assets/images/anim/trou.png',{frameWidth: 150, frameHeight: 150});
         this.load.spritesheet('Lampfx','assets/images/anim/fxlamp.png',{frameWidth: 192, frameHeight: 192});
+
+        this.load.image('Grain1', 'assets/images/anim/Grain/Bruit1.png');
+        this.load.image('Grain2', 'assets/images/anim/Grain/Bruit2.png');
+        this.load.image('Grain3', 'assets/images/anim/Grain/Bruit3.png');
+        this.load.image('Grain4', 'assets/images/anim/Grain/Bruit4.png');
 
         this.load.audio('MainTheme', 'assets/sounds/LevelMusic.mp3');
 
@@ -66,18 +73,22 @@ class tuto extends Phaser.Scene {
 
         const backgroundImage = this.add.image(0, 0, 'background').setOrigin(0, 0);
         backgroundImage.setScale(1, 0.8);
-        const map = this.make.tilemap({key: 'map'});
+        const tuto = this.make.tilemap({key: 'map'});
 
-        const tileset = map.addTilesetImage('Tileset1', 'tiles');
-        const tilesetAP = map.addTilesetImage('TilesetAP', 'tilesAP');
+        const tileset = tuto.addTilesetImage('Tileset1', 'tiles');
+        const tilesetAP = tuto.addTilesetImage('TilesetAP', 'tilesAP');
+        const TutoTiles = tuto.addTilesetImage('TutoTileset', 'tilesTuto');
 
-        this.plan3 = map.createStaticLayer('Plan3', tilesetAP);
+        this.plan3 = tuto.createStaticLayer('Plan3', tilesetAP);
         this.plan3.setCollisionByExclusion(-1, false);
 
-        this.Brume = map.createStaticLayer('Brume', tilesetAP);
+        this.Brume = tuto.createStaticLayer('Brume', tilesetAP);
         this.Brume.setCollisionByExclusion(-1, false);
 
-        this.plan2 = map.createStaticLayer('Plan2', tilesetAP);
+        this.tuto = tuto.createStaticLayer('Tuto', TutoTiles);
+        this.tuto.setCollisionByExclusion(-1, false);
+
+        this.plan2 = tuto.createStaticLayer('Plan2', tilesetAP);
         this.plan2.setCollisionByExclusion(-1, false);
 
         this.persatmo = this.add.image(0, 140, 'persatmo').setOrigin(0, 0);
@@ -91,112 +102,112 @@ class tuto extends Phaser.Scene {
             repeat: -1
         });
 
-        this.platforms = map.createStaticLayer('Base', tileset);
+        this.platforms = tuto.createStaticLayer('Base', tileset);
         this.platforms.setCollisionByExclusion(-1, true);
 
         this.player = new Player(this);
         this.player2 = new Player2(this);
 
-        this.Next = this.physics.add.group({
+        this.Next0 = this.physics.add.group({
             allowGravity: false,
             immovable: true
         });
-        map.getObjectLayer('NextCam').objects.forEach((Next) => {
-            this.NextSprite = this.Next.create(Next.x , Next.y -Next.height, 'Next').setOrigin(0).setVisible(false);
+        tuto.getObjectLayer('NextCam').objects.forEach((Next0) => {
+            this.Next0Sprite = this.Next0.create(Next0.x , Next0.y -Next0.height, 'Next').setOrigin(0).setVisible(false);
         });
-        this.physics.add.overlap(this.player.player, this.Next, this.SetCam1, null, this);
+        this.physics.add.overlap(this.player.player, this.Next0, this.SetCam1, null, this);
 
-        this.Next1 = this.physics.add.group({
-            allowGravity: false,
-            immovable: true
-        });
-
-        this.Prev = this.physics.add.group({
+        this.Prev0 = this.physics.add.group({
             allowGravity: false,
             immovable: true
         });
 
-        map.getObjectLayer('PrevCam').objects.forEach((Prev) => {
-            this.PrevSprite = this.Prev.create(Prev.x , Prev.y - Prev.height, 'Prev').setOrigin(0).setVisible(false);
+        tuto.getObjectLayer('PrevCam').objects.forEach((Prev0) => {
+            this.Prev0Sprite = this.Prev0.create(Prev0.x , Prev0.y - Prev0.height, 'Prev').setOrigin(0).setVisible(false);
         });
-        this.physics.add.overlap(this.player.player, this.Prev, this.SetCam0, null, this);
+        this.physics.add.overlap(this.player.player, this.Prev0, this.SetCam0, null, this);
 
-        this.Prev1 = this.physics.add.group({
+        this.NZ = this.physics.add.group({
             allowGravity: false,
             immovable: true
         });
 
-        this.Plateforme = this.physics.add.group({
-            allowGravity: false,
-            immovable: true
+        tuto.getObjectLayer('ToLvl1').objects.forEach((NZ) => {
+            this.NZSprite = this.NZ.create(NZ.x , NZ.y - NZ.height, 'NZ').setOrigin(0).setVisible(false);
         });
-        map.getObjectLayer('Plateformes').objects.forEach((Plateforme) => {
-            this.PlateformeSprite = this.Plateforme.create(Plateforme.x , Plateforme.y - Plateforme.height, 'Plateforme').setOrigin(0);
-        });
-        this.physics.add.collider(this.player.player, this.Plateforme);
+        this.physics.add.overlap(this.player.player, this.NZ, this.NextZone, null, this);
 
-        this.Death = this.physics.add.group({
+        this.Plateforme0 = this.physics.add.group({
             allowGravity: false,
             immovable: true
         });
-        map.getObjectLayer('DeathZone').objects.forEach((Death) => {
-            const DeathSprite = this.Death.create(Death.x, Death.y - Death.height, 'Death').setOrigin(0).setVisible(false) ;
+        tuto.getObjectLayer('Plateformes').objects.forEach((Plateforme0) => {
+            this.Plateforme0Sprite = this.Plateforme0.create(Plateforme0.x , Plateforme0.y - Plateforme0.height, 'Plateforme').setOrigin(0);
         });
-        this.physics.add.collider(this.player.player, this.Death, this.playerHit, null, this);
+        this.physics.add.collider(this.player.player, this.Plateforme0);
 
-        this.TrouN = this.physics.add.group({
+        this.Death0 = this.physics.add.group({
             allowGravity: false,
             immovable: true
         });
-        map.getObjectLayer('TrouN').objects.forEach((TrouN) => {
-            this.TrouNSprite = this.TrouN.create(TrouN.x, TrouN.y- TrouN.height, 'TrouN').setOrigin(0);
-            this.TrouNSprite.play('trou');
+        tuto.getObjectLayer('DeathZone').objects.forEach((Death0) => {
+            const Death0Sprite = this.Death0.create(Death0.x, Death0.y - Death0.height, 'Death').setOrigin(0).setVisible(false) ;
+        });
+        this.physics.add.collider(this.player.player, this.Death0, this.playerHit, null, this);
+
+        this.TrouN0 = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        tuto.getObjectLayer('TrouN').objects.forEach((TrouN0) => {
+            this.TrouN0Sprite = this.TrouN0.create(TrouN0.x, TrouN0.y- TrouN0.height, 'TrouN').setOrigin(0);
+            this.TrouN0Sprite.play('trou');
             this.tweens.add({
-                targets: this.TrouNSprite,
-                y:this.TrouNSprite.y+256,
+                targets: this.TrouN0Sprite,
+                y:this.TrouN0Sprite.y+256,
                 paused: false,
                 yoyo: true,
                 repeat: -1
             });
         });
-        this.physics.add.collider(this.player.player, this.TrouN, this.playerHit, null, this);
-        this.physics.add.collider(this.player2.player2, this.TrouN, this.player2Hit, null, this);
+        this.physics.add.collider(this.player.player, this.TrouN0, this.playerHit, null, this);
+        this.physics.add.collider(this.player2.player2, this.TrouN0, this.player2Hit, null, this);
 
-        this.Save = this.physics.add.group({
+        this.Save0 = this.physics.add.group({
             allowGravity: false,
             immovable: true
         });
-        map.getObjectLayer('Checkpoints').objects.forEach((Save) => {
-            const SaveSprite = this.Save.create(Save.x, Save.y - Save.height, 'Save').setOrigin(0).setVisible(false);
+        tuto.getObjectLayer('Checkpoints').objects.forEach((Save0) => {
+            const Save0Sprite = this.Save0.create(Save0.x, Save0.y - Save0.height, 'Save').setOrigin(0).setVisible(false);
         });
-        this.physics.add.overlap(this.player.player, this.Save, this.sauvegarde, null, this)
+        this.physics.add.overlap(this.player.player, this.Save0, this.sauvegarde, null, this)
 
         this.cursors = this.input.keyboard.createCursorKeys();
 
-        this.FF = this.physics.add.group({
+        this.FF0 = this.physics.add.group({
             allowGravity: false,
             immovable: true
         });
-        map.getObjectLayer('FeuFollets').objects.forEach((FF) => {
-            this.FFSprite = this.FF.create(FF.x , FF.y  - FF.height, 'FeuF').setOrigin(0).setScale(0.5);
+        tuto.getObjectLayer('FeuFollets').objects.forEach((FF0) => {
+            this.FF0Sprite = this.FF0.create(FF0.x , FF0.y  - FF0.height, 'FeuF').setOrigin(0).setScale(0.5);
         });
-        this.physics.add.overlap(this.player.player, this.FF, this.player.getKey, null, this);
+        this.physics.add.overlap(this.player.player, this.FF0, this.player.getKey, null, this);
 
 
-        this.Cage = this.physics.add.group({
+        this.Cage0 = this.physics.add.group({
             allowGravity: false,
             immovable: true
         });
-        map.getObjectLayer('Cages').objects.forEach((Cage) => {
-            this.CageSprite = this.Cage.create(Cage.x , Cage.y  - Cage.height, 'Cage').setOrigin(0);
+        tuto.getObjectLayer('Cages').objects.forEach((Cage0) => {
+            this.Cage0Sprite = this.Cage0.create(Cage0.x , Cage0.y  - Cage0.height, 'Cage').setOrigin(0);
         });
 
-        this.LampeOn = this.physics.add.group({
+        this.LampeOn0 = this.physics.add.group({
             allowGravity: false,
             immovable: true
         });
-        map.getObjectLayer('LampesOn').objects.forEach((LampeOn) => {
-            this.LampeOnSprite = this.LampeOn.create(LampeOn.x, LampeOn.y- LampeOn.height, 'LampeOn').setOrigin(0);
+        tuto.getObjectLayer('LampesOn').objects.forEach((LampeOn0) => {
+            this.LampeOn0Sprite = this.LampeOn0.create(LampeOn0.x, LampeOn0.y- LampeOn0.height, 'LampeOn').setOrigin(0);
         });
 
         this.gate = new Gate(this,this.player,this.player2);
@@ -206,28 +217,28 @@ class tuto extends Phaser.Scene {
 
         this.LampeFx = new LampeFx(this,this.player2);
 
-        this.pointCamera = this.physics.add.sprite(960,384);
-        this.pointCamera.body.setAllowGravity(false);
-        this.pointCamera.setImmovable(true);
-        this.cameras.main.startFollow(this.pointCamera,false,1,1,0,150);
+        this.pointCamera0 = this.physics.add.sprite(960,384);
+        this.pointCamera0.body.setAllowGravity(false);
+        this.pointCamera0.setImmovable(true);
+        this.cameras.main.startFollow(this.pointCamera0,false,1,1,0,150);
         this.cameras.main.setRoundPixels(true);
-        this.pointCamera2 = this.physics.add.sprite(2880,384);
-        this.pointCamera2.body.setAllowGravity(false);
-        this.pointCamera2.setImmovable(true);
+        this.pointCamer = this.physics.add.sprite(2880,384);
+        this.pointCamer.body.setAllowGravity(false);
+        this.pointCamer.setImmovable(true);
 
-        this.piquesP3 = map.createStaticLayer('piquesP3', tilesetAP);
-        this.piquesP3.setCollisionByExclusion(-1, false);
+        this.piquesP30 = tuto.createStaticLayer('piquesP3', tilesetAP);
+        this.piquesP30.setCollisionByExclusion(-1, false);
 
-        this.piquesP2 = map.createStaticLayer('piquesP2', tilesetAP);
-        this.piquesP2.setCollisionByExclusion(-1, false);
+        this.piquesP20 = tuto.createStaticLayer('piquesP2', tilesetAP);
+        this.piquesP20.setCollisionByExclusion(-1, false);
 
-        this.plan1 = map.createStaticLayer('Plan1', tileset);
-        this.plan1.setCollisionByExclusion(-1, false);
+        this.plan10 = tuto.createStaticLayer('Plan1', tileset);
+        this.plan10.setCollisionByExclusion(-1, false);
 
-        this.plan0 = map.createStaticLayer('Plan0', tileset);
-        this.plan0.setCollisionByExclusion(-1, false);
+        this.plan00 = tuto.createStaticLayer('Plan0', tileset);
+        this.plan00.setCollisionByExclusion(-1, false);
 
-        /**this.anims.create({
+        this.anims.create({
             key: 'Grain',
             frames: [
                 {key:'Grain1'},
@@ -239,20 +250,20 @@ class tuto extends Phaser.Scene {
             repeat: -1
         });
 
-        this.Locator = this.physics.add.group({
+        this.Locator0 = this.physics.add.group({
             allowGravity: false,
             immovable: true
         });
-        map.getObjectLayer('Grain').objects.forEach((Locator) => {
-            this.LocatorSprite = this.Locator.create(Locator.x, Locator.y-Locator.height, 'Locator').setOrigin(0);
-            this.LocatorSprite.play('Grain');
+        tuto.getObjectLayer('Grain').objects.forEach((Locator0) => {
+            this.Locator0Sprite = this.Locator0.create(Locator0.x, Locator0.y-Locator0.height, 'Locator').setOrigin(0);
+            this.Locator0Sprite.play('Grain');
 
-        });*/
+        });
 
-        this.CM = map.createStaticLayer('Cachemisere', tileset);
-        this.CM.setCollisionByExclusion(-1, false);
+        this.CM0 = tuto.createStaticLayer('Cachemisere', tileset);
+        this.CM0.setCollisionByExclusion(-1, false);
 
-        this.mainTheme = this.sound.add('MainTheme',{volume: 0.3}).play();
+        this.mainTheme0 = this.sound.add('MainTheme',{volume: 0.3}).play();
 
     }
 
@@ -295,12 +306,15 @@ class tuto extends Phaser.Scene {
         });
     }
 
+    NextZone(){
+        this.scene.start('game')
+    }
 
     SetCam0(){
-        this.cameras.main.startFollow(this.pointCamera,false,1,1,0,150);
+        this.cameras.main.startFollow(this.pointCamera0,false,1,1,0,150);
     }
     SetCam1(){
-        this.cameras.main.startFollow(this.pointCamera2,false,1,1,0,150);
+        this.cameras.main.startFollow(this.pointCamer,false,1,1,0,150);
     }
 
     update() {

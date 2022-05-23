@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.2" orientation="orthogonal" renderorder="right-down" width="60" height="12" tilewidth="64" tileheight="64" infinite="0" nextlayerid="26" nextobjectid="36">
+<map version="1.8" tiledversion="1.8.2" orientation="orthogonal" renderorder="right-down" width="60" height="12" tilewidth="64" tileheight="64" infinite="0" nextlayerid="28" nextobjectid="37">
+ <editorsettings>
+  <export target="tuto.json" format="json"/>
+ </editorsettings>
  <tileset firstgid="1" name="Tileset1" tilewidth="64" tileheight="64" tilecount="480" columns="30">
   <image source="../tilesets/Tileset1.png" width="1920" height="1080"/>
  </tileset>
  <tileset firstgid="481" name="TilesetAP" tilewidth="64" tileheight="64" tilecount="480" columns="30">
   <image source="../tilesets/TilesetAP.png" width="1920" height="1080"/>
  </tileset>
- <tileset firstgid="961" name="objets" tilewidth="140" tileheight="768" tilecount="13" columns="0">
+ <tileset firstgid="961" name="objets" tilewidth="140" tileheight="768" tilecount="14" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="15">
    <image width="70" height="70" source="../images/BG.png"/>
@@ -47,8 +50,11 @@
   <tile id="27">
    <image width="43" height="36" source="../images/Death.png"/>
   </tile>
+  <tile id="28">
+   <image width="30" height="400" source="../images/NextZone.png"/>
+  </tile>
  </tileset>
- <tileset firstgid="989" name="UI" tilewidth="500" tileheight="700" tilecount="7" columns="0">
+ <tileset firstgid="990" name="UI" tilewidth="500" tileheight="700" tilecount="7" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="500" height="700" source="../images/UI/TutoCages.png"/>
@@ -71,6 +77,9 @@
   <tile id="6">
    <image width="500" height="700" source="../images/UI/TutoRappel.png"/>
   </tile>
+ </tileset>
+ <tileset firstgid="997" name="TutoTileset" tilewidth="64" tileheight="64" tilecount="84" columns="21">
+  <image source="../tilesets/TutoTileset.png" width="1344" height="256"/>
  </tileset>
  <layer id="22" name="Plan3" width="60" height="12" offsetx="0" offsety="-6">
   <data encoding="csv">
@@ -104,15 +113,22 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="25" name="Tuto">
-  <object id="29" gid="990" x="181.333" y="421.333" width="144" height="201.6"/>
-  <object id="30" gid="992" x="545.333" y="420.667" width="141.333" height="197.867"/>
-  <object id="31" gid="989" x="1102" y="499.333" width="142.667" height="199.733"/>
-  <object id="32" gid="991" x="1614" y="398" width="154.667" height="216.533"/>
-  <object id="33" gid="995" x="2071.33" y="415.333" width="162.667" height="227.733"/>
-  <object id="34" gid="993" x="3010" y="296.667" width="144" height="201.6"/>
-  <object id="35" gid="994" x="3155.33" y="298.533" width="148" height="207.2"/>
- </objectgroup>
+ <layer id="26" name="Tuto" width="60" height="12">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1003,1004,1005,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1000,1001,1002,1024,1025,1026,0,0,0,0,0,0,0,0,
+0,0,1012,1013,1014,0,0,0,997,998,999,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1015,1016,1017,0,0,0,0,1006,1007,1008,0,0,0,0,0,0,0,0,0,0,0,1021,1022,1023,1045,1046,1047,0,0,0,0,0,0,0,0,
+0,0,1033,1034,1035,0,0,0,1018,1019,1020,0,0,0,0,0,0,0,1009,1010,1011,0,0,0,0,1036,1037,1038,0,0,0,0,1027,1028,1029,0,0,0,0,0,0,0,0,0,0,0,1042,1043,1044,1066,1067,1068,0,0,0,0,0,0,0,0,
+0,0,1054,1055,1056,0,0,0,1039,1040,1041,0,0,0,0,0,0,0,1030,1031,1032,0,0,0,0,1057,1058,1059,0,0,0,0,1048,1049,1050,0,0,0,0,0,0,0,0,0,0,0,1063,1064,1065,0,0,0,0,0,0,0,0,0,0,0,
+0,0,1075,1076,1077,0,0,0,1060,1061,1062,0,0,0,0,0,0,0,1051,1052,1053,0,0,0,0,1078,1079,1080,0,0,0,0,1069,1070,1071,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1072,1073,1074,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
  <layer id="21" name="Plan2" width="60" height="12" offsetx="-34" offsety="0">
   <data encoding="csv">
 501,502,503,504,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,501,502,503,504,0,0,0,0,0,0,0,0,0,0,501,502,503,504,0,0,0,0,0,0,0,0,0,0,0,0,501,502,
@@ -151,6 +167,9 @@
  <objectgroup id="8" name="NextCam">
   <object id="2" gid="983" x="1961.73" y="507.485" width="23" height="317"/>
  </objectgroup>
+ <objectgroup id="27" name="ToLvl1">
+  <object id="36" gid="989" x="3779.67" y="524" width="30" height="400"/>
+ </objectgroup>
  <objectgroup id="10" name="Plateformes">
   <object id="10" gid="985" x="2977.09" y="436.273" width="64" height="17"/>
   <object id="25" gid="985" x="1022" y="343" width="64" height="17"/>
@@ -166,7 +185,7 @@
   <object id="9" gid="988" x="3272.94" y="563.455" width="43" height="36"/>
  </objectgroup>
  <objectgroup id="12" name="TrouN">
-  <object id="24" gid="987" x="3422" y="206.667" width="140" height="140"/>
+  <object id="24" gid="987" x="2462" y="209.334" width="140" height="140"/>
  </objectgroup>
  <objectgroup id="13" name="Checkpoints">
   <object id="23" gid="986" x="2006" y="768" width="64" height="768"/>
