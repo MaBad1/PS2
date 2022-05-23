@@ -496,7 +496,6 @@ class scene extends Phaser.Scene {
 
     update() {
 
-        console.log(this.player.player.compteur);
         this.player.move();
 
         this.player2.move();

@@ -30,12 +30,40 @@ class tuto extends Phaser.Scene {
         this.load.image('LampFx', 'assets/images/LampFx.png');
         this.load.image('Locator', 'assets/images/BG.png');
 
+        this.load.spritesheet('walk','assets/images/anim/walk.png',{frameWidth: 130, frameHeight: 140});
+        this.load.spritesheet('idle','assets/images/anim/idle.png',{frameWidth: 130, frameHeight: 140});
+        this.load.spritesheet('jump','assets/images/anim/jump.png',{frameWidth: 130, frameHeight: 140});
+        this.load.spritesheet('brandir','assets/images/anim/brandir.png',{frameWidth: 130, frameHeight: 140});
+        this.load.spritesheet('trou','assets/images/anim/trou.png',{frameWidth: 150, frameHeight: 150});
+        this.load.spritesheet('Lampfx','assets/images/anim/fxlamp.png',{frameWidth: 192, frameHeight: 192});
+
         this.load.audio('MainTheme', 'assets/sounds/LevelMusic.mp3');
 
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/tuto.json');
     }
 
     create() {
+
+        this.anims.create({
+            key: 'trou',
+            frames: this.anims.generateFrameNames('trou', {
+                start: 0,
+                end: 19,
+            }),
+            frameRate: 10,
+            repeat:-1,
+        });
+
+        this.anims.create({
+            key: 'Lampfx',
+            frames: this.anims.generateFrameNames('Lampfx', {
+                start: 0,
+                end: 4,
+            }),
+            frameRate: 10,
+            repeat:-1,
+        });
+
         const backgroundImage = this.add.image(0, 0, 'background').setOrigin(0, 0);
         backgroundImage.setScale(1, 0.8);
         const map = this.make.tilemap({key: 'map'});
@@ -178,7 +206,6 @@ class tuto extends Phaser.Scene {
 
         this.LampeFx = new LampeFx(this,this.player2);
 
-
         this.pointCamera = this.physics.add.sprite(960,384);
         this.pointCamera.body.setAllowGravity(false);
         this.pointCamera.setImmovable(true);
@@ -200,7 +227,7 @@ class tuto extends Phaser.Scene {
         this.plan0 = map.createStaticLayer('Plan0', tileset);
         this.plan0.setCollisionByExclusion(-1, false);
 
-        this.anims.create({
+        /**this.anims.create({
             key: 'Grain',
             frames: [
                 {key:'Grain1'},
@@ -220,7 +247,7 @@ class tuto extends Phaser.Scene {
             this.LocatorSprite = this.Locator.create(Locator.x, Locator.y-Locator.height, 'Locator').setOrigin(0);
             this.LocatorSprite.play('Grain');
 
-        });
+        });*/
 
         this.CM = map.createStaticLayer('Cachemisere', tileset);
         this.CM.setCollisionByExclusion(-1, false);
@@ -277,8 +304,6 @@ class tuto extends Phaser.Scene {
     }
 
     update() {
-
-        console.log(this.player.player.compteur);
         this.player.move();
 
         this.player2.move();
