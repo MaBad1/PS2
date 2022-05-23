@@ -48,7 +48,7 @@ class Start extends Phaser.Scene {
             .setOrigin(0,0)
             .setInteractive()
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
-                this.scene.start('game')
+                this.scene.start('tuto')
             })
             .on('pointerover',function(){
                 buttonStartSprite.setAlpha(1);
