@@ -1,6 +1,6 @@
 class Start extends Phaser.Scene {
     constructor() {
-        super('start');
+        super('Start');
     }
 
     preload(){
@@ -22,9 +22,80 @@ class Start extends Phaser.Scene {
     }
 
     create(){
-        this.MainMenu = this.add.image(0, 0, 'MainMenu').setOrigin(0, 0);
+        const menu = this.add.image(0, 0, 'MainScreen').setOrigin(0, 0);
 
+        const buttonStartSprite = this.add.image(930, 400, 'Play')
+            .setOrigin(0, 0)
+            .setScale(1)
+            .setAlpha(0.7);
 
+        const buttonOptionSprite = this.add.image(930, 550, 'Options')
+            .setOrigin(0, 0)
+            .setScale(1)
+            .setAlpha(0.7);
+
+        const buttonCreditsSprite = this.add.image(930, 700, 'Credits')
+            .setOrigin(0, 0)
+            .setScale(1)
+            .setAlpha(0.7);
+
+        const buttonQuitSprite = this.add.image(930, 850, 'Quit')
+            .setOrigin(0, 0)
+            .setScale(1)
+            .setAlpha(0.7);
+
+        this.buttonStart = this.add.rectangle(buttonStartSprite.x, buttonStartSprite.y,350,150,0xffffff,0)
+            .setOrigin(0,0)
+            .setInteractive()
+            .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
+                this.scene.start('game')
+            })
+            .on('pointerover',function(){
+                buttonStartSprite.setAlpha(1);
+            })
+            .on('pointerout',function(){
+                buttonStartSprite.setAlpha(0.7);
+            })
+
+        this.buttonOptions = this.add.rectangle(buttonOptionSprite.x, buttonOptionSprite.y,350,150,0xffffff,0)
+            .setOrigin(0,0)
+            .setInteractive()
+            .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
+                this.scene.start('game')
+            })
+            .on('pointerover',function(){
+                buttonOptionSprite.setAlpha(1);
+            })
+            .on('pointerout',function(){
+                buttonOptionSprite.setAlpha(0.7);
+            })
+
+        this.buttonCredits = this.add.rectangle(buttonCreditsSprite.x, buttonCreditsSprite.y,350,150,0xffffff,0)
+            .setOrigin(0,0)
+            .setInteractive()
+            .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
+                this.scene.start('game')
+            })
+            .on('pointerover',function(){
+                buttonCreditsSprite.setAlpha(1);
+            })
+            .on('pointerout',function(){
+                buttonCreditsSprite.setAlpha(0.7);
+            })
+
+        this.buttonQuit = this.add.rectangle(buttonQuitSprite.x, buttonQuitSprite.y,350,150,0xffffff,0)
+            .setOrigin(0,0)
+            .setInteractive()
+            .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
+                this.scene.start('game')
+            })
+            .on('pointerover',function(){
+                buttonQuitSprite.setAlpha(1);
+            })
+            .on('pointerout',function(){
+                buttonQuitSprite.setAlpha(0.7);
+            })
     }
+
 
 }
