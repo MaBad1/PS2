@@ -32,6 +32,8 @@ class Lampe{
                 this.gateO.GateO.getChildren()[i].visible = true;
             }
         }
+        //this.scene.lampsfx.play();
+        //this.scene.doorsfx.play()
     }
 
 }

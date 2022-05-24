@@ -54,6 +54,7 @@ class Player {
         this.player.player.compteur+=1
         FF.body.enable=false
         FF.visible=false
+        //this.scene.FFsfx.play();
     }
 
     jump(){
@@ -64,17 +65,20 @@ class Player {
         this.player.setVelocityX(300);
         this.player.setFlipX(false);
         if (this.player.body.onFloor()) {
+            //this.scene.walksfx.play();
             this.player.play('walk', true)}
     }
     moveLeft(){
         this.player.setVelocityX(-300);
         if (this.player.body.onFloor()) {
+            this.scene.walksfx.play();
             this.player.play('walk', true)}
         this.player.setFlipX(true);
     }
     stop(){
         this.player.setVelocityX(0);
         if (this.player.body.onFloor()) {
+            //this.scene.walksfx.stop();
             this.player.play('idle',true)
         }
     }
@@ -93,6 +97,7 @@ class Player {
                 break;
             case this.scene.cursors.space.isDown:
                 this.player.setVelocityX(0);
+                //this.scene.brandirsfx.play();
                 this.player.play('brandir',true)
                 break;
             default:
