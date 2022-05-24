@@ -29,6 +29,7 @@ class boss extends Phaser.Scene {
         this.load.image('LampFx', 'assets/images/LampFx.png');
         this.load.image('Locator', 'assets/images/BG.png');
         this.load.image('pelko', 'assets/images/Pelko.png');
+        this.load.image('Act', 'assets/images/Acti.png');
 
         this.load.audio('MainTheme', 'assets/sounds/LevelMusic.mp3');
 
@@ -73,6 +74,18 @@ class boss extends Phaser.Scene {
             }),
             frameRate: 10,
             repeat:-1,
+        });
+
+        this.anims.create({
+            key: 'pAtk',
+            frames: this.anims.generateFrameNames('pAtk', {
+                start: 0,
+                end: 4,
+            }),
+            frameRate: 7,
+            repeat:0,
+            showOnStart: true,
+            hideOnComplete: true
         });
 
         const backgroundImage = this.add.image(0, 0, 'background').setOrigin(0, 0);
@@ -252,7 +265,8 @@ class boss extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('TrousN').objects.forEach((TrouN) => {
-            this.TrouNSprite = this.TrouN.create(TrouN.x, TrouN.y- TrouN.height, 'TrouN').setOrigin(0);
+            this.TrouNSprite = this.TrouN.create(TrouN.x, TrouN.y- TrouN.height, 'TrouN').setOrigin(0).setVisible(false);
+            this.TrouNSprite.nom = TrouN.name;
             this.TrouNSprite.play('trou');
             this.tweens.add({
                 targets: this.TrouNSprite,
@@ -270,7 +284,8 @@ class boss extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('TrousN2').objects.forEach((TrouN2) => {
-            this.TrouN2Sprite = this.TrouN2.create(TrouN2.x, TrouN2.y- TrouN2.height, 'TrouN').setOrigin(0);
+            this.TrouN2Sprite = this.TrouN2.create(TrouN2.x, TrouN2.y- TrouN2.height, 'TrouN').setOrigin(0).setVisible(false);
+            this.TrouN2Sprite.nom = TrouN2.name;
             this.TrouN2Sprite.play('trou');
             this.tweens.add({
                 targets: this.TrouN2Sprite,
@@ -288,7 +303,8 @@ class boss extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('TrousN3').objects.forEach((TrouN3) => {
-            this.TrouN3Sprite = this.TrouN3.create(TrouN3.x, TrouN3.y- TrouN3.height, 'TrouN').setOrigin(0);
+            this.TrouN3Sprite = this.TrouN3.create(TrouN3.x, TrouN3.y- TrouN3.height, 'TrouN').setOrigin(0).setVisible(false);
+            this.TrouN3Sprite.nom = TrouN3.name;
             this.TrouN3Sprite.play('trou');
             this.tweens.add({
                 targets: this.TrouN3Sprite,
@@ -307,7 +323,8 @@ class boss extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('TrousN4').objects.forEach((TrouN4) => {
-            this.TrouN4Sprite = this.TrouN4.create(TrouN4.x, TrouN4.y- TrouN4.height, 'TrouN').setOrigin(0);
+            this.TrouN4Sprite = this.TrouN4.create(TrouN4.x, TrouN4.y- TrouN4.height, 'TrouN').setOrigin(0).setVisible(false);
+            this.TrouN4Sprite.nom = TrouN4.name;
             this.TrouN4Sprite.play('trou');
             this.tweens.add({
                 targets: this.TrouN4Sprite,
@@ -328,6 +345,7 @@ class boss extends Phaser.Scene {
             const SaveSprite = this.Save.create(Save.x, Save.y - Save.height, 'Save').setOrigin(0).setVisible(false);
         });
         this.physics.add.overlap(this.player.player, this.Save, this.sauvegarde, null, this)
+
 
         this.cursors = this.input.keyboard.createCursorKeys();
 
@@ -378,8 +396,19 @@ class boss extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('Pelko').objects.forEach((pelko) => {
-            this.pelkoSprite = this.pelko.create(pelko.x, pelko.y- pelko.height, 'pelko').setOrigin(0);
+            this.pelkoSprite = this.pelko.create(pelko.x, pelko.y- pelko.height, 'pelko').setOrigin(0).setVisible(false);
+            this.pelkoSprite.nom = pelko.name;
         });
+
+        this.Act = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        map.getObjectLayer('Activator').objects.forEach((Act) => {
+            this.ActSprite = this.Act.create(Act.x, Act.y - Act.height, 'Act').setOrigin(0).setVisible(false);
+            this.ActSprite.nom = Act.name;
+        });
+        this.physics.add.overlap(this.player.player, this.Act, this.SpawnAtk.bind(this), null, this)
 
         this.piquesP3 = map.createStaticLayer('PiquesP3', tilesetAP);
         this.piquesP3.setCollisionByExclusion(-1, false);
@@ -424,6 +453,38 @@ class boss extends Phaser.Scene {
 
     }
 
+    SpawnAtk(player, Act){
+        for (var i = 0; i < this.pelko.getChildren().length; i++) {
+            if (Act.nom === this.pelko.getChildren()[i].nom) {
+                this.pelko.getChildren()[i].play('pAtk',true);
+            }
+        }
+        for (var i = 0; i < this.TrouN.getChildren().length; i++) {
+            if (Act.nom === this.TrouN.getChildren()[i].nom) {
+                this.TrouN.getChildren()[i].visible = true;
+                this.TrouN.getChildren()[i].body.enable = true;
+            }
+        }
+        for (var i = 0; i < this.TrouN2.getChildren().length; i++) {
+            if (Act.nom === this.TrouN2.getChildren()[i].nom) {
+                this.TrouN2.getChildren()[i].visible = true;
+                this.TrouN2.getChildren()[i].body.enable = true;
+            }
+        }
+        for (var i = 0; i < this.TrouN3.getChildren().length; i++) {
+            if (Act.nom === this.TrouN3.getChildren()[i].nom) {
+                this.TrouN3.getChildren()[i].visible = true;
+                this.TrouN3.getChildren()[i].body.enable = true;
+            }
+        }
+        for (var i = 0; i < this.TrouN4.getChildren().length; i++) {
+            if (Act.nom === this.TrouN4.getChildren()[i].nom) {
+                this.TrouN4.getChildren()[i].visible = true;
+                this.TrouN4.getChildren()[i].body.enable = true;
+            }
+        }
+        Act.body.enable=false;
+    }
 
     sauvegarde(player, saves) {
         console.log("current", this.currentSaveX, this.currentSaveY)

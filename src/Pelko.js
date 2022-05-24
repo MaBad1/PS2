@@ -25,7 +25,8 @@ class Pelko {
                 end: 4,
             }),
             frameRate: 10,
-            repeat:0,
+            repeat:1,
+            showOnStart: true
         });
 
     }
