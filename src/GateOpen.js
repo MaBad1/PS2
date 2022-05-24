@@ -2,7 +2,7 @@ class GateOpen{
     constructor(scene) {
         this.scene = scene;
 
-        const map = this.scene.make.tilemap({key: 'map'});
+        const map = this.scene.make.tilemap({key: this.scene.mapKey});
 
         this.GateO = this.scene.physics.add.group({
             allowGravity: false,

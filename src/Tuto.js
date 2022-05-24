@@ -50,6 +50,9 @@ class tuto extends Phaser.Scene {
     }
 
     create() {
+        this.started = false ;
+        this.mapKey = 'map';
+
 
         this.anims.create({
             key: 'trou',
@@ -210,12 +213,12 @@ class tuto extends Phaser.Scene {
             this.LampeOn0Sprite = this.LampeOn0.create(LampeOn0.x, LampeOn0.y- LampeOn0.height, 'LampeOn').setOrigin(0);
         });
 
-        this.gate = new Gate(this,this.player,this.player2);
-        this.gateOpen = new GateOpen(this);
+        this.gate0 = new Gate(this,this.player,this.player2);
+        this.gateOpen0 = new GateOpen(this);
 
-        this.lampe = new Lampe(this,this.player2, this.gate, this.gateOpen);
+        this.lampe0 = new Lampe(this,this.player2, this.gate0, this.gateOpen0);
 
-        this.LampeFx = new LampeFx(this,this.player2);
+        this.LampeFx0 = new LampeFx(this,this.player2);
 
         this.pointCamera0 = this.physics.add.sprite(960,384);
         this.pointCamera0.body.setAllowGravity(false);
@@ -307,7 +310,12 @@ class tuto extends Phaser.Scene {
     }
 
     NextZone(){
-        this.scene.start('game')
+        if (this.started){
+
+        } else {
+            this.scene.start('game')
+            this.started = true ;
+        }
     }
 
     SetCam0(){

@@ -45,11 +45,12 @@ class scene extends Phaser.Scene {
 
 
         // Load the export Tiled JSON
-        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled1.json');
+        this.load.tilemapTiledJSON('map1', 'assets/tilemaps/tableauTiled1.json');
     }
 
 
     create() {
+        this.mapKey = 'map1';
 
         this.anims.create({
             key: 'trou',
@@ -73,7 +74,7 @@ class scene extends Phaser.Scene {
 
         const backgroundImage = this.add.image(0, 0, 'background').setOrigin(0, 0);
         backgroundImage.setScale(1, 0.8);
-        const map = this.make.tilemap({key: 'map'});
+        const map = this.make.tilemap({key: 'map1'});
 
         const tileset = map.addTilesetImage('Tileset1', 'tiles');
         const tilesetAP = map.addTilesetImage('TilesetAP', 'tilesAP');

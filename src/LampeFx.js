@@ -3,7 +3,7 @@ class LampeFx {
         this.scene = scene;
         this.player2 = player2;
 
-        const map = this.scene.make.tilemap({key: 'map'});
+        const map = this.scene.make.tilemap({key: this.scene.mapKey});
 
         this.LampFx = this.scene.physics.add.group({
             allowGravity: false,

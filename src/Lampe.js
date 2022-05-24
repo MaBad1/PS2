@@ -5,7 +5,7 @@ class Lampe{
         this.gate = gate;
         this.gateO = gateO;
 
-        const map = this.scene.make.tilemap({key: 'map'});
+        const map = this.scene.make.tilemap({key: this.scene.mapKey});
 
         this.lampe = this.scene.physics.add.group({
             allowGravity: false,

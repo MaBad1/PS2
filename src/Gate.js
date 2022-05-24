@@ -4,7 +4,7 @@ class Gate{
         this.player = player;
         this.player2 = player2;
 
-        const map = this.scene.make.tilemap({key: 'map'});
+        const map = this.scene.make.tilemap({key:this.scene.mapKey});
 
         this.Gate = this.scene.physics.add.group({
             allowGravity: false,
