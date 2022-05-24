@@ -373,6 +373,14 @@ class boss extends Phaser.Scene {
         this.pointCamera7.body.setAllowGravity(false);
         this.pointCamera7.setImmovable(true);
 
+        this.pelko = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        map.getObjectLayer('Pelko').objects.forEach((pelko) => {
+            this.pelkoSprite = this.pelko.create(pelko.x, pelko.y- pelko.height, 'pelko').setOrigin(0);
+        });
+
         this.piquesP3 = map.createStaticLayer('PiquesP3', tilesetAP);
         this.piquesP3.setCollisionByExclusion(-1, false);
 
