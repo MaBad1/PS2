@@ -30,6 +30,7 @@ class boss extends Phaser.Scene {
         this.load.image('Locator', 'assets/images/BG.png');
         this.load.image('pelko', 'assets/images/Pelko.png');
         this.load.image('Act', 'assets/images/Acti.png');
+        this.load.image('NZ', 'assets/images/NextZone.png');
 
         this.load.audio('MainTheme', 'assets/sounds/LevelMusic.mp3');
 
@@ -54,6 +55,7 @@ class boss extends Phaser.Scene {
 
 
     create() {
+        this.started = false ;
         this.mapKey = 'map2';
 
         this.anims.create({
@@ -122,6 +124,16 @@ class boss extends Phaser.Scene {
 
         this.player = new Player(this);
         this.player2 = new Player2(this);
+
+        this.NZ = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+
+        map.getObjectLayer('ToEnd').objects.forEach((NZ) => {
+            this.NZSprite = this.NZ.create(NZ.x , NZ.y - NZ.height, 'NZ').setOrigin(0).setVisible(false);
+        });
+        this.physics.add.overlap(this.player.player, this.NZ, this.ToEnd, null, this);
 
         this.Next = this.physics.add.group({
             allowGravity: false,
@@ -422,7 +434,7 @@ class boss extends Phaser.Scene {
         this.plan0 = map.createStaticLayer('Plan0', tileset);
         this.plan0.setCollisionByExclusion(-1, false);
 
-        this.anims.create({
+       this.anims.create({
             key: 'Grain',
             frames: [
                 {key:'Grain1'},
@@ -523,6 +535,15 @@ class boss extends Phaser.Scene {
             ease: 'Linear',
             repeat: 5,
         });
+    }
+
+    ToEnd(){
+        if (this.started){
+
+        } else {
+            this.scene.start('credits')
+            this.started = true ;
+        }
     }
 
 

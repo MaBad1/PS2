@@ -7,17 +7,12 @@ class Start extends Phaser.Scene {
 
         this.load.image('MainScreen', 'assets/images/UI/MainMenu.png');
         this.load.image('Play', 'assets/images/UI/Play.png');
-        this.load.image('PlayMO', 'assets/images/UI/PlayMO.png');
-        this.load.image('PlayClick', 'assets/images/UI/PlayClick.png');
         this.load.image('Quit', 'assets/images/UI/Quit.png');
-        this.load.image('QuitMO', 'assets/images/UI/QuitMO.png');
-        this.load.image('QuitClick', 'assets/images/UI/QuitClick.png');
         this.load.image('Options', 'assets/images/UI/Options.png');
-        this.load.image('OptionsMO', 'assets/images/UI/OptionsMO.png');
-        this.load.image('OptionsClick', 'assets/images/UI/OptionsClick.png');
         this.load.image('Credits', 'assets/images/UI/Credits.png');
-        this.load.image('CreditsMO', 'assets/images/UI/CreditsMO.png');
-        this.load.image('CreditsClick', 'assets/images/UI/CreditsClick.png');
+        this.load.image('Credits3', 'assets/images/UI/CreditsNoms.png');
+        this.load.image('MenuB', 'assets/images/UI/MenuButt.png');
+
 
     }
 
@@ -74,7 +69,13 @@ class Start extends Phaser.Scene {
             .setOrigin(0,0)
             .setInteractive()
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
-                this.scene.start('boss')
+                this.buttonStart.disableInteractive();
+                this.buttonOptions.disableInteractive();
+                this.buttonCredits.disableInteractive();
+                this.buttonQuit.disableInteractive();
+                this.buttonMenu.setInteractive();
+                this.buttonMenuSprite.setVisible(true);
+                this.creditsN.setVisible(true);
             })
             .on('pointerover',function(){
                 buttonCreditsSprite.setAlpha(1);
@@ -87,7 +88,7 @@ class Start extends Phaser.Scene {
             .setOrigin(0,0)
             .setInteractive()
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
-                this.scene.start('game')
+                this.scene.start('boss')
             })
             .on('pointerover',function(){
                 buttonQuitSprite.setAlpha(1);
@@ -95,6 +96,34 @@ class Start extends Phaser.Scene {
             .on('pointerout',function(){
                 buttonQuitSprite.setAlpha(0.7);
             })
+
+        this.creditsN = this.add.image(320, 120, 'Credits3').setOrigin(0, 0).setVisible(false);
+
+        this.buttonMenuSprite = this.add.image(1350, 770, 'MenuB')
+            .setOrigin(0, 0)
+            .setScale(1)
+            .setAlpha(0.7)
+            .setVisible(false);
+
+        this.buttonMenu = this.add.rectangle(this.buttonMenuSprite.x, this.buttonMenuSprite.y,350,150,0xffffff,0)
+            .setOrigin(0,0)
+            .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
+                this.creditsN.visible = false;
+                this.buttonStart.setInteractive();
+                this.buttonOptions.setInteractive();
+                this.buttonCredits.setInteractive();
+                this.buttonQuit.setInteractive();
+                this.buttonMenu.disableInteractive();
+                this.buttonMenuSprite.setVisible(false);
+            })
+            .on('pointerover',function(){
+                this.buttonMenuSprite.setAlpha(1);
+            })
+            .on('pointerout',function(){
+                this.buttonMenuSprite.setAlpha(0.7);
+            })
+
+
     }
 
 

@@ -56,6 +56,29 @@
         }, 
         {
          "draworder":"topdown",
+         "id":37,
+         "name":"ToEnd",
+         "objects":[
+                {
+                 "gid":977,
+                 "height":400,
+                 "id":199,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":30,
+                 "x":12770.3333333333,
+                 "y":554.666666666667
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":23,
          "name":"NextCam1",
          "objects":[
@@ -1759,18 +1782,6 @@
                  "width":140,
                  "x":10175.4545454545,
                  "y":197.272727272727
-                }, 
-                {
-                 "gid":972,
-                 "height":140,
-                 "id":157,
-                 "name":"6",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":140,
-                 "x":10951.2121212121,
-                 "y":515.454545454545
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2727,11 +2738,11 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":37,
- "nextobjectid":199,
+ "nextlayerid":38,
+ "nextobjectid":200,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.7.2",
+ "tiledversion":"1.8.2",
  "tileheight":64,
  "tilesets":[
         {
@@ -2772,7 +2783,7 @@
          "margin":0,
          "name":"objects",
          "spacing":0,
-         "tilecount":14,
+         "tilecount":15,
          "tileheight":768,
          "tiles":[
                 {
@@ -2858,11 +2869,17 @@
                  "image":"..\/images\/Acti.png",
                  "imageheight":768,
                  "imagewidth":64
+                }, 
+                {
+                 "id":16,
+                 "image":"..\/images\/NextZone.png",
+                 "imageheight":400,
+                 "imagewidth":30
                 }],
          "tilewidth":152
         }],
  "tilewidth":64,
  "type":"map",
- "version":"1.6",
+ "version":"1.8",
  "width":200
 }
