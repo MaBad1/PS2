@@ -4,7 +4,7 @@ class Player {
     constructor(scene,tuto) {
         this.scene=scene;
         this.tuto=tuto;
-        this.player = this.scene.physics.add.sprite(100, 300, 'player');
+        this.player = this.scene.physics.add.sprite(100, 488, 'player');
         this.player.setDisplaySize(63,100);
         this.player.setBounce(0.1);
         this.player.setCollideWorldBounds(false);
