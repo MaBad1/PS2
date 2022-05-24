@@ -451,12 +451,12 @@ class scene extends Phaser.Scene {
         this.mainTheme1.loop = true;
         this.mainTheme1.play();
 
-        /**this.brandirsfx = this.sound.add('brandirsfx',{volume: 0.3});
+        this.brandirsfx = this.sound.add('brandirsfx',{volume: 0.3});
         this.walksfx = this.sound.add('walksfx',{volume: 0.3});
-        this.deathsfx = this.sound.add('deathsfx',{volume: 0.3});
+        //this.deathsfx = this.sound.add('deathsfx',{volume: 0.3});
         this.lampsfx = this.sound.add('lampsfx',{volume: 0.3});
-        this.FFsfx = this.sound.add('FFsfx',{volume: 0.3});
-        this.doorsfx = this.sound.add('doorsfx',{volume: 0.3});*/
+        //this.FFsfx = this.sound.add('FFsfx',{volume: 0.3});
+        this.doorsfx = this.sound.add('doorsfx',{volume: 0.3});
 
         this.back = new Boolean(false);
 
