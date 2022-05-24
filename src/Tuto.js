@@ -266,7 +266,10 @@ class tuto extends Phaser.Scene {
         this.CM0 = tuto.createStaticLayer('Cachemisere', tileset);
         this.CM0.setCollisionByExclusion(-1, false);
 
-        this.mainTheme0 = this.sound.add('MainTheme',{volume: 0.3}).play();
+        this.mainTheme0 = this.sound.add('MainTheme',{volume: 0.3});
+        this.mainTheme0.loop = true;
+        this.mainTheme0.play();
+
 
     }
 
@@ -313,6 +316,7 @@ class tuto extends Phaser.Scene {
         if (this.started){
 
         } else {
+            this.mainTheme0.stop();
             this.scene.start('game')
             this.started = true ;
         }

@@ -441,7 +441,9 @@ class scene extends Phaser.Scene {
         this.CM = map.createStaticLayer('Cachemisere', tileset);
         this.CM.setCollisionByExclusion(-1, false);
 
-        this.mainTheme = this.sound.add('MainTheme',{volume: 0.3}).play();
+        this.mainTheme1 = this.sound.add('MainTheme',{volume: 0.3});
+        this.mainTheme1.loop = true;
+        this.mainTheme1.play();
 
         this.back = new Boolean(false);
 
@@ -451,6 +453,7 @@ class scene extends Phaser.Scene {
         if (this.started){
 
         } else {
+            this.mainTheme1.stop();
             this.scene.start('boss')
             this.started = true ;
         }

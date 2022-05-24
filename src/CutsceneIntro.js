@@ -17,7 +17,9 @@ class cutIntro extends Phaser.Scene {
         this.video.setScale(0.7, 0.7);
         this.video.play();
 
-        this.mainTheme = this.sound.add('MainTheme',{volume: 0.3}).play();
+        this.mainTheme = this.sound.add('MainTheme',{volume: 0.3});
+        this.mainTheme.loop = true;
+        this.mainTheme.play();
 
         this.buttonSkipSprite = this.add.image(770, 800, 'Skip')
             .setOrigin(0, 0)
@@ -28,6 +30,7 @@ class cutIntro extends Phaser.Scene {
             .setOrigin(0,0)
             .setInteractive()
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
+                this.mainTheme.stop();
                 this.scene.start('tuto')
             })
             .on('pointerover',function(){
