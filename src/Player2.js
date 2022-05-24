@@ -26,6 +26,7 @@ class Player2 {
     }
     stop(){
         this.player2.setVelocityX(0);
+        this.player2.setVelocityY(0);
     }
 
 

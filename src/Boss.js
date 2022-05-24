@@ -1,7 +1,7 @@
-class scene extends Phaser.Scene {
+class boss extends Phaser.Scene {
 
     constructor() {
-        super('game');
+        super('boss');
     }
 
     preload() {
@@ -48,13 +48,12 @@ class scene extends Phaser.Scene {
 
 
         // Load the export Tiled JSON
-        this.load.tilemapTiledJSON('map1', 'assets/tilemaps/tableauTiled1.json');
+        this.load.tilemapTiledJSON('map2', 'assets/tilemaps/Boss.json');
     }
 
 
     create() {
-        this.started = false ;
-        this.mapKey = 'map1';
+        this.mapKey = 'map2';
 
         this.anims.create({
             key: 'trou',
@@ -78,7 +77,7 @@ class scene extends Phaser.Scene {
 
         const backgroundImage = this.add.image(0, 0, 'background').setOrigin(0, 0);
         backgroundImage.setScale(1, 0.8);
-        const map = this.make.tilemap({key: 'map1'});
+        const map = this.make.tilemap({key: 'map2'});
 
         const tileset = map.addTilesetImage('Tileset1', 'tiles');
         const tilesetAP = map.addTilesetImage('TilesetAP', 'tilesAP');
@@ -110,8 +109,6 @@ class scene extends Phaser.Scene {
 
         this.player = new Player(this);
         this.player2 = new Player2(this);
-        this.pelko = new Pelko(this);
-        this.pelko.pelko.play('pIdle',true);
 
         this.Next = this.physics.add.group({
             allowGravity: false,
@@ -334,24 +331,6 @@ class scene extends Phaser.Scene {
 
         this.cursors = this.input.keyboard.createCursorKeys();
 
-        this.FF = this.physics.add.group({
-            allowGravity: false,
-            immovable: true
-        });
-        map.getObjectLayer('FeuxFollets').objects.forEach((FF) => {
-            this.FFSprite = this.FF.create(FF.x , FF.y  - FF.height, 'FeuF').setOrigin(0).setScale(0.5);
-        });
-        this.physics.add.overlap(this.player.player, this.FF, this.player.getKey, null, this);
-
-
-        this.Cage = this.physics.add.group({
-            allowGravity: false,
-            immovable: true
-        });
-        map.getObjectLayer('Cages').objects.forEach((Cage) => {
-            this.CageSprite = this.Cage.create(Cage.x , Cage.y  - Cage.height, 'Cage').setOrigin(0);
-        });
-
         this.LampeOn = this.physics.add.group({
             allowGravity: false,
             immovable: true
@@ -394,20 +373,10 @@ class scene extends Phaser.Scene {
         this.pointCamera7.body.setAllowGravity(false);
         this.pointCamera7.setImmovable(true);
 
-        this.NZ = this.physics.add.group({
-            allowGravity: false,
-            immovable: true
-        });
-
-        map.getObjectLayer('ToBoss').objects.forEach((NZ) => {
-            this.NZSprite = this.NZ.create(NZ.x , NZ.y - NZ.height, 'NZ').setOrigin(0).setVisible(false);
-        });
-        this.physics.add.overlap(this.player.player, this.NZ, this.NextZone2, null, this);
-
-        this.piquesP3 = map.createStaticLayer('piquesP3', tilesetAP);
+        this.piquesP3 = map.createStaticLayer('PiquesP3', tilesetAP);
         this.piquesP3.setCollisionByExclusion(-1, false);
 
-        this.piquesP2 = map.createStaticLayer('piquesP2', tilesetAP);
+        this.piquesP2 = map.createStaticLayer('PiquesP2', tilesetAP);
         this.piquesP2.setCollisionByExclusion(-1, false);
 
         this.plan1 = map.createStaticLayer('Plan1', tileset);
@@ -447,14 +416,6 @@ class scene extends Phaser.Scene {
 
     }
 
-    NextZone2(){
-        if (this.started){
-
-        } else {
-            this.scene.start('boss')
-            this.started = true ;
-        }
-    }
 
     sauvegarde(player, saves) {
         console.log("current", this.currentSaveX, this.currentSaveY)
