@@ -13,20 +13,10 @@ class Pelko {
             key: 'pIdle',
             frames: this.scene.anims.generateFrameNames('pIdle', {
                 start: 0,
-                end: 4,
+                end: 3,
             }),
             frameRate: 5,
             repeat: -1
-        });
-        this.scene.anims.create({
-            key: 'pAtk',
-            frames: this.scene.anims.generateFrameNames('pAtk', {
-                start: 0,
-                end: 4,
-            }),
-            frameRate: 10,
-            repeat:1,
-            showOnStart: true
         });
 
     }

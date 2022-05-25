@@ -17,7 +17,7 @@ class Player {
             key: 'walk',
             frames: this.scene.anims.generateFrameNames('walk', {
                 start: 0,
-                end: 8,
+                end: 7,
             }),
             frameRate: 10,
             repeat: -1
@@ -26,7 +26,7 @@ class Player {
             key: 'idle',
             frames: this.scene.anims.generateFrameNames('idle', {
                 start: 0,
-                end: 4,
+                end: 3,
             }),
             frameRate: 6,
             repeat: -1
@@ -35,7 +35,7 @@ class Player {
             key: 'jump',
             frames: this.scene.anims.generateFrameNames('jump', {
                 start: 0,
-                end: 6,
+                end: 5,
             }),
             frameRate: 10,
             repeat:0,
@@ -44,7 +44,7 @@ class Player {
             key: 'brandir',
             frames: this.scene.anims.generateFrameNames('brandir', {
                 start: 0,
-                end: 4,
+                end: 3,
             }),
             frameRate: 6,
             repeat: -1

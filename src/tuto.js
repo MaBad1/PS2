@@ -64,7 +64,7 @@ class Tuto extends Phaser.Scene {
             key: 'trou',
             frames: this.anims.generateFrameNames('trou', {
                 start: 0,
-                end: 19,
+                end: 18,
             }),
             frameRate: 10,
             repeat:-1,
@@ -74,7 +74,7 @@ class Tuto extends Phaser.Scene {
             key: 'Lampfx',
             frames: this.anims.generateFrameNames('Lampfx', {
                 start: 0,
-                end: 4,
+                end: 3,
             }),
             frameRate: 10,
             repeat:-1,
