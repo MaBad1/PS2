@@ -10,6 +10,7 @@ class Player {
         this.player.setCollideWorldBounds(false);
         this.scene.physics.add.collider(this.player, this.scene.platforms);
         this.player.compteur = 0;
+        this.player.death = 0;
         this.player.back = true;
 
        this.scene.anims.create({
@@ -51,7 +52,7 @@ class Player {
     }
 
     getKey(player,FF){
-        this.player.player.compteur+=1
+        this.player.compteur+=1
         FF.body.enable=false
         FF.visible=false
         //this.scene.FFsfx.play();
