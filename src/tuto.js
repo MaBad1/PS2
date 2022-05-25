@@ -39,10 +39,10 @@ class Tuto extends Phaser.Scene {
         this.load.spritesheet('trou','assets/images/anim/trou.png',{frameWidth: 150, frameHeight: 150});
         this.load.spritesheet('Lampfx','assets/images/anim/fxlamp.png',{frameWidth: 192, frameHeight: 192});
 
-        /**this.load.image('Grain1', 'assets/images/anim/Grain/Bruit1.png');
+        this.load.image('Grain1', 'assets/images/anim/Grain/Bruit1.png');
         this.load.image('Grain2', 'assets/images/anim/Grain/Bruit2.png');
         this.load.image('Grain3', 'assets/images/anim/Grain/Bruit3.png');
-        this.load.image('Grain4', 'assets/images/anim/Grain/Bruit4.png');*/
+        this.load.image('Grain4', 'assets/images/anim/Grain/Bruit4.png');
 
         this.load.audio('MainTheme', 'assets/sounds/LevelMusic.mp3');
         this.load.audio('brandirsfx', 'assets/sounds/brandir.ogg');
@@ -247,7 +247,7 @@ class Tuto extends Phaser.Scene {
         this.plan00 = tuto.createStaticLayer('Plan0', tileset);
         this.plan00.setCollisionByExclusion(-1, false);
 
-        /**this.anims.create({
+        this.anims.create({
             key: 'Grain',
             frames: [
                 {key:'Grain1'},
@@ -257,7 +257,7 @@ class Tuto extends Phaser.Scene {
             ],
             frameRate: 10,
             repeat: -1
-        });*/
+        });
 
         this.Locator0 = this.physics.add.group({
             allowGravity: false,
