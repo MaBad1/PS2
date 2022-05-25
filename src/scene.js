@@ -29,6 +29,7 @@ class scene extends Phaser.Scene {
         this.load.image('LampFx', 'assets/images/LampFx.png');
         this.load.image('Locator', 'assets/images/BG.png');
         this.load.image('pelko', 'assets/images/Pelko.png');
+        this.load.image('NZ', 'assets/images/NextZone.png');
 
         this.load.audio('MainTheme', 'assets/sounds/LevelMusic.mp3');
         this.load.audio('brandirsfx', 'assets/sounds/brandir.ogg');
@@ -467,7 +468,7 @@ class scene extends Phaser.Scene {
 
         } else {
             this.mainTheme1.stop();
-            this.scene.start('boss')
+            this.scene.start('cutscene2')
             this.started = true ;
         }
     }
