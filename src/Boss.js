@@ -48,6 +48,8 @@ class boss extends Phaser.Scene {
         this.load.spritesheet('Lampfx','assets/images/anim/fxlamp.png',{frameWidth: 192, frameHeight: 192});
         this.load.spritesheet('pIdle','assets/images/anim/pIdle.png',{frameWidth: 160, frameHeight: 180});
         this.load.spritesheet('pAtk','assets/images/anim/pAtk.png',{frameWidth: 160, frameHeight: 180});
+        this.load.spritesheet('pApp','assets/images/anim/pApp.png',{frameWidth: 160, frameHeight: 180});
+        this.load.spritesheet('pDis','assets/images/anim/pDis.png',{frameWidth: 160, frameHeight: 180});
 
         this.load.image('Grain1', 'assets/images/anim/Grain/Bruit1.png');
         this.load.image('Grain2', 'assets/images/anim/Grain/Bruit2.png');
@@ -89,6 +91,30 @@ class boss extends Phaser.Scene {
             frames: this.anims.generateFrameNames('pAtk', {
                 start: 0,
                 end: 4,
+            }),
+            frameRate: 7,
+            repeat:0,
+            showOnStart: true,
+            hideOnComplete: true
+        });
+
+        this.anims.create({
+            key: 'pApp',
+            frames: this.anims.generateFrameNames('pApp', {
+                start: 0,
+                end: 8,
+            }),
+            frameRate: 7,
+            repeat:0,
+            showOnStart: true,
+            hideOnComplete: true
+        });
+
+        this.anims.create({
+            key: 'pDis',
+            frames: this.anims.generateFrameNames('pDis', {
+                start: 0,
+                end: 8,
             }),
             frameRate: 7,
             repeat:0,

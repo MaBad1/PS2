@@ -24,12 +24,12 @@ class Start extends Phaser.Scene {
             .setScale(1)
             .setAlpha(0.7);
 
-        const buttonOptionSprite = this.add.image(930, 550, 'Options')
+        const buttonOptionSprite = this.add.image(700, 550, 'Options')
             .setOrigin(0, 0)
             .setScale(1)
             .setAlpha(0.7);
 
-        const buttonCreditsSprite = this.add.image(930, 700, 'Credits')
+        const buttonCreditsSprite = this.add.image(890, 700, 'Credits')
             .setOrigin(0, 0)
             .setScale(1)
             .setAlpha(0.7);

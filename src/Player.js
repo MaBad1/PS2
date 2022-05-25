@@ -71,7 +71,7 @@ class Player {
     moveLeft(){
         this.player.setVelocityX(-300);
         if (this.player.body.onFloor()) {
-            this.scene.walksfx.play();
+            //this.scene.walksfx.play();
             this.player.play('walk', true)}
         this.player.setFlipX(true);
     }
