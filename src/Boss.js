@@ -93,9 +93,9 @@ class boss extends Phaser.Scene {
                 end: 4,
             }),
             frameRate: 7,
-            repeat:0,
+            repeat:1,
             showOnStart: true,
-            hideOnComplete: true
+            hideOnComplete: false
         });
 
         this.anims.create({
