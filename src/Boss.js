@@ -1,7 +1,7 @@
 class boss extends Phaser.Scene {
 
     constructor() {
-        super('boss');
+        super('Boss');
     }
 
     preload() {

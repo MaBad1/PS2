@@ -426,7 +426,7 @@
                  "gid":990,
                  "height":132,
                  "id":37,
-                 "name":"",
+                 "name":"19",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -459,7 +459,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -585,7 +585,7 @@
  "nextobjectid":38,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.7.2",
+ "tiledversion":"1.8.2",
  "tileheight":64,
  "tilesets":[
         {
@@ -795,6 +795,6 @@
         }],
  "tilewidth":64,
  "type":"map",
- "version":"1.6",
+ "version":"1.8",
  "width":60
 }

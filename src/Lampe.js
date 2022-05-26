@@ -1,9 +1,10 @@
 class Lampe{
-    constructor(scene, player2, gate, gateO) {
+    constructor(scene, player2, gate, gateO,lampFx) {
         this.scene = scene;
         this.player2 = player2;
         this.gate = gate;
         this.gateO = gateO;
+        this.lampFx = lampFx;
 
         const map = this.scene.make.tilemap({key: this.scene.mapKey});
 
@@ -32,6 +33,11 @@ class Lampe{
                 this.gateO.GateO.getChildren()[i].visible = true;
             }
         }
+        /**for (var i = 0; i < this.lampFx.LampFx.getChildren().length; i++) {
+            if (lampe.nom === this.lampFx.LampFx.getChildren()[i].nom) {
+                this.lampFx.LampFx.getChildren()[i].visible = true;
+            }
+        }*/
         //this.scene.lampsfx.play();
         //this.scene.doorsfx.play()
     }

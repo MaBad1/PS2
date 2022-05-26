@@ -31,7 +31,7 @@ class cutBoss extends Phaser.Scene {
             .setInteractive()
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
                 this.mainTheme.stop();
-                this.scene.start('boss')
+                this.scene.start('Boss')
             })
             .on('pointerover',function(){
                 this.buttonSkipSprite.setAlpha(1);
