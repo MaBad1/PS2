@@ -49,7 +49,7 @@ class scene extends Phaser.Scene {
         this.load.spritesheet('pAtk','assets/images/anim/pAtk.png',{frameWidth: 160, frameHeight: 180});
 
         this.load.image('Grain1', 'assets/images/anim/Grain/Bruit1.png');
-        this.load.image('Grain2', 'assets/images/anim/Grain/Bruit2.png');
+        //this.load.image('Grain2', 'assets/images/anim/Grain/Bruit2.png');
         this.load.image('Grain3', 'assets/images/anim/Grain/Bruit3.png');
         this.load.image('Grain4', 'assets/images/anim/Grain/Bruit4.png');
 
@@ -427,7 +427,7 @@ class scene extends Phaser.Scene {
             key: 'Grain',
             frames: [
                 {key:'Grain1'},
-                {key:'Grain2'},
+                //{key:'Grain2'},
                 {key:'Grain3'},
                 {key:'Grain4'},
             ],
@@ -539,6 +539,7 @@ class scene extends Phaser.Scene {
 
 
     update() {
+        console.log(this.player.player.compteur);
 
         this.player.move();
 

@@ -52,7 +52,7 @@ class Player {
     }
 
     getKey(player,FF){
-        this.player.compteur+=1
+        this.player.player.compteur+=1
         FF.body.enable=false
         FF.visible=false
         //this.scene.FFsfx.play();

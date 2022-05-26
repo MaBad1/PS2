@@ -52,7 +52,7 @@ class boss extends Phaser.Scene {
         this.load.spritesheet('pDis','assets/images/anim/pDis.png',{frameWidth: 160, frameHeight: 180});
 
         this.load.image('Grain1', 'assets/images/anim/Grain/Bruit1.png');
-        this.load.image('Grain2', 'assets/images/anim/Grain/Bruit2.png');
+        //this.load.image('Grain2', 'assets/images/anim/Grain/Bruit2.png');
         this.load.image('Grain3', 'assets/images/anim/Grain/Bruit3.png');
         this.load.image('Grain4', 'assets/images/anim/Grain/Bruit4.png');
 
@@ -470,7 +470,7 @@ class boss extends Phaser.Scene {
             key: 'Grain',
             frames: [
                 {key:'Grain1'},
-                {key:'Grain2'},
+                //{key:'Grain2'},
                 {key:'Grain3'},
                 {key:'Grain4'},
             ],

@@ -40,7 +40,7 @@ class Tuto extends Phaser.Scene {
         this.load.spritesheet('Lampfx','assets/images/anim/fxlamp.png',{frameWidth: 192, frameHeight: 192});
 
         this.load.image('Grain1', 'assets/images/anim/Grain/Bruit1.png');
-        this.load.image('Grain2', 'assets/images/anim/Grain/Bruit2.png');
+        //this.load.image('Grain2', 'assets/images/anim/Grain/Bruit2.png');
         this.load.image('Grain3', 'assets/images/anim/Grain/Bruit3.png');
         this.load.image('Grain4', 'assets/images/anim/Grain/Bruit4.png');
 
@@ -251,7 +251,7 @@ class Tuto extends Phaser.Scene {
             key: 'Grain',
             frames: [
                 {key:'Grain1'},
-                {key:'Grain2'},
+                //{key:'Grain2'},
                 {key:'Grain3'},
                 {key:'Grain4'},
             ],
@@ -343,6 +343,7 @@ class Tuto extends Phaser.Scene {
     }
 
     update() {
+        console.log(this.player.player.compteur);
         this.player.move();
 
         this.player2.move();
