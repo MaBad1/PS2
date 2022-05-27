@@ -12,6 +12,7 @@ class Start extends Phaser.Scene {
         this.load.image('Credits', 'assets/images/UI/Credits.png');
         this.load.image('Credits3', 'assets/images/UI/CreditsNoms.png');
         this.load.image('MenuB', 'assets/images/UI/MenuButt.png');
+        this.load.image('Line', 'assets/images/UI/Line.png');
 
 
     }
@@ -39,6 +40,26 @@ class Start extends Phaser.Scene {
             .setScale(1)
             .setAlpha(0.7);
 
+        this.line1 =this.add.image(930, 420, 'Line')
+            .setOrigin(0, 0)
+            .setScale(1)
+            .setVisible(false);
+
+        this.line2 =this.add.image(930, 570, 'Line')
+            .setOrigin(0, 0)
+            .setScale(1)
+            .setVisible(false);
+
+        this.line3 =this.add.image(930, 720, 'Line')
+            .setOrigin(0, 0)
+            .setScale(1)
+            .setVisible(false);
+
+        this.line4 =this.add.image(930, 870, 'Line')
+            .setOrigin(0, 0)
+            .setScale(1)
+            .setVisible(false);
+
         this.buttonStart = this.add.rectangle(buttonStartSprite.x, buttonStartSprite.y,350,100,0xffffff,0)
             .setOrigin(0,0)
             .setInteractive()
@@ -47,6 +68,7 @@ class Start extends Phaser.Scene {
             })
             .on('pointerover',function(){
                 buttonStartSprite.setAlpha(1);
+                this.line1.setVisible(true);
             })
             .on('pointerout',function(){
                 buttonStartSprite.setAlpha(0.7);
@@ -60,6 +82,7 @@ class Start extends Phaser.Scene {
             })
             .on('pointerover',function(){
                 buttonOptionSprite.setAlpha(1);
+                this.line2.setVisible(true);
             })
             .on('pointerout',function(){
                 buttonOptionSprite.setAlpha(0.7);
@@ -79,6 +102,7 @@ class Start extends Phaser.Scene {
             })
             .on('pointerover',function(){
                 buttonCreditsSprite.setAlpha(1);
+                this.line3.setVisible(true);
             })
             .on('pointerout',function(){
                 buttonCreditsSprite.setAlpha(0.7);
@@ -92,6 +116,7 @@ class Start extends Phaser.Scene {
             })
             .on('pointerover',function(){
                 buttonQuitSprite.setAlpha(1);
+                this.line4.setVisible(true);
             })
             .on('pointerout',function(){
                 buttonQuitSprite.setAlpha(0.7);
