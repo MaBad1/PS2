@@ -349,6 +349,16 @@ class Tuto extends Phaser.Scene {
 
         this.player2.move();
 
+        this.isolap = this.physics.overlap(this.player2.player2, this.lampe.lampe) ? true : false;
+
+        switch (true){
+            case this.isolap === true:
+                this.physics.add.overlap(this.player2.player2, this.lampe.lampe,this.lampe.LampeAct, null, Lampe);
+                break;
+            case this.isolap === false:
+                this.physics.add.overlap(this.player2.player2, this.lampe.lampe,this.lampe.LampeDes, null, Lampe);
+                break;
+        }
 
         if(this.player.player.back === false){
             switch (true) {

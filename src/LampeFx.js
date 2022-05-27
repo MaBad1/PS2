@@ -10,9 +10,10 @@ class LampeFx {
             immovable: true
         });
         map.getObjectLayer('LampFx').objects.forEach((LampFx) => {
-            this.LampFxSprite = this.LampFx.create(LampFx.x - 30, LampFx.y - 25 - LampFx.height, 'LampFx').setOrigin(0).setVisible(false);
+            this.LampFxSprite = this.scene.physics.add.sprite(LampFx.x - 30, LampFx.y - 25 - LampFx.height, 'LampFx').setOrigin(0).setVisible(false);
             this.LampFxSprite.play('Lampfx');
-            this.LampFxSprite.nom = LampFx.name;
+            this.LampFxSprite.name = LampFx.name;
+            this.LampFx.add(this.LampFxSprite);
         });
 
     }

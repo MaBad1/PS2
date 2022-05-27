@@ -9,8 +9,9 @@ class GateOpen{
             immovable: true
         });
         map.getObjectLayer('GateOpen').objects.forEach((GateO) => {
-            this.GateOSprite = this.GateO.create(GateO.x, GateO.y-GateO.height, 'GateO').setOrigin(0).setVisible(false);
-            this.GateOSprite.nom = GateO.name;
+            this.GateOSprite = this.scene.physics.add.sprite(GateO.x, GateO.y-GateO.height, 'GateO').setOrigin(0).setVisible(false);
+            this.GateOSprite.name = GateO.name;
+            this.GateO.add(this.GateOSprite);
         });
 
     }
