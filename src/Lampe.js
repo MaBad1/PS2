@@ -33,13 +33,12 @@ class Lampe{
                 this.gateO.GateO.getChildren()[i].visible = true;
             }
         }
-        /**for (var i = 0; i < this.lampFx.LampFx.getChildren().length; i++) {
+        for (var i = 0; i < this.lampFx.LampFx.getChildren().length; i++) {
             if (lampe.nom === this.lampFx.LampFx.getChildren()[i].nom) {
                 this.lampFx.LampFx.getChildren()[i].visible = true;
             }
-        }*/
+        }
         //this.scene.lampsfx.play();
         //this.scene.doorsfx.play()
     }
-
-}
+    }

@@ -219,12 +219,13 @@ class Tuto extends Phaser.Scene {
             this.LampeOn0Sprite = this.LampeOn0.create(LampeOn0.x, LampeOn0.y- LampeOn0.height, 'LampeOn').setOrigin(0);
         });
 
-        this.gate0 = new Gate(this,this.player,this.player2);
-        this.gateOpen0 = new GateOpen(this);
+        this.gate = new Gate(this,this.player,this.player2);
+        this.gateOpen = new GateOpen(this);
+        this.LampeFx = new LampeFx(this);
 
-        this.lampe0 = new Lampe(this,this.player2, this.gate0, this.gateOpen0);
+        this.lampe = new Lampe(this,this.player2, this.gate, this.gateOpen, this.LampeFx);
 
-        this.LampeFx0 = new LampeFx(this,this.player2);
+
 
         this.pointCamera0 = this.physics.add.sprite(960,384);
         this.pointCamera0.body.setAllowGravity(false);

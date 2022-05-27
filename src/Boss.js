@@ -405,10 +405,10 @@ class boss extends Phaser.Scene {
 
         this.gate = new Gate(this,this.player,this.player2);
         this.gateOpen = new GateOpen(this);
+        this.LampeFx = new LampeFx(this);
+        this.lampe = new Lampe(this,this.player2, this.gate, this.gateOpen, this.LampeFx);
 
-        this.lampe = new Lampe(this,this.player2, this.gate, this.gateOpen);
 
-        this.LampeFx = new LampeFx(this,this.player2);
 
 
         this.pointCamera = this.physics.add.sprite(960,384);
