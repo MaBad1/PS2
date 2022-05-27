@@ -9,10 +9,28 @@ class GateOpen{
             immovable: true
         });
         map.getObjectLayer('GateOpen').objects.forEach((GateO) => {
-            this.GateOSprite = this.scene.physics.add.sprite(GateO.x, GateO.y-GateO.height, 'GateO').setOrigin(0).setVisible(false);
+            this.GateOSprite = this.GateO.create(GateO.x, GateO.y-GateO.height, 'GateO').setOrigin(0).setVisible(false);
             this.GateOSprite.name = GateO.name;
-            this.GateO.add(this.GateOSprite);
-        });
+        })
+        this.emitter=EventDispatcher.getInstance();
+        this.emitter.on('hide doorO',this.HideDoorO,this);
+        this.emitter.on('show doorO',this.ShowDoorO,this);
 
+    }
+
+    ShowDoorO(){
+        for (var i = 0; i < this.GateO.length; i++) {
+            if (this.scene.lampe.name === this.GateO[i].name) {
+                this.GateO[i].visible = true;
+            }
+        }
+    }
+
+    HideDoorO(){
+        for (var i = 0; i < this.GateO.length; i++) {
+            if (this.scene.lampe.name === this.GateO[i].name) {
+                this.GateO[i].visible = false;
+            }
+        }
     }
 }

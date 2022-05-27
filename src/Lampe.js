@@ -1,10 +1,6 @@
 class Lampe{
     constructor(scene, player2, gate, gateO,lampFx) {
         this.scene = scene;
-        this.player2 = player2;
-        this.gate = gate;
-        this.gateO = gateO;
-        this.lampFx = lampFx;
 
         const map = this.scene.make.tilemap({key: this.scene.mapKey});
 
@@ -13,16 +9,19 @@ class Lampe{
             immovable: true
         });
         map.getObjectLayer('Lampes').objects.forEach((Lampe) => {
-            this.LampeSprite = this.scene.physics.add.sprite(Lampe.x, Lampe.y- Lampe.height, 'Lampe').setOrigin(0);
+            this.LampeSprite = this.lampe.create(Lampe.x, Lampe.y- Lampe.height, 'Lampe').setOrigin(0);
             this.LampeSprite.name = Lampe.name;
-            this.lampe.add(this.LampeSprite);
         });
             //this.scene.physics.add.overlap(this.player2.player2,this.lampe, null, this);
+        this.emitter=EventDispatcher.getInstance();
+
+        this.emitter.on('hide lamp',this.LampeAct,this);
+        this.emitter.on('show lamp',this.LampeDes,this);
     }
 
 
     LampeAct(player2, lampe){
-        console.log(this.gate.Gate)
+        this.LampeSprite.visible = false;
         // for (var i = 0; i < this.gate.Gate.length-1; i++) {
         //     if (lampe.name === this.gate.Gate[i].name) {
         //         this.gate.Gate[i].setvisible = false;
@@ -46,7 +45,7 @@ class Lampe{
     }
 
     LampeDes(player2, lampe){
-        console.log(this.gate.Gate)
+        this.LampeSprite.visible = true;
         // for (var i = 0; i < this.gate.Gate.length; i++) {
         //     if (lampe.name === this.gate.Gate[i].name) {
         //         this.gate.Gate[i].visible = true;
@@ -68,17 +67,5 @@ class Lampe{
         //this.scene.doorsfx.play()
 
     }
-    /**update() {
 
-        this.isolap = this.scene.physics.overlap(this.scene.player2.player2, this.lampe) ? true : false;
-
-        switch (true) {
-            case this.isolap === true:
-                this.LampeAct();
-                break;
-            case this.isolap === false:
-                this.LampeDes();
-                break;
-        }
-    }*/
     }

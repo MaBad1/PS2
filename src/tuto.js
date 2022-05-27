@@ -223,7 +223,7 @@ class Tuto extends Phaser.Scene {
         this.gateOpen = new GateOpen(this);
         this.LampeFx = new LampeFx(this);
 
-        this.lampe = new Lampe(this,this.player2, this.gate, this.gateOpen, this.LampeFx);
+        this.lampe = new Lampe(this);
 
 
 
@@ -283,6 +283,8 @@ class Tuto extends Phaser.Scene {
         this.lampsfx = this.sound.add('lampsfx',{volume: 0.3});
         //this.FFsfx = this.sound.add('FFsfx',{volume: 0.3});
         this.doorsfx = this.sound.add('doorsfx',{volume: 0.3});
+
+        this.emitter=EventDispatcher.getInstance();
     }
 
     sauvegarde(player, saves) {
@@ -353,10 +355,16 @@ class Tuto extends Phaser.Scene {
 
         switch (true){
             case this.isolap === true:
-                this.physics.add.overlap(this.player2.player2, this.lampe.lampe,this.lampe.LampeAct, null, Lampe);
+                this.emitter.emit('hide door')
+                this.emitter.emit('show doorO')
+                this.emitter.emit('hide lamp')
+                this.emitter.emit('show lampFx')
                 break;
             case this.isolap === false:
-                this.physics.add.overlap(this.player2.player2, this.lampe.lampe,this.lampe.LampeDes, null, Lampe);
+                this.emitter.emit('show door')
+                this.emitter.emit('hide doorO')
+                this.emitter.emit('show lamp')
+                this.emitter.emit('hide lampFx')
                 break;
         }
 

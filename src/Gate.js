@@ -11,12 +11,39 @@ class Gate{
             immovable: true
         });
         map.getObjectLayer('Gates').objects.forEach((Gate) => {
-            this.GateSprite = this.scene.physics.add.sprite(Gate.x, Gate.y-Gate.height, 'Gate').setOrigin(0);
+            this.GateSprite = this.Gate.create(Gate.x, Gate.y-Gate.height, 'Gate').setOrigin(0);
             this.GateSprite.name = Gate.name;
-            this.Gate.add(this.GateSprite);
         });
         this.scene.physics.add.collider(this.player.player, this.Gate);
         this.scene.physics.add.collider(this.player2.player2, this.Gate);
+
+        this.emitter=EventDispatcher.getInstance();
+        this.emitter.on('hide door',this.HideDoor,this);
+        this.emitter.on('show door',this.ShowDoor,this);
+    }
+
+    ShowDoor(){
+        console.log('on');
+        for (var i = 0; i < this.Gate.length; i++) {
+            if (this.scene.lampe.name === this.Gate.getChildren()[i].name) {
+                this.Gate.getChildren()[i].visible = true;
+                this.Gate.getChildren()[i].body.enable = true;
+            }
+        }
+        console.log(this.Gate.getChildren()[i]);
+        console.log(this.scene.lampe);
+    }
+
+    HideDoor(){
+        console.log('off');
+        for (var i = 0; i < this.Gate.length; i++) {
+            if (this.scene.lampe.name === this.Gate.getChildren()[i].name) {
+                this.Gate.getChildren()[i].visible = false;
+                this.Gate.getChildren()[i].body.enable = false;
+            }
+        }
+        console.log(this.Gate.getChildren()[i]);
+        console.log(this.scene.lampe);
 
     }
 }

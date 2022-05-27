@@ -10,12 +10,31 @@ class LampeFx {
             immovable: true
         });
         map.getObjectLayer('LampFx').objects.forEach((LampFx) => {
-            this.LampFxSprite = this.scene.physics.add.sprite(LampFx.x - 30, LampFx.y - 25 - LampFx.height, 'LampFx').setOrigin(0).setVisible(false);
+            this.LampFxSprite = this.LampFx.create(LampFx.x - 30, LampFx.y - 25 - LampFx.height, 'LampFx').setOrigin(0).setVisible(false);
             this.LampFxSprite.play('Lampfx');
             this.LampFxSprite.name = LampFx.name;
-            this.LampFx.add(this.LampFxSprite);
+
+            this.emitter=EventDispatcher.getInstance();
+            this.emitter.on('hide lampFx',this.HideLampFx,this);
+            this.emitter.on('show lampFx',this.ShowLampFx,this);
         });
 
+    }
+
+    ShowLampFx(){
+        for (var i = 0; i < this.LampFx.length; i++) {
+            if (this.scene.lampe.name === this.LampFx[i].name) {
+                this.LampFx[i].visible = true;
+            }
+        }
+    }
+
+    HideLampFx(){
+        for (var i = 0; i < this.LampFx.length; i++) {
+            if (this.scene.lampe.name === this.LampFx[i].name) {
+                this.LampFx[i].visible = false;
+            }
+        }
     }
 
 }
