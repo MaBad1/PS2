@@ -294,7 +294,7 @@ class Tuto extends Phaser.Scene {
     }
 
     playerHit(player, Death) {
-        this.player.player.death+=1;
+        window.death+=1;
         player.setVelocity(0, 0);
         player.x = this.currentSaveX
         player.y = this.currentSaveY;
@@ -344,7 +344,8 @@ class Tuto extends Phaser.Scene {
     }
 
     update() {
-        console.log(this.player.player.compteur);
+        console.log(window.death);
+        console.log(window.compteur);
         this.player.move();
 
         this.player2.move();

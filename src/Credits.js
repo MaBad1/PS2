@@ -15,11 +15,17 @@ class credits extends Phaser.Scene {
     }
 
     create() {
+
         const back = this.add.image(0, 0, 'MainScreen').setOrigin(0, 0);
 
         this.credits1 = this.add.image(320, 120, 'Credits1').setOrigin(0, 0).setVisible(true);
         this.credits2 = this.add.image(315, 115, 'Credits2').setOrigin(0, 0).setVisible(false);
         this.credits3 = this.add.image(320, 120, 'Credits3').setOrigin(0, 0).setVisible(false);
+        this.deathOv = this.add.text(1000, 550, window.death, { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif', fontSize: 50 });
+        this.comptOv = this.add.text(1000, 425, window.compteur + '/7', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif', fontSize: 50 });
+        this.deathOv.setVisible(false);
+        this.comptOv.setVisible(false);
+
 
         this.buttonNextSprite = this.add.image(1440, 770, 'NextB')
             .setOrigin(0, 0)
@@ -33,6 +39,8 @@ class credits extends Phaser.Scene {
                 .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
                     this.credits1.visible = false;
                     this.credits2.visible = true;
+                    this.comptOv.visible = true;
+                    this.deathOv.visible = true;
                     this.buttonNext.disableInteractive();
                     this.buttonNext2.setInteractive();
                     this.buttonNextSprite.setVisible(false);
@@ -55,6 +63,8 @@ class credits extends Phaser.Scene {
             .setOrigin(0,0)
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
                 this.credits2.visible = false;
+                this.comptOv.visible = false;
+                this.deathOv.visible = false;
                 this.credits3.visible = true;
                 this.buttonNext2.disableInteractive();
                 this.buttonMenu.setInteractive();
