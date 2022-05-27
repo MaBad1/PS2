@@ -1,6 +1,10 @@
 class Lampe{
     constructor(scene, player2, gate, gateO,lampFx) {
         this.scene = scene;
+        this.player2 = player2;
+        this.gate = gate;
+        this.gateO = gateO;
+        this.lampFx= lampFx;
 
         const map = this.scene.make.tilemap({key: this.scene.mapKey});
 
