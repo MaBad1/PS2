@@ -2888,11 +2888,11 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":42,
- "nextobjectid":332,
+ "nextlayerid":43,
+ "nextobjectid":408,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.8.2",
+ "tiledversion":"1.7.2",
  "tileheight":64,
  "tilesets":[
         {
@@ -2933,7 +2933,7 @@
          "margin":0,
          "name":"Objets",
          "spacing":0,
-         "tilecount":18,
+         "tilecount":19,
          "tileheight":768,
          "tiles":[
                 {
@@ -3043,11 +3043,17 @@
                  "image":"..\/images\/NextZone.png",
                  "imageheight":400,
                  "imagewidth":30
+                }, 
+                {
+                 "id":21,
+                 "image":"..\/images\/StopLamp.png",
+                 "imageheight":64,
+                 "imagewidth":64
                 }],
          "tilewidth":150
         }],
  "tilewidth":64,
  "type":"map",
- "version":"1.8",
+ "version":"1.6",
  "width":210
 }

@@ -344,11 +344,11 @@ class Tuto extends Phaser.Scene {
     }
 
     update() {
-        console.log(window.death);
-        console.log(window.compteur);
+
         this.player.move();
 
         this.player2.move();
+
 
         if(this.player.player.back === false){
             switch (true) {

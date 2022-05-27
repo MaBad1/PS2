@@ -48,8 +48,6 @@ class boss extends Phaser.Scene {
         this.load.spritesheet('Lampfx','assets/images/anim/fxlamp.png',{frameWidth: 192, frameHeight: 192});
         this.load.spritesheet('pIdle','assets/images/anim/pIdle.png',{frameWidth: 160, frameHeight: 180});
         this.load.spritesheet('pAtk','assets/images/anim/pAtk.png',{frameWidth: 160, frameHeight: 180});
-        this.load.spritesheet('pApp','assets/images/anim/pApp.png',{frameWidth: 160, frameHeight: 180});
-        this.load.spritesheet('pDis','assets/images/anim/pDis.png',{frameWidth: 160, frameHeight: 180});
 
         this.load.image('Grain1', 'assets/images/anim/Grain/Bruit1.png');
         //this.load.image('Grain2', 'assets/images/anim/Grain/Bruit2.png');
@@ -90,7 +88,7 @@ class boss extends Phaser.Scene {
             key: 'pAtk',
             frames: this.anims.generateFrameNames('pAtk', {
                 start: 0,
-                end: 3,
+                end: 19,
             }),
             frameRate: 7,
             repeat:0,
@@ -98,29 +96,6 @@ class boss extends Phaser.Scene {
             hideOnComplete: true
         });
 
-        this.anims.create({
-            key: 'pApp',
-            frames: this.anims.generateFrameNames('pApp', {
-                start: 0,
-                end: 7,
-            }),
-            frameRate: 7,
-            repeat:0,
-            showOnStart: true,
-            hideOnComplete: true
-        });
-
-        this.anims.create({
-            key: 'pDis',
-            frames: this.anims.generateFrameNames('pDis', {
-                start: 0,
-                end: 7,
-            }),
-            frameRate: 7,
-            repeat:0,
-            showOnStart: true,
-            hideOnComplete: true
-        });
 
         const backgroundImage = this.add.image(0, 0, 'background').setOrigin(0, 0);
         backgroundImage.setScale(1, 0.8);
@@ -615,8 +590,6 @@ class boss extends Phaser.Scene {
 
 
     update() {
-        console.log(window.death);
-        console.log(window.compteur);
 
         this.player.move();
 

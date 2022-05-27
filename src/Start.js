@@ -39,7 +39,7 @@ class Start extends Phaser.Scene {
             .setScale(1)
             .setAlpha(0.7);
 
-        this.buttonStart = this.add.rectangle(buttonStartSprite.x, buttonStartSprite.y,350,150,0xffffff,0)
+        this.buttonStart = this.add.rectangle(buttonStartSprite.x, buttonStartSprite.y,350,100,0xffffff,0)
             .setOrigin(0,0)
             .setInteractive()
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
@@ -52,7 +52,7 @@ class Start extends Phaser.Scene {
                 buttonStartSprite.setAlpha(0.7);
             })
 
-        this.buttonOptions = this.add.rectangle(buttonOptionSprite.x, buttonOptionSprite.y,350,150,0xffffff,0)
+        this.buttonOptions = this.add.rectangle(buttonOptionSprite.x, buttonOptionSprite.y,350,100,0xffffff,0)
             .setOrigin(0,0)
             .setInteractive()
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
@@ -65,7 +65,7 @@ class Start extends Phaser.Scene {
                 buttonOptionSprite.setAlpha(0.7);
             })
 
-        this.buttonCredits = this.add.rectangle(buttonCreditsSprite.x, buttonCreditsSprite.y,350,150,0xffffff,0)
+        this.buttonCredits = this.add.rectangle(buttonCreditsSprite.x, buttonCreditsSprite.y,350,100,0xffffff,0)
             .setOrigin(0,0)
             .setInteractive()
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
@@ -84,11 +84,11 @@ class Start extends Phaser.Scene {
                 buttonCreditsSprite.setAlpha(0.7);
             })
 
-        this.buttonQuit = this.add.rectangle(buttonQuitSprite.x, buttonQuitSprite.y,350,150,0xffffff,0)
+        this.buttonQuit = this.add.rectangle(buttonQuitSprite.x, buttonQuitSprite.y,350,100,0xffffff,0)
             .setOrigin(0,0)
             .setInteractive()
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
-                this.scene.start('credits')
+                this.scene.start('Boss')
             })
             .on('pointerover',function(){
                 buttonQuitSprite.setAlpha(1);
@@ -105,7 +105,7 @@ class Start extends Phaser.Scene {
             .setAlpha(0.7)
             .setVisible(false);
 
-        this.buttonMenu = this.add.rectangle(this.buttonMenuSprite.x, this.buttonMenuSprite.y,350,150,0xffffff,0)
+        this.buttonMenu = this.add.rectangle(this.buttonMenuSprite.x, this.buttonMenuSprite.y,350,100,0xffffff,0)
             .setOrigin(0,0)
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
                 this.creditsN.visible = false;

@@ -41,4 +41,26 @@ class Lampe{
         //this.scene.lampsfx.play();
         //this.scene.doorsfx.play()
     }
+
+    LampeDes(player2, lampe){
+        for (var i = 0; i < this.gate.Gate.getChildren().length; i++) {
+            if (lampe.nom === this.gate.Gate.getChildren()[i].nom) {
+                this.gate.Gate.getChildren()[i].visible = true;
+                this.gate.Gate.getChildren()[i].body.enable = true;
+                lampe.visible = true;
+            }
+        }
+        for (var i = 0; i < this.gateO.GateO.getChildren().length; i++) {
+            if (lampe.nom === this.gateO.GateO.getChildren()[i].nom) {
+                this.gateO.GateO.getChildren()[i].visible = false;
+            }
+        }
+        for (var i = 0; i < this.lampFx.LampFx.getChildren().length; i++) {
+            if (lampe.nom === this.lampFx.LampFx.getChildren()[i].nom) {
+                this.lampFx.LampFx.getChildren()[i].visible = false;
+            }
+        }
+        //this.scene.lampsfx.play();
+        //this.scene.doorsfx.play()
+    }
     }

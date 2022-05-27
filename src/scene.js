@@ -540,8 +540,6 @@ class scene extends Phaser.Scene {
 
 
     update() {
-        console.log(window.death);
-        console.log(window.compteur);
 
         this.player.move();
 
