@@ -26,7 +26,7 @@ class Lampe{
 
     LampeAct(player2, lampe){
         this.LampeSprite.visible = false;
-        // for (var i = 0; i < this.gate.Gate.length-1; i++) {
+        // for (var i = 0; i < this.gate.Gate.length; i++) {
         //     if (lampe.name === this.gate.Gate[i].name) {
         //         this.gate.Gate[i].setvisible = false;
         //         this.gate.Gate[i].body.enable = false;

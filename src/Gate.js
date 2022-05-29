@@ -25,24 +25,24 @@ class Gate{
     ShowDoor(){
         console.log('on');
         for (var i = 0; i < this.Gate.length; i++) {
-            if (this.scene.lampe.name === this.Gate.getChildren()[i].name) {
-                this.Gate.getChildren()[i].visible = true;
-                this.Gate.getChildren()[i].body.enable = true;
+            if (this.scene.lampe.name === this.Gate[i].name) {
+                this.Gate[i].visible = true;
+                this.Gate[i].body.enable = true;
             }
         }
-        console.log(this.Gate.getChildren()[i]);
+        console.log(this.Gate[i]);
         console.log(this.scene.lampe);
     }
 
     HideDoor(){
         console.log('off');
         for (var i = 0; i < this.Gate.length; i++) {
-            if (this.scene.lampe.name === this.Gate.getChildren()[i].name) {
-                this.Gate.getChildren()[i].visible = false;
-                this.Gate.getChildren()[i].body.enable = false;
+            if (this.scene.lampe.name === this.Gate[i].name) {
+                this.Gate[i].visible = false;
+                this.Gate[i].body.enable = false;
             }
         }
-        console.log(this.Gate.getChildren()[i]);
+        console.log(this.Gate[i]);
         console.log(this.scene.lampe);
 
     }
