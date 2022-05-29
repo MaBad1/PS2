@@ -13,6 +13,7 @@ class Start extends Phaser.Scene {
         this.load.image('Credits3', 'assets/images/UI/CreditsNoms.png');
         this.load.image('MenuB', 'assets/images/UI/MenuButt.png');
         this.load.image('Line', 'assets/images/UI/Line.png');
+        this.load.image('part', 'assets/images/UI/white.png');
 
 
     }
@@ -140,6 +141,19 @@ class Start extends Phaser.Scene {
                 this.buttonMenuSprite.setAlpha(0.7);
             })
 
+        this.part = this.add.particles('part');
+
+        this.emitter = this.part.createEmitter({
+            x: { min: 0, max: 1920 },
+            y: { min: 900, max: 1080 },
+            lifespan: { min: 500, max: 4000},
+            speedY: { min: -100, max: -50 },
+            scale: { start: 0.4, end: 0 },
+            quantity: 1,
+            blendMode: 'ADD'
+
+        });
+        this.emitter.start(0,0);
 
     }
 
