@@ -13,15 +13,24 @@ class Lampe{
             this.LampeSprite.name = Lampe.name;
         });
             //this.scene.physics.add.overlap(this.player2.player2,this.lampe, null, this);
+
+        this.isPlayed = false;
         this.emitter=EventDispatcher.getInstance();
 
         this.emitter.on('hide lamp',this.LampeAct,this);
         this.emitter.on('show lamp',this.LampeDes,this);
 
+
+
     }
 
     LampeAct(player2, lampe){
         this.LampeSprite.visible = false;
+        this.scene.lampsfx.setVolume(0.1);
+        if(this.isPlayed === false){
+            this.scene.doorsfx.play();
+            this.isPlayed = true;
+        }
         // for (var i = 0; i < this.gate.Gate.length; i++) {
         //     if (lampe.name === this.gate.Gate[i].name) {
         //         this.gate.Gate[i].setvisible = false;
@@ -46,6 +55,11 @@ class Lampe{
 
     LampeDes(player2, lampe){
         this.LampeSprite.visible = true;
+        this.scene.lampsfx.setVolume(0);
+        if(this.isPlayed === true){
+            this.scene.doorsfx.play();
+            this.isPlayed = false;
+        }
         // for (var i = 0; i < this.gate.Gate.length; i++) {
         //     if (lampe.name === this.gate.Gate[i].name) {
         //         this.gate.Gate[i].visible = true;

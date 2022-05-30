@@ -13,6 +13,9 @@ class Player {
         this.player.death = 0;
         this.player.back = true;
 
+        this.isPlayed1 = false;
+        this.isPlayed2 = false;
+
        this.scene.anims.create({
             key: 'walk',
             frames: this.scene.anims.generateFrameNames('walk', {
@@ -51,35 +54,40 @@ class Player {
         });
     }
 
-    getKey(player,FF){
+    /**getKey(player,FF){
         window.compteur+=1
         FF.body.enable=false
         FF.visible=false
-        //this.scene.FFsfx.play();
-    }
+        this.FFsfx.play();
+    }*/
 
     jump(){
         this.player.setVelocityY(-420);
-       this.player.play('jump', true);
+        this.player.play('jump', true);
+        this.scene.walksfx.setVolume(0);
+        this.scene.brandirsfx.setVolume(0);
     }
     moveRight(){
         this.player.setVelocityX(300);
         this.player.setFlipX(false);
         if (this.player.body.onFloor()) {
-            //this.scene.walksfx.play();
+            this.scene.brandirsfx.setVolume(0);
+            this.scene.walksfx.setVolume(2);
             this.player.play('walk', true)}
     }
     moveLeft(){
         this.player.setVelocityX(-300);
         if (this.player.body.onFloor()) {
-            //this.scene.walksfx.play();
+            this.scene.brandirsfx.setVolume(0);
+            this.scene.walksfx.setVolume(2);
             this.player.play('walk', true)}
         this.player.setFlipX(true);
     }
     stop(){
         this.player.setVelocityX(0);
         if (this.player.body.onFloor()) {
-            //this.scene.walksfx.stop();
+            this.scene.walksfx.setVolume(0);
+            this.scene.brandirsfx.setVolume(0);
             this.player.play('idle',true)
         }
     }
@@ -98,7 +106,8 @@ class Player {
                 break;
             case this.scene.cursors.space.isDown:
                 this.player.setVelocityX(0);
-                //this.scene.brandirsfx.play();
+                this.scene.walksfx.setVolume(0);
+                this.scene.brandirsfx.setVolume(0.2);
                 this.player.play('brandir',true)
                 break;
             default:

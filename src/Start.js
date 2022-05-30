@@ -110,7 +110,7 @@ class Start extends Phaser.Scene {
             .setOrigin(0,0)
             .setInteractive()
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
-                this.scene.start('credits')
+                this.scene.start('cutscene2')
             })
             .on('pointerover',function(){
                 line4.setVisible(true);

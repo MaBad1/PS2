@@ -49,8 +49,8 @@ class Tuto extends Phaser.Scene {
         this.load.audio('lampsfx', 'assets/sounds/lamp.ogg');
         this.load.audio('doorsfx', 'assets/sounds/door.wav');
         this.load.audio('walksfx', 'assets/sounds/walk.mp3');
-        this.load.audio('deathsfx', 'assets/sounds/death.flac');
-        this.load.audio('FFsfx', 'assets/sounds/FF.flac');
+        this.load.audio('deathsfx', 'assets/sounds/death.mp3');
+        this.load.audio('FFsfx', 'assets/sounds/FF.mp3');
 
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/tuto.json');
     }
@@ -200,7 +200,7 @@ class Tuto extends Phaser.Scene {
         tuto.getObjectLayer('FeuFollets').objects.forEach((FF0) => {
             this.FF0Sprite = this.FF0.create(FF0.x , FF0.y  - FF0.height, 'FeuF').setOrigin(0).setScale(0.5);
         });
-        this.physics.add.overlap(this.player.player, this.FF0, this.player.getKey, null, this);
+        this.physics.add.overlap(this.player.player, this.FF0, this.getKey, null, this);
 
 
         this.Cage0 = this.physics.add.group({
@@ -276,15 +276,29 @@ class Tuto extends Phaser.Scene {
         this.mainTheme0.loop = true;
         this.mainTheme0.play();
 
-        this.brandirsfx = this.sound.add('brandirsfx',{volume: 0.3});
-        this.walksfx = this.sound.add('walksfx',{volume: 10});
-        //this.deathsfx = this.sound.add('deathsfx',{volume: 0.3});
-        this.lampsfx = this.sound.add('lampsfx',{volume: 0.3});
-        //this.FFsfx = this.sound.add('FFsfx',{volume: 0.3});
-        this.doorsfx = this.sound.add('doorsfx',{volume: 0.3});
+        this.brandirsfx = this.sound.add('brandirsfx',{volume: 0});
+        this.walksfx = this.sound.add('walksfx',{volume: 0});
+        this.deathsfx = this.sound.add('deathsfx',{volume: 0.3});
+        this.lampsfx = this.sound.add('lampsfx',{volume: 0});
+        this.FFsfx = this.sound.add('FFsfx',{volume: 0.3});
+        this.doorsfx = this.sound.add('doorsfx',{volume: 0.4});
+
+        this.lampsfx.loop = true;
+        this.lampsfx.play();
+        this.walksfx.loop = true;
+        this.walksfx.play();
+        this.brandirsfx.loop = true;
+        this.brandirsfx.play();
 
 
         this.emitter=EventDispatcher.getInstance();
+    }
+
+    getKey(player,FF){
+        window.compteur+=1
+        FF.body.enable=false
+        FF.visible=false
+        this.FFsfx.play();
     }
 
     sauvegarde(player, saves) {
@@ -309,7 +323,7 @@ class Tuto extends Phaser.Scene {
             ease: 'Linear',
             repeat: 5,
         });
-        //this.deathsfx.play();
+        this.deathsfx.play();
     }
 
     player2Hit(player2, Death) {
@@ -345,6 +359,7 @@ class Tuto extends Phaser.Scene {
     }
 
     update() {
+        this.isPlayed = false ;
 
         this.player.move();
 

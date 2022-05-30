@@ -36,8 +36,8 @@ class scene extends Phaser.Scene {
         this.load.audio('lampsfx', 'assets/sounds/lamp.ogg');
         this.load.audio('doorsfx', 'assets/sounds/door.wav');
         this.load.audio('walksfx', 'assets/sounds/walk.mp3');
-        this.load.audio('deathsfx', 'assets/sounds/death.flac');
-        this.load.audio('FFsfx', 'assets/sounds/FF.flac');
+        this.load.audio('deathsfx', 'assets/sounds/death.mp3');
+        this.load.audio('FFsfx', 'assets/sounds/FF.mp3');
 
         this.load.spritesheet('walk','assets/images/anim/walk.png',{frameWidth: 130, frameHeight: 140});
         this.load.spritesheet('idle','assets/images/anim/idle.png',{frameWidth: 130, frameHeight: 140});
@@ -349,7 +349,7 @@ class scene extends Phaser.Scene {
         map.getObjectLayer('FeuxFollets').objects.forEach((FF) => {
             this.FFSprite = this.FF.create(FF.x , FF.y  - FF.height, 'FeuF').setOrigin(0).setScale(0.5);
         });
-        this.physics.add.overlap(this.player.player, this.FF, this.player.getKey, null, this);
+        this.physics.add.overlap(this.player.player, this.FF, this.getKey, null, this);
 
 
         this.Cage = this.physics.add.group({
@@ -450,17 +450,31 @@ class scene extends Phaser.Scene {
         this.mainTheme1.loop = true;
         this.mainTheme1.play();
 
-        this.brandirsfx = this.sound.add('brandirsfx',{volume: 0.3});
-        this.walksfx = this.sound.add('walksfx',{volume: 0.3});
-        //this.deathsfx = this.sound.add('deathsfx',{volume: 0.3});
-        this.lampsfx = this.sound.add('lampsfx',{volume: 0.3});
-        //this.FFsfx = this.sound.add('FFsfx',{volume: 0.3});
+        this.brandirsfx = this.sound.add('brandirsfx',{volume: 0});
+        this.walksfx = this.sound.add('walksfx',{volume: 0});
+        this.deathsfx = this.sound.add('deathsfx',{volume: 0.3});
+        this.lampsfx = this.sound.add('lampsfx',{volume: 0});
+        this.FFsfx = this.sound.add('FFsfx',{volume: 0.3});
         this.doorsfx = this.sound.add('doorsfx',{volume: 0.3});
+
+        this.lampsfx.loop = true;
+        this.lampsfx.play();
+        this.walksfx.loop = true;
+        this.walksfx.play();
+        this.brandirsfx.loop = true;
+        this.brandirsfx.play();
 
         this.back = new Boolean(false);
 
         this.emitter=EventDispatcher.getInstance();
 
+    }
+
+    getKey(player,FF){
+        window.compteur+=1
+        FF.body.enable=false
+        FF.visible=false
+        this.FFsfx.play();
     }
 
     NextZone2(){
@@ -495,7 +509,7 @@ class scene extends Phaser.Scene {
             ease: 'Linear',
             repeat: 5,
         });
-        //this.deathsfx.play();
+        this.deathsfx.play();
     }
 
     player2Hit(player2, Death) {
