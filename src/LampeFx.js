@@ -17,22 +17,23 @@ class LampeFx {
             this.emitter=EventDispatcher.getInstance();
             this.emitter.on('hide lampFx',this.HideLampFx,this);
             this.emitter.on('show lampFx',this.ShowLampFx,this);
+
         });
 
     }
 
     ShowLampFx(){
-        for (var i = 0; i < this.LampFx.length; i++) {
-            if (this.scene.lampe.name === this.LampFx[i].name) {
-                this.LampFx[i].visible = true;
+        for (var i = 0; i < this.LampFx.getChildren().length; i++) {
+            if (this.scene.lampe.LampeSprite.name === this.LampFx.getChildren()[i].name) {
+                this.LampFx.getChildren()[i].visible = true;
             }
         }
     }
 
     HideLampFx(){
-        for (var i = 0; i < this.LampFx.length; i++) {
-            if (this.scene.lampe.name === this.LampFx[i].name) {
-                this.LampFx[i].visible = false;
+        for (var i = 0; i < this.LampFx.getChildren().length; i++) {
+            if (this.scene.lampe.LampeSprite.name === this.LampFx.getChildren()[i].name) {
+                this.LampFx.getChildren()[i].visible = false;
             }
         }
     }

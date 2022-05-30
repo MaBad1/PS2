@@ -1,10 +1,6 @@
 class Lampe{
-    constructor(scene, player2, gate, gateO,lampFx) {
+    constructor(scene) {
         this.scene = scene;
-        this.player2 = player2;
-        this.gate = gate;
-        this.gateO = gateO;
-        this.lampFx= lampFx;
 
         const map = this.scene.make.tilemap({key: this.scene.mapKey});
 
@@ -21,6 +17,7 @@ class Lampe{
 
         this.emitter.on('hide lamp',this.LampeAct,this);
         this.emitter.on('show lamp',this.LampeDes,this);
+
     }
 
 

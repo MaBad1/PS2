@@ -19,17 +19,17 @@ class GateOpen{
     }
 
     ShowDoorO(){
-        for (var i = 0; i < this.GateO.length; i++) {
-            if (this.scene.lampe.name === this.GateO[i].name) {
-                this.GateO[i].visible = true;
+        for (var i = 0; i < this.GateO.getChildren().length; i++) {
+            if (this.scene.lampe.LampeSprite.name === this.GateO.getChildren()[i].name) {
+                this.GateO.getChildren()[i].visible = true;
             }
         }
     }
 
     HideDoorO(){
-        for (var i = 0; i < this.GateO.length; i++) {
-            if (this.scene.lampe.name === this.GateO[i].name) {
-                this.GateO[i].visible = false;
+        for (var i = 0; i < this.GateO.getChildren().length; i++) {
+            if (this.scene.lampe.LampeSprite.name === this.GateO.getChildren()[i].name) {
+                this.GateO.getChildren()[i].visible = false;
             }
         }
     }

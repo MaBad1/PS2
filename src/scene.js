@@ -368,14 +368,10 @@ class scene extends Phaser.Scene {
         });
 
 
-
+        this.lampe = new Lampe(this);
         this.gate = new Gate(this,this.player,this.player2);
         this.gateOpen = new GateOpen(this);
         this.LampeFx = new LampeFx(this);
-
-        this.lampe = new Lampe(this,this.player2, this.gate, this.gateOpen, this.LampeFx);
-
-
 
 
         this.pointCamera = this.physics.add.sprite(960,384);
@@ -462,6 +458,8 @@ class scene extends Phaser.Scene {
 
         this.back = new Boolean(false);
 
+        this.emitter=EventDispatcher.getInstance();
+
     }
 
     NextZone2(){
@@ -544,6 +542,23 @@ class scene extends Phaser.Scene {
         this.player.move();
 
         this.player2.move();
+
+        this.isolap1 = this.physics.overlap(this.player2.player2, this.lampe.lampe) ? true : false;
+
+        switch (true){
+            case this.isolap1 === true:
+                this.emitter.emit('hide door')
+                this.emitter.emit('show doorO')
+                this.emitter.emit('hide lamp')
+                this.emitter.emit('show lampFx')
+                break;
+            case this.isolap1 === false:
+                this.emitter.emit('show door')
+                this.emitter.emit('hide doorO')
+                this.emitter.emit('show lamp')
+                this.emitter.emit('hide lampFx')
+                break;
+        }
 
         if(this.player.player.back === false){
             switch (true) {
