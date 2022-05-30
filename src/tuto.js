@@ -283,11 +283,11 @@ class Tuto extends Phaser.Scene {
         //this.FFsfx = this.sound.add('FFsfx',{volume: 0.3});
         this.doorsfx = this.sound.add('doorsfx',{volume: 0.3});
 
+
         this.emitter=EventDispatcher.getInstance();
     }
 
     sauvegarde(player, saves) {
-        console.log("current", this.currentSaveX, this.currentSaveY)
         this.currentSaveX = player.x
         this.currentSaveY = player.y
         saves.body.enable = false;

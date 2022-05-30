@@ -60,6 +60,7 @@ class scene extends Phaser.Scene {
 
 
     create() {
+
         this.started = false ;
         this.mapKey = 'map1';
 
@@ -473,7 +474,6 @@ class scene extends Phaser.Scene {
     }
 
     sauvegarde(player, saves) {
-        console.log("current", this.currentSaveX, this.currentSaveY)
         this.currentSaveX = player.x
         this.currentSaveY = player.y
         saves.body.enable = false;

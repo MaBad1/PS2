@@ -20,7 +20,6 @@ class Lampe{
 
     }
 
-
     LampeAct(player2, lampe){
         this.LampeSprite.visible = false;
         // for (var i = 0; i < this.gate.Gate.length; i++) {
