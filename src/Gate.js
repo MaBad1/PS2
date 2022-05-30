@@ -19,7 +19,9 @@ class Gate{
 
         this.emitter=EventDispatcher.getInstance();
         this.emitter.on('hide door',this.HideDoor,this);
+        this.emitter.on('hide door1',this.HideDoor,this);
         this.emitter.on('show door',this.ShowDoor,this);
+        this.emitter.on('show door1',this.ShowDoor,this);
 
     }
 

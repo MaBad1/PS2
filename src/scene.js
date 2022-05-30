@@ -553,6 +553,15 @@ class scene extends Phaser.Scene {
 
     update() {
 
+        this.emitter.off('hide door')
+        this.emitter.off('show doorO')
+        this.emitter.off('hide lamp')
+        this.emitter.off('show lampFx')
+        this.emitter.off('show door')
+        this.emitter.off('hide doorO')
+        this.emitter.off('show lamp')
+        this.emitter.off('hide lampFx')
+
         this.player.move();
 
         this.player2.move();
@@ -561,16 +570,16 @@ class scene extends Phaser.Scene {
 
         switch (true){
             case this.isolap1 === true:
-                this.emitter.emit('hide door')
-                this.emitter.emit('show doorO')
-                this.emitter.emit('hide lamp')
-                this.emitter.emit('show lampFx')
+                this.emitter.emit('hide door1')
+                this.emitter.emit('show doorO1')
+                this.emitter.emit('hide lamp1')
+                this.emitter.emit('show lampFx1')
                 break;
             case this.isolap1 === false:
-                this.emitter.emit('show door')
-                this.emitter.emit('hide doorO')
-                this.emitter.emit('show lamp')
-                this.emitter.emit('hide lampFx')
+                this.emitter.emit('show door1')
+                this.emitter.emit('hide doorO1')
+                this.emitter.emit('show lamp1')
+                this.emitter.emit('hide lampFx1')
                 break;
         }
 
