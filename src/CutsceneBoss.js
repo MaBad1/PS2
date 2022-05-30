@@ -7,7 +7,8 @@ class cutBoss extends Phaser.Scene {
 
         this.load.video('CBoss', 'assets/VideoImgs/CutsceneBoss.mp4','loadeddata', false, true);
         this.load.image('Skip', 'assets/images/UI/Skip.png');
-        this.load.audio('MainTheme', 'assets/sounds/LevelMusic.mp3');
+        this.load.audio('MainTheme', 'assets/sounds/LevelMusic.mp3')
+        this.load.image('Line', 'assets/images/UI/Line.png');;
 
     }
 
@@ -26,6 +27,11 @@ class cutBoss extends Phaser.Scene {
             .setScale(1)
             .setAlpha(0.7)
 
+        const line=this.add.image(900, 850, 'Line')
+            .setOrigin(0, 0)
+            .setScale(1)
+            .setVisible(false)
+
         this.buttonSkip = this.add.rectangle(this.buttonSkipSprite.x, this.buttonSkipSprite.y,350,150,0xffffff,0)
             .setOrigin(0,0)
             .setInteractive()
@@ -34,10 +40,10 @@ class cutBoss extends Phaser.Scene {
                 this.scene.start('Boss')
             })
             .on('pointerover',function(){
-                this.buttonSkipSprite.setAlpha(1);
+                line.setVisible(true);
             })
             .on('pointerout',function(){
-                this.buttonSkipSprite.setAlpha(0.7);
+                line.setVisible(false);
             })
 
     }

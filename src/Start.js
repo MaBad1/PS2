@@ -41,25 +41,25 @@ class Start extends Phaser.Scene {
             .setScale(1)
             .setAlpha(0.7);
 
-        this.line1 =this.add.image(930, 420, 'Line')
+        const line1 =this.add.image(900, 450, 'Line')
             .setOrigin(0, 0)
             .setScale(1)
-            .setVisible(false);
+            .setVisible(false)
 
-        this.line2 =this.add.image(930, 570, 'Line')
+        const line2 =this.add.image(900, 600, 'Line')
             .setOrigin(0, 0)
             .setScale(1)
-            .setVisible(false);
+            .setVisible(false)
 
-        this.line3 =this.add.image(930, 720, 'Line')
+        const line3 =this.add.image(900, 750, 'Line')
             .setOrigin(0, 0)
             .setScale(1)
-            .setVisible(false);
+            .setVisible(false)
 
-        this.line4 =this.add.image(930, 870, 'Line')
+        const line4 =this.add.image(900, 900, 'Line')
             .setOrigin(0, 0)
             .setScale(1)
-            .setVisible(false);
+            .setVisible(false)
 
         this.buttonStart = this.add.rectangle(this.buttonStartSprite.x, this.buttonStartSprite.y,350,100,0xffffff,0)
             .setOrigin(0,0)
@@ -68,9 +68,10 @@ class Start extends Phaser.Scene {
                 this.scene.start('cutscene1')
             })
             .on('pointerover',function(){
-                this.line1.setVisible(true);
+                line1.setVisible(true);
             })
             .on('pointerout',function(){
+                line1.setVisible(false);
             })
 
         this.buttonOptions = this.add.rectangle(this.buttonOptionSprite.x, this.buttonOptionSprite.y,350,100,0xffffff,0)
@@ -80,9 +81,10 @@ class Start extends Phaser.Scene {
                 this.scene.start('game')
             })
             .on('pointerover',function(){
-                this.line2.setVisible(true);
+                line2.setVisible(true);
             })
             .on('pointerout',function(){
+                line2.setVisible(false);
             })
 
         this.buttonCredits = this.add.rectangle(this.buttonCreditsSprite.x, this.buttonCreditsSprite.y,350,100,0xffffff,0)
@@ -98,21 +100,23 @@ class Start extends Phaser.Scene {
                 this.creditsN.setVisible(true);
             })
             .on('pointerover',function(){
-                this.line3.setVisible(true);
+                line3.setVisible(true);
             })
             .on('pointerout',function(){
+                line3.setVisible(false);
             })
 
         this.buttonQuit = this.add.rectangle(this.buttonQuitSprite.x, this.buttonQuitSprite.y,350,100,0xffffff,0)
             .setOrigin(0,0)
             .setInteractive()
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
-                this.scene.start('Boss')
+                this.scene.start('credits')
             })
             .on('pointerover',function(){
-                this.line4.setVisible(true);
+                line4.setVisible(true);
             })
             .on('pointerout',function(){
+                line4.setVisible(false);
             })
 
         this.creditsN = this.add.image(320, 120, 'Credits3').setOrigin(0, 0).setVisible(false);
@@ -122,6 +126,11 @@ class Start extends Phaser.Scene {
             .setScale(1)
             .setAlpha(0.7)
             .setVisible(false);
+
+        const line5 =this.add.image(1380, 800, 'Line')
+            .setOrigin(0, 0)
+            .setScale(1)
+            .setVisible(false)
 
         this.buttonMenu = this.add.rectangle(this.buttonMenuSprite.x, this.buttonMenuSprite.y,350,100,0xffffff,0)
             .setOrigin(0,0)
@@ -135,25 +144,50 @@ class Start extends Phaser.Scene {
                 this.buttonMenuSprite.setVisible(false);
             })
             .on('pointerover',function(){
-                this.buttonMenuSprite.setAlpha(1);
+                line5.setVisible(true);
             })
             .on('pointerout',function(){
-                this.buttonMenuSprite.setAlpha(0.7);
+                line5.setVisible(false);
             })
 
         this.part = this.add.particles('part');
 
         this.emitter = this.part.createEmitter({
-            x: { min: 0, max: 1920 },
-            y: { min: 900, max: 1080 },
+            x: { min: 1200, max: 1920 },
+            y: { min: 850, max: 1080 },
             lifespan: { min: 500, max: 4000},
-            speedY: { min: -100, max: -50 },
-            scale: { start: 0.4, end: 0 },
-            quantity: 1,
+            speedY: { min: -50, max: -10 },
+            scale: { start: 0.1, end: 0 },
+            quantity: { min: 0.2, max: 0.5 },
             blendMode: 'ADD'
 
         });
         this.emitter.start(0,0);
+
+        this.emitter = this.part.createEmitter({
+            x: { min: 0, max: 800 },
+            y: { min: 850, max: 1080 },
+            lifespan: { min: 500, max: 4000},
+            speedY: { min: -50, max: -10 },
+            scale: { start: 0.1, end: 0 },
+            quantity: { min: 0.2, max: 0.5 },
+            blendMode: 'ADD'
+
+        });
+        this.emitter.start(0,0);
+
+        this.emitter = this.part.createEmitter({
+            x: { min: 800, max: 1200 },
+            y: { min: 950, max: 1080 },
+            lifespan: { min: 500, max: 600},
+            speedY: { min: -50, max: -10 },
+            scale: { start: 0.1, end: 0 },
+            quantity: { min: 0.2, max: 0.3 },
+            blendMode: 'ADD'
+
+        });
+        this.emitter.start(0,0);
+
 
     }
 

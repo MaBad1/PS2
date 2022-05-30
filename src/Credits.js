@@ -11,6 +11,7 @@ class credits extends Phaser.Scene {
         this.load.image('Credits1', 'assets/images/UI/CreditsEnd.png');
         this.load.image('Credits2', 'assets/images/UI/CreditsScore.png');
         this.load.image('Credits3', 'assets/images/UI/CreditsNoms.png');
+        this.load.image('Line', 'assets/images/UI/Line.png');
 
     }
 
@@ -33,6 +34,11 @@ class credits extends Phaser.Scene {
             .setAlpha(0.7)
             .setVisible(true);
 
+        const line1 =this.add.image(1400, 800, 'Line')
+            .setOrigin(0, 0)
+            .setScale(1)
+            .setVisible(false)
+
             this.buttonNext = this.add.rectangle(this.buttonNextSprite.x, this.buttonNextSprite.y,350,150,0xffffff,0)
                 .setOrigin(0,0)
                 .setInteractive()
@@ -47,10 +53,10 @@ class credits extends Phaser.Scene {
                     this.buttonNext2Sprite.setVisible(true);
                 })
                 .on('pointerover',function(){
-                    this.buttonNextSprite.setAlpha(1);
+                    line1.setVisible(true);
                 })
                 .on('pointerout',function(){
-                    this.buttonNextSprite.setAlpha(0.7);
+                    line1.setVisible(false);
                 })
 
         this.buttonNext2Sprite = this.add.image(1440, 770, 'NextB')
@@ -58,6 +64,11 @@ class credits extends Phaser.Scene {
             .setScale(1)
             .setAlpha(0.7)
             .setVisible(false);
+
+        const line2 =this.add.image(1400, 800, 'Line')
+            .setOrigin(0, 0)
+            .setScale(1)
+            .setVisible(false)
 
         this.buttonNext2 = this.add.rectangle(this.buttonNext2Sprite.x, this.buttonNext2Sprite.y,350,150,0xffffff,0)
             .setOrigin(0,0)
@@ -72,10 +83,11 @@ class credits extends Phaser.Scene {
                 this.buttonMenuSprite.setVisible(true);
             })
             .on('pointerover',function(){
-                this.buttonNext2Sprite.setAlpha(1);
+                line2.setVisible(true);
+                line1.setVisible(false);
             })
             .on('pointerout',function(){
-                this.buttonNext2Sprite.setAlpha(0.7);
+                line2.setVisible(false);
             })
 
         this.buttonMenuSprite = this.add.image(1350, 770, 'MenuB')
@@ -83,6 +95,11 @@ class credits extends Phaser.Scene {
             .setScale(1)
             .setAlpha(0.7)
             .setVisible(false);
+
+        const line3 =this.add.image(1380, 800, 'Line')
+            .setOrigin(0, 0)
+            .setScale(1)
+            .setVisible(false)
 
         this.buttonMenu = this.add.rectangle(this.buttonMenuSprite.x, this.buttonMenuSprite.y,350,150,0xffffff,0)
             .setOrigin(0,0)
@@ -93,10 +110,11 @@ class credits extends Phaser.Scene {
                 this.buttonMenuSprite.setVisible(false);
             })
             .on('pointerover',function(){
-                this.buttonMenuSprite.setAlpha(1);
+                line3.setVisible(true);
+                line2.setVisible(false);
             })
             .on('pointerout',function(){
-                this.buttonMenuSprite.setAlpha(0.7);
+                line3.setVisible(false);
             })
 
     }
