@@ -11,9 +11,11 @@ class Start extends Phaser.Scene {
         this.load.image('Options', 'assets/images/UI/Options.png');
         this.load.image('Credits', 'assets/images/UI/Credits.png');
         this.load.image('Credits3', 'assets/images/UI/CreditsNoms.png');
+        this.load.image('Credits4', 'assets/images/UI/CreditsThanks.png');
         this.load.image('MenuB', 'assets/images/UI/MenuButt.png');
         this.load.image('Line', 'assets/images/UI/Line.png');
         this.load.image('part', 'assets/images/UI/white.png');
+        this.load.image('NextB', 'assets/images/UI/NextButt.png');
 
 
     }
@@ -40,6 +42,9 @@ class Start extends Phaser.Scene {
             .setOrigin(0, 0)
             .setScale(1)
             .setAlpha(0.7);
+
+        this.creditsN = this.add.image(320, 120, 'Credits3').setOrigin(0, 0).setVisible(false);
+        this.creditsT = this.add.image(320, 120, 'Credits4').setOrigin(0, 0).setVisible(false);
 
         const line1 =this.add.image(900, 450, 'Line')
             .setOrigin(0, 0)
@@ -95,9 +100,9 @@ class Start extends Phaser.Scene {
                 this.buttonOptions.disableInteractive();
                 this.buttonCredits.disableInteractive();
                 this.buttonQuit.disableInteractive();
-                this.buttonMenu.setInteractive();
-                this.buttonMenuSprite.setVisible(true);
-                this.creditsN.setVisible(true);
+                this.buttonNext.setInteractive();
+                this.buttonNextSprite.setVisible(true);
+                this.creditsT.setVisible(true);
             })
             .on('pointerover',function(){
                 line3.setVisible(true);
@@ -119,12 +124,39 @@ class Start extends Phaser.Scene {
                 line4.setVisible(false);
             })
 
-        this.creditsN = this.add.image(320, 120, 'Credits3').setOrigin(0, 0).setVisible(false);
+        this.buttonNextSprite = this.add.image(1440, 770, 'NextB')
+            .setOrigin(0, 0)
+            .setScale(1)
+            .setAlpha(1)
+            .setVisible(false);
+
+        const line6 =this.add.image(1400, 800, 'Line')
+            .setOrigin(0, 0)
+            .setScale(1)
+            .setVisible(false)
+
+        this.buttonNext= this.add.rectangle(this.buttonNextSprite.x, this.buttonNextSprite.y,350,100,0xffffff,0)
+            .setOrigin(0,0)
+            .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
+                this.creditsT.visible = false;
+                this.creditsN.visible = true;
+                this.buttonMenu.setInteractive();
+                this.buttonMenuSprite.setVisible(true);
+                this.buttonNext.disableInteractive();
+                this.buttonNextSprite.setVisible(false);
+            })
+            .on('pointerover',function(){
+                line6.setVisible(true);
+                line5.setVisible(false);
+            })
+            .on('pointerout',function(){
+                line6.setVisible(false);
+            })
 
         this.buttonMenuSprite = this.add.image(1350, 770, 'MenuB')
             .setOrigin(0, 0)
             .setScale(1)
-            .setAlpha(0.7)
+            .setAlpha(1)
             .setVisible(false);
 
         const line5 =this.add.image(1380, 800, 'Line')
@@ -145,6 +177,7 @@ class Start extends Phaser.Scene {
             })
             .on('pointerover',function(){
                 line5.setVisible(true);
+                line3.setVisible(false);
             })
             .on('pointerout',function(){
                 line5.setVisible(false);

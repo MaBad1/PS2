@@ -494,6 +494,8 @@ class scene extends Phaser.Scene {
         if (this.started){
 
         } else {
+            this.walksfx.stop();
+            this.brandirsfx.stop();
             this.mainTheme1.stop();
             this.emitter.off('hide door')
             this.emitter.off('show doorO')
@@ -603,6 +605,9 @@ class scene extends Phaser.Scene {
 
         this.player2.move();
 
+
+        this.gate.GateG.getChildren().visible = true;
+        //this.gate.GateG.getChildren().body.enable = true;
         /*switch (true){
             case this.isolap1 === true:
                 this.emitter.emit('hide door1',)
@@ -642,7 +647,7 @@ class scene extends Phaser.Scene {
                     this.player2.player2.body.y = this.player.player.body.y - 5;
                     break;
                 case this.cursors.space.isUp:
-                    this.player2.player2.body.x = this.player.player.body.x + 60;
+                    this.player2.player2.body.x = this.player.player.body.x - 30;
                     this.player2.player2.body.y = this.player.player.body.y - 5;
                     break;
             }

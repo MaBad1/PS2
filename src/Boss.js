@@ -579,6 +579,8 @@ class boss extends Phaser.Scene {
         if (this.started){
 
         } else {
+            this.walksfx.stop();
+            this.brandirsfx.stop();
             this.bossTheme1.stop();
             this.emitter.off('hide door')
             this.emitter.off('show doorO')
@@ -658,7 +660,7 @@ class boss extends Phaser.Scene {
                     this.player2.player2.body.y = this.player.player.body.y - 5;
                     break;
                 case this.cursors.space.isUp:
-                    this.player2.player2.body.x = this.player.player.body.x + 60;
+                    this.player2.player2.body.x = this.player.player.body.x - 30;
                     this.player2.player2.body.y = this.player.player.body.y - 5;
                     break;
             }

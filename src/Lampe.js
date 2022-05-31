@@ -30,11 +30,11 @@ class Lampe{
                 this.lampe.getChildren()[i].visible = false;
             }
         }
-        this.scene.lampsfx.setVolume(0.1);
+        /**this.scene.lampsfx.setVolume(0.1);
         if(this.isPlayed === false){
             this.scene.doorsfx.play();
             this.isPlayed = true;
-        }
+        }*/
         // for (var i = 0; i < this.gate.Gate.length; i++) {
         //     if (lampe.name === this.gate.Gate[i].name) {
         //         this.gate.Gate[i].setvisible = false;
@@ -63,11 +63,11 @@ class Lampe{
                 this.lampe.getChildren()[i].visible = true;
             }
         }
-        this.scene.lampsfx.setVolume(0);
+        /**this.scene.lampsfx.setVolume(0);
         if(this.isPlayed === true){
             this.scene.doorsfx.play();
             this.isPlayed = false;
-        }
+        }*/
         // for (var i = 0; i < this.gate.Gate.length; i++) {
         //     if (lampe.name === this.gate.Gate[i].name) {
         //         this.gate.Gate[i].visible = true;
