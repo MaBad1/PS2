@@ -22,17 +22,17 @@ class LampeFx {
 
     }
 
-    ShowLampFx(){
+    ShowLampFx(name){
         for (var i = 0; i < this.LampFx.getChildren().length; i++) {
-            if (this.scene.lampe.LampeSprite.name === this.LampFx.getChildren()[i].name) {
+            if (name === this.LampFx.getChildren()[i].name) {
                 this.LampFx.getChildren()[i].visible = true;
             }
         }
     }
 
-    HideLampFx(){
+    HideLampFx(name){
         for (var i = 0; i < this.LampFx.getChildren().length; i++) {
-            if (this.scene.lampe.LampeSprite.name === this.LampFx.getChildren()[i].name) {
+            if (name === this.LampFx.getChildren()[i].name) {
                 this.LampFx.getChildren()[i].visible = false;
             }
         }

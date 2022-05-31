@@ -24,8 +24,12 @@ class Lampe{
 
     }
 
-    LampeAct(player2, lampe){
-        this.LampeSprite.visible = false;
+    LampeAct(name){
+        for (var i = 0; i < this.lampe.getChildren().length; i++) {
+            if (name === this.lampe.getChildren()[i].name) {
+                this.lampe.getChildren()[i].visible = false;
+            }
+        }
         this.scene.lampsfx.setVolume(0.1);
         if(this.isPlayed === false){
             this.scene.doorsfx.play();
@@ -53,8 +57,12 @@ class Lampe{
 
     }
 
-    LampeDes(player2, lampe){
-        this.LampeSprite.visible = true;
+    LampeDes(name){
+        for (var i = 0; i < this.lampe.getChildren().length; i++) {
+            if (name === this.lampe.getChildren()[i].name) {
+                this.lampe.getChildren()[i].visible = true;
+            }
+        }
         this.scene.lampsfx.setVolume(0);
         if(this.isPlayed === true){
             this.scene.doorsfx.play();

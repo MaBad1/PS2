@@ -19,27 +19,27 @@ class Gate{
 
         this.emitter=EventDispatcher.getInstance();
         this.emitter.on('hide door',this.HideDoor,this);
-        this.emitter.on('hide door1',this.HideDoor,this);
         this.emitter.on('show door',this.ShowDoor,this);
-        this.emitter.on('show door1',this.ShowDoor,this);
+
 
     }
 
-    ShowDoor(){
-        console.log('on');
+
+    ShowDoor(name){
         for (var i = 0; i < this.Gate.getChildren().length; i++) {
-            if (this.scene.lampe.LampeSprite.name === this.Gate.getChildren()[i].name) {
+            if (name === this.Gate.getChildren()[i].name) {
                 this.Gate.getChildren()[i].visible = true;
                 this.Gate.getChildren()[i].body.enable = true;
+                console.log(this.scene.lampe.LampeSprite)
+                console.log(this.Gate.getChildren()[i])
             }
         }
 
     }
 
-    HideDoor(){
-        console.log('off');
+    HideDoor(name){
         for (var i = 0; i < this.Gate.getChildren().length; i++) {
-            if (this.scene.lampe.LampeSprite.name === this.Gate.getChildren()[i].name) {
+            if (name === this.Gate.getChildren()[i].name) {
                 this.Gate.getChildren()[i].visible = false;
                 this.Gate.getChildren()[i].body.enable = false;
             }

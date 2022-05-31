@@ -15,20 +15,19 @@ class GateOpen{
         this.emitter=EventDispatcher.getInstance();
         this.emitter.on('hide doorO',this.HideDoorO,this);
         this.emitter.on('show doorO',this.ShowDoorO,this);
-
     }
 
-    ShowDoorO(){
+    ShowDoorO(name){
         for (var i = 0; i < this.GateO.getChildren().length; i++) {
-            if (this.scene.lampe.LampeSprite.name === this.GateO.getChildren()[i].name) {
+            if (name === this.GateO.getChildren()[i].name) {
                 this.GateO.getChildren()[i].visible = true;
             }
         }
     }
 
-    HideDoorO(){
+    HideDoorO(name){
         for (var i = 0; i < this.GateO.getChildren().length; i++) {
-            if (this.scene.lampe.LampeSprite.name === this.GateO.getChildren()[i].name) {
+            if (name === this.GateO.getChildren()[i].name) {
                 this.GateO.getChildren()[i].visible = false;
             }
         }

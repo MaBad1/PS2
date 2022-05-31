@@ -292,6 +292,16 @@ class Tuto extends Phaser.Scene {
 
 
         this.emitter=EventDispatcher.getInstance();
+
+        this.emitter.off('hide door2')
+        this.emitter.off('show doorO2')
+        this.emitter.off('hide lamp2')
+        this.emitter.off('show lampFx2')
+        this.emitter.off('show door2')
+        this.emitter.off('hide doorO2')
+        this.emitter.off('show lamp2')
+        this.emitter.off('hide lampFx2')
+        this.physics.add.overlap(this.player2.player2,this.lampe.lampe,this.emitOn,null,this)
     }
 
     getKey(player,FF){
@@ -345,6 +355,14 @@ class Tuto extends Phaser.Scene {
         if (this.started){
 
         } else {
+            this.emitter.off('hide door')
+            this.emitter.off('show doorO')
+            this.emitter.off('hide lamp')
+            this.emitter.off('show lampFx')
+            this.emitter.off('show door')
+            this.emitter.off('hide doorO')
+            this.emitter.off('show lamp')
+            this.emitter.off('hide lampFx')
             this.mainTheme0.stop();
             this.scene.start('game')
             this.started = true ;
@@ -358,14 +376,20 @@ class Tuto extends Phaser.Scene {
         this.cameras.main.startFollow(this.pointCamer,false,1,1,0,150);
     }
 
+    emitOn(yolo,yolo2){
+        this.emitter.emit('hide door',yolo2.name)
+        this.emitter.emit('show doorO',yolo2.name)
+        this.emitter.emit('hide lamp',yolo2.name)
+        this.emitter.emit('show lampFx',yolo2.name)
+    }
+
     update() {
-        this.isPlayed = false ;
 
         this.player.move();
 
         this.player2.move();
 
-        this.isolap = this.physics.overlap(this.player2.player2, this.lampe.lampe) ? true : false;
+        /**this.isolap = this.physics.overlap(this.player2.player2, this.lampe.lampe) ? true : false;
 
         switch (true){
             case this.isolap === true:
@@ -380,7 +404,7 @@ class Tuto extends Phaser.Scene {
                 this.emitter.emit('show lamp')
                 this.emitter.emit('hide lampFx')
                 break;
-        }
+        }*/
 
         if(this.player.player.back === false){
             switch (true) {
@@ -399,6 +423,10 @@ class Tuto extends Phaser.Scene {
                     this.player2.player2.body.y = this.player.player.body.y - 5;
                     break;
                 case this.cursors.space.isUp && this.cursors.left.isDown:
+                    this.player2.player2.body.x = this.player.player.body.x + 60;
+                    this.player2.player2.body.y = this.player.player.body.y - 5;
+                    break;
+                case this.cursors.space.isUp:
                     this.player2.player2.body.x = this.player.player.body.x + 60;
                     this.player2.player2.body.y = this.player.player.body.y - 5;
                     break;

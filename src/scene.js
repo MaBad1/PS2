@@ -369,6 +369,17 @@ class scene extends Phaser.Scene {
         });
 
 
+        this.lampe = this.physics.add.group({
+            allowGravity: false,
+            immovable: true
+        });
+        map.getObjectLayer('Lampes').objects.forEach((Lampe) => {
+            this.LampeSprite = this.lampe.create(Lampe.x, Lampe.y- Lampe.height, 'Lampe').setOrigin(0);
+            this.LampeSprite.name = Lampe.name;
+        });
+
+        this.isPlayed = false;
+
         this.lampe = new Lampe(this);
         this.gate = new Gate(this,this.player,this.player2);
         this.gateOpen = new GateOpen(this);
@@ -468,7 +479,9 @@ class scene extends Phaser.Scene {
 
         this.emitter=EventDispatcher.getInstance();
 
+        this.physics.add.overlap(this.player2.player2,this.lampe.lampe,this.emitOn,null,this)
     }
+
 
     getKey(player,FF){
         window.compteur+=1
@@ -482,6 +495,14 @@ class scene extends Phaser.Scene {
 
         } else {
             this.mainTheme1.stop();
+            this.emitter.off('hide door')
+            this.emitter.off('show doorO')
+            this.emitter.off('hide lamp')
+            this.emitter.off('show lampFx')
+            this.emitter.off('show door')
+            this.emitter.off('hide doorO')
+            this.emitter.off('show lamp')
+            this.emitter.off('hide lampFx')
             this.scene.start('cutscene2')
             this.started = true ;
         }
@@ -550,38 +571,45 @@ class scene extends Phaser.Scene {
         this.cameras.main.startFollow(this.pointCamera7,false,1,1,0,150);
     }
 
-
+    emitOn(yolo,yolo2){
+        this.emitter.emit('hide door',yolo2.name)
+        this.emitter.emit('show doorO',yolo2.name)
+        this.emitter.emit('hide lamp',yolo2.name)
+        this.emitter.emit('show lampFx',yolo2.name)
+    }
     update() {
 
-        this.emitter.off('hide door')
+        /**this.emitter.off('hide door')
         this.emitter.off('show doorO')
         this.emitter.off('hide lamp')
         this.emitter.off('show lampFx')
         this.emitter.off('show door')
         this.emitter.off('hide doorO')
         this.emitter.off('show lamp')
-        this.emitter.off('hide lampFx')
+        this.emitter.off('hide lampFx')*/
 
         this.player.move();
 
         this.player2.move();
 
-        this.isolap1 = this.physics.overlap(this.player2.player2, this.lampe.lampe) ? true : false;
 
-        switch (true){
+        /*switch (true){
             case this.isolap1 === true:
-                this.emitter.emit('hide door1')
+                this.emitter.emit('hide door1',)
                 this.emitter.emit('show doorO1')
                 this.emitter.emit('hide lamp1')
                 this.emitter.emit('show lampFx1')
                 break;
+
             case this.isolap1 === false:
                 this.emitter.emit('show door1')
                 this.emitter.emit('hide doorO1')
                 this.emitter.emit('show lamp1')
                 this.emitter.emit('hide lampFx1')
+
                 break;
-        }
+        }*/
+
 
         if(this.player.player.back === false){
             switch (true) {
@@ -600,6 +628,10 @@ class scene extends Phaser.Scene {
                     this.player2.player2.body.y = this.player.player.body.y - 5;
                     break;
                 case this.cursors.space.isUp && this.cursors.left.isDown:
+                    this.player2.player2.body.x = this.player.player.body.x + 60;
+                    this.player2.player2.body.y = this.player.player.body.y - 5;
+                    break;
+                case this.cursors.space.isUp:
                     this.player2.player2.body.x = this.player.player.body.x + 60;
                     this.player2.player2.body.y = this.player.player.body.y - 5;
                     break;
