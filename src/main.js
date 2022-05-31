@@ -11,7 +11,7 @@ const config = {
         default: 'arcade',
         arcade: {
             gravity: { y: 500 },
-            debug: true,
+            debug: false,
         },
     },
     scene: [new Initialize(), new Start(), new cutIntro(),new Tuto(), new scene(), new cutBoss(), new boss(), new credits()]
