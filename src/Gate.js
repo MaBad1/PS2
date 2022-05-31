@@ -6,16 +6,16 @@ class Gate{
 
         const map = this.scene.make.tilemap({key:this.scene.mapKey});
 
-        this.Gate = this.scene.physics.add.group({
+        this.GateG = this.scene.physics.add.group({
             allowGravity: false,
             immovable: true
         });
         map.getObjectLayer('Gates').objects.forEach((Gate) => {
-            this.GateSprite = this.Gate.create(Gate.x, Gate.y-Gate.height, 'Gate').setOrigin(0);
+            this.GateSprite = this.GateG.create(Gate.x, Gate.y-Gate.height, 'Gate').setOrigin(0);
             this.GateSprite.name = Gate.name;
         });
-        this.scene.physics.add.collider(this.player.player, this.Gate);
-        this.scene.physics.add.collider(this.player2.player2, this.Gate);
+        this.scene.physics.add.collider(this.player.player, this.GateG);
+        this.scene.physics.add.collider(this.player2.player2, this.GateG);
 
         this.emitter=EventDispatcher.getInstance();
         this.emitter.on('hide door',this.HideDoor,this);
@@ -26,22 +26,22 @@ class Gate{
 
 
     ShowDoor(name){
-        for (var i = 0; i < this.Gate.getChildren().length; i++) {
-            if (name === this.Gate.getChildren()[i].name) {
-                this.Gate.getChildren()[i].visible = true;
-                this.Gate.getChildren()[i].body.enable = true;
+        for (var i = 0; i < this.GateG.getChildren().length; i++) {
+            if (name === this.GateG.getChildren()[i].name) {
+                this.GateG.getChildren()[i].visible = true;
+                this.GateG.getChildren()[i].body.enable = true;
                 console.log(this.scene.lampe.LampeSprite)
-                console.log(this.Gate.getChildren()[i])
+                console.log(this.GateG.getChildren()[i])
             }
         }
 
     }
 
     HideDoor(name){
-        for (var i = 0; i < this.Gate.getChildren().length; i++) {
-            if (name === this.Gate.getChildren()[i].name) {
-                this.Gate.getChildren()[i].visible = false;
-                this.Gate.getChildren()[i].body.enable = false;
+        for (var i = 0; i < this.GateG.getChildren().length; i++) {
+            if (name === this.GateG.getChildren()[i].name) {
+                this.GateG.getChildren()[i].visible = false;
+                this.GateG.getChildren()[i].body.enable = false;
             }
         }
 
