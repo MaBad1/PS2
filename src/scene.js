@@ -551,24 +551,31 @@ class scene extends Phaser.Scene {
 
     SetCam0(){
         this.cameras.main.startFollow(this.pointCamera,false,1,1,0,150);
+        this.lampsfx.setVolume(0);
     }
     SetCam1(){
         this.cameras.main.startFollow(this.pointCamera2,false,1,1,0,150);
+        this.lampsfx.setVolume(0);
     }
     SetCam2(){
         this.cameras.main.startFollow(this.pointCamera3,false,1,1,0,150);
+        this.lampsfx.setVolume(0);
     }
     SetCam3(){
         this.cameras.main.startFollow(this.pointCamera4,false,1,1,0,150);
+        this.lampsfx.setVolume(0);
     }
     SetCam4(){
         this.cameras.main.startFollow(this.pointCamera5,false,1,1,0,150);
+        this.lampsfx.setVolume(0);
     }
     SetCam5(){
         this.cameras.main.startFollow(this.pointCamera6,false,1,1,0,150);
+        this.lampsfx.setVolume(0);
     }
     SetCam6(){
         this.cameras.main.startFollow(this.pointCamera7,false,1,1,0,150);
+        this.lampsfx.setVolume(0);
     }
 
     emitOn(yolo,yolo2){

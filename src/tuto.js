@@ -371,9 +371,11 @@ class Tuto extends Phaser.Scene {
 
     SetCam0(){
         this.cameras.main.startFollow(this.pointCamera0,false,1,1,0,150);
+        this.lampsfx.setVolume(0);
     }
     SetCam1(){
         this.cameras.main.startFollow(this.pointCamer,false,1,1,0,150);
+        this.lampsfx.setVolume(0);
     }
 
     emitOn(yolo,yolo2){
