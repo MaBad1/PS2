@@ -284,7 +284,7 @@ class boss extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('TrousN').objects.forEach((TrouN) => {
-            this.TrouNSprite = this.TrouN.create(TrouN.x, TrouN.y- TrouN.height, 'TrouN').setOrigin(0).setVisible(false);
+            this.TrouNSprite = this.TrouN.create(TrouN.x, TrouN.y- TrouN.height, 'TrouN').setOrigin(0).setBodySize(135,135).setVisible(false);
             this.TrouNSprite.nom = TrouN.name;
             this.TrouNSprite.play('trou');
             this.tweens.add({
@@ -303,7 +303,7 @@ class boss extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('TrousN2').objects.forEach((TrouN2) => {
-            this.TrouN2Sprite = this.TrouN2.create(TrouN2.x, TrouN2.y- TrouN2.height, 'TrouN').setOrigin(0).setVisible(false);
+            this.TrouN2Sprite = this.TrouN2.create(TrouN2.x, TrouN2.y- TrouN2.height, 'TrouN').setOrigin(0).setBodySize(135,135).setVisible(false);
             this.TrouN2Sprite.nom = TrouN2.name;
             this.TrouN2Sprite.play('trou');
             this.tweens.add({
@@ -322,7 +322,7 @@ class boss extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('TrousN3').objects.forEach((TrouN3) => {
-            this.TrouN3Sprite = this.TrouN3.create(TrouN3.x, TrouN3.y- TrouN3.height, 'TrouN').setOrigin(0).setVisible(false);
+            this.TrouN3Sprite = this.TrouN3.create(TrouN3.x, TrouN3.y- TrouN3.height, 'TrouN').setOrigin(0).setBodySize(135,135).setVisible(false);
             this.TrouN3Sprite.nom = TrouN3.name;
             this.TrouN3Sprite.play('trou');
             this.tweens.add({
@@ -342,7 +342,7 @@ class boss extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('TrousN4').objects.forEach((TrouN4) => {
-            this.TrouN4Sprite = this.TrouN4.create(TrouN4.x, TrouN4.y- TrouN4.height, 'TrouN').setOrigin(0).setVisible(false);
+            this.TrouN4Sprite = this.TrouN4.create(TrouN4.x, TrouN4.y- TrouN4.height, 'TrouN').setOrigin(0).setBodySize(135,135).setVisible(false);
             this.TrouN4Sprite.nom = TrouN4.name;
             this.TrouN4Sprite.play('trou');
             this.tweens.add({

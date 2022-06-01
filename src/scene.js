@@ -263,7 +263,7 @@ class scene extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('TrousN').objects.forEach((TrouN) => {
-            this.TrouNSprite = this.TrouN.create(TrouN.x, TrouN.y- TrouN.height, 'TrouN').setOrigin(0);
+            this.TrouNSprite = this.TrouN.create(TrouN.x, TrouN.y- TrouN.height, 'TrouN').setOrigin(0).setBodySize(135,135);
             this.TrouNSprite.play('trou');
             this.tweens.add({
                 targets: this.TrouNSprite,
@@ -281,7 +281,7 @@ class scene extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('TrousN2').objects.forEach((TrouN2) => {
-            this.TrouN2Sprite = this.TrouN2.create(TrouN2.x, TrouN2.y- TrouN2.height, 'TrouN').setOrigin(0);
+            this.TrouN2Sprite = this.TrouN2.create(TrouN2.x, TrouN2.y- TrouN2.height, 'TrouN').setOrigin(0).setBodySize(135,135);
             this.TrouN2Sprite.play('trou');
             this.tweens.add({
                 targets: this.TrouN2Sprite,
@@ -299,7 +299,7 @@ class scene extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('TrousN3').objects.forEach((TrouN3) => {
-            this.TrouN3Sprite = this.TrouN3.create(TrouN3.x, TrouN3.y- TrouN3.height, 'TrouN').setOrigin(0);
+            this.TrouN3Sprite = this.TrouN3.create(TrouN3.x, TrouN3.y- TrouN3.height, 'TrouN').setOrigin(0).setBodySize(135,135);
             this.TrouN3Sprite.play('trou');
             this.tweens.add({
                 targets: this.TrouN3Sprite,
@@ -318,7 +318,7 @@ class scene extends Phaser.Scene {
             immovable: true
         });
         map.getObjectLayer('TrousN4').objects.forEach((TrouN4) => {
-            this.TrouN4Sprite = this.TrouN4.create(TrouN4.x, TrouN4.y- TrouN4.height, 'TrouN').setOrigin(0);
+            this.TrouN4Sprite = this.TrouN4.create(TrouN4.x, TrouN4.y- TrouN4.height, 'TrouN').setOrigin(0).setBodySize(135,135);
             this.TrouN4Sprite.play('trou');
             this.tweens.add({
                 targets: this.TrouN4Sprite,

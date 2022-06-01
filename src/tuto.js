@@ -169,7 +169,7 @@ class Tuto extends Phaser.Scene {
             immovable: true
         });
         tuto.getObjectLayer('TrouN').objects.forEach((TrouN0) => {
-            this.TrouN0Sprite = this.TrouN0.create(TrouN0.x, TrouN0.y- TrouN0.height, 'TrouN').setOrigin(0);
+            this.TrouN0Sprite = this.TrouN0.create(TrouN0.x, TrouN0.y- TrouN0.height, 'TrouN').setOrigin(0).setBodySize(135,135);
             this.TrouN0Sprite.play('trou');
             this.tweens.add({
                 targets: this.TrouN0Sprite,
