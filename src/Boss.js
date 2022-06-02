@@ -70,7 +70,7 @@ class boss extends Phaser.Scene {
                 start: 0,
                 end: 18,
             }),
-            frameRate: 10,
+            frameRate: 6,
             repeat:-1,
         });
 
