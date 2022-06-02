@@ -14,11 +14,17 @@ class credits extends Phaser.Scene {
         this.load.image('Credits4', 'assets/images/UI/CreditsThanks.png');
         this.load.image('Line', 'assets/images/UI/Line.png');
 
+        this.load.audio('MenuTheme', 'assets/sounds/MenuMusic.mp3');
+
     }
 
     create() {
 
         const back = this.add.image(0, 0, 'MainScreen').setOrigin(0, 0);
+
+        this.menuTheme2 = this.sound.add('MenuTheme',{volume: 0.3});
+        this.menuTheme2.loop = true;
+        this.menuTheme2.play();
 
         this.credits1 = this.add.image(320, 120, 'Credits1').setOrigin(0, 0).setVisible(true);
         this.credits2 = this.add.image(315, 115, 'Credits2').setOrigin(0, 0).setVisible(false);
@@ -136,6 +142,7 @@ class credits extends Phaser.Scene {
             .setOrigin(0,0)
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
                 this.credits3.visible = false;
+                this.menuTheme2.stop();
                 this.scene.start('Start');
                 this.buttonMenu.disableInteractive();
                 this.buttonMenuSprite.setVisible(false);

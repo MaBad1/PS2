@@ -17,11 +17,17 @@ class Start extends Phaser.Scene {
         this.load.image('part', 'assets/images/UI/white.png');
         this.load.image('NextB', 'assets/images/UI/NextButt.png');
 
+        this.load.audio('MenuTheme', 'assets/sounds/MenuMusic.mp3');
+
 
     }
 
     create(){
         const menu = this.add.image(0, 0, 'MainScreen').setOrigin(0, 0);
+
+        this.menuTheme1 = this.sound.add('MenuTheme',{volume: 0.3});
+        this.menuTheme1.loop = true;
+        this.menuTheme1.play();
 
         this.buttonStartSprite = this.add.image(930, 400, 'Play')
             .setOrigin(0, 0)
@@ -70,6 +76,7 @@ class Start extends Phaser.Scene {
             .setOrigin(0,0)
             .setInteractive()
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
+                this.menuTheme1.stop();
                 this.scene.start('cutscene1')
             })
             .on('pointerover',function(){
@@ -83,6 +90,7 @@ class Start extends Phaser.Scene {
             .setOrigin(0,0)
             .setInteractive()
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, ()=> {
+                this.menuTheme1.stop();
                 this.scene.start('game')
             })
             .on('pointerover',function(){
